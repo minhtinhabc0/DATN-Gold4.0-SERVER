@@ -6,7 +6,6 @@ import Gold40.Service.EmailService;
 import Gold40.Service.NguoiDungService;
 import Gold40.Service.RecapchaService;
 import Gold40.Service.TaiKhoanService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,25 +18,28 @@ import java.util.Map;
 import java.util.Random;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/re")
 public class RegisterController {
 
-    @Autowired
-    private TaiKhoanService taiKhoanService;
+    private final TaiKhoanService taiKhoanService;
 
-    @Autowired
-    private NguoiDungService nguoiDungService;
+    private final NguoiDungService nguoiDungService;
 
-    @Autowired
-    private RecapchaService reCaptchaService;
+    private final RecapchaService reCaptchaService;
 
-    @Autowired
-    private EmailService emailService;
+    private final EmailService emailService;
 
-    private Map<String, TaiKhoan> temporaryTaiKhoanData = new HashMap<>();
-    private Map<String, NguoiDung> temporaryNguoiDungData = new HashMap<>();
-    private Map<String, String> temporaryOtps = new HashMap<>();
-    private Map<String, LocalDateTime> temporaryOtpTimestamps = new HashMap<>();
+    private final Map<String, TaiKhoan> temporaryTaiKhoanData = new HashMap<>();
+    private final Map<String, NguoiDung> temporaryNguoiDungData = new HashMap<>();
+    private final Map<String, String> temporaryOtps = new HashMap<>();
+    private final Map<String, LocalDateTime> temporaryOtpTimestamps = new HashMap<>();
+
+    public RegisterController(TaiKhoanService taiKhoanService, NguoiDungService nguoiDungService, RecapchaService reCaptchaService, EmailService emailService) {
+        this.taiKhoanService = taiKhoanService;
+        this.nguoiDungService = nguoiDungService;
+        this.reCaptchaService = reCaptchaService;
+        this.emailService = emailService;
+    }
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody Map<String, String> registrationData) {

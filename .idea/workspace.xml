@@ -4,47 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="create1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/GoldPriceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/PasswordResetController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/ProductsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/RegisterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/UploadController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/GcoinDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/NguoiDungDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/ProductsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/TaiKhoanDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/DanhMuc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/DonHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/Gcoin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/GiamGia.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/GioHang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/HoaDon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/LichSuGiaoDich.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/LichSuNap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/NguoiDung.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/NhaPhanPhoi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/PhanHoi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/SanPham.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/TaiKhoan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/VangMieng.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/YeuThich.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/EmailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/GcoinService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/NguoiDungService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/RecapchaService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/TaiKhoanService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Util/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update server1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +59,7 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -104,7 +69,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;two.files.diff.last.used.folder&quot;: &quot;C:/Users/minht/IdeaProjects/DATN-Gold4.0-SERVER&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -126,8 +91,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
   </component>
@@ -155,7 +120,18 @@
       <workItem from="1729709288406" duration="21000" />
       <workItem from="1729709317764" duration="130000" />
       <workItem from="1729709457191" duration="26000" />
-      <workItem from="1729709493229" duration="1869000" />
+      <workItem from="1729709493229" duration="1919000" />
+      <workItem from="1729747118957" duration="267000" />
+      <workItem from="1729772967002" duration="2008000" />
+      <workItem from="1729794688112" duration="861000" />
+      <workItem from="1729839002298" duration="4298000" />
+      <workItem from="1729843605475" duration="422000" />
+      <workItem from="1729844124888" duration="762000" />
+      <workItem from="1729859405543" duration="1173000" />
+      <workItem from="1729860594384" duration="2508000" />
+      <workItem from="1729866654707" duration="240000" />
+      <workItem from="1729866998320" duration="129000" />
+      <workItem from="1729867151037" duration="1586000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -165,15 +141,35 @@
       <option name="project" value="LOCAL" />
       <updated>1727459624248</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update server1">
+      <option name="closed" value="true" />
+      <created>1729711393672</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1729711393672</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create" />
     <MESSAGE value="create1" />
-    <option name="LAST_COMMIT_MESSAGE" value="create1" />
+    <MESSAGE value="update server1" />
+    <option name="LAST_COMMIT_MESSAGE" value="update server1" />
   </component>
 </project>
