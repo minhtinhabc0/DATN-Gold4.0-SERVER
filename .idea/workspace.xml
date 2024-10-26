@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update server1">
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update server 25/10/2024">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/RegisterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,7 +129,9 @@
       <workItem from="1729860594384" duration="2508000" />
       <workItem from="1729866654707" duration="240000" />
       <workItem from="1729866998320" duration="129000" />
-      <workItem from="1729867151037" duration="1586000" />
+      <workItem from="1729867151037" duration="1725000" />
+      <workItem from="1729872575725" duration="605000" />
+      <workItem from="1729938734654" duration="6162000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -149,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729711393672</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update server 25/10/2024">
+      <option name="closed" value="true" />
+      <created>1729868880486</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1729868880486</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +178,7 @@
     <MESSAGE value="create" />
     <MESSAGE value="create1" />
     <MESSAGE value="update server1" />
-    <option name="LAST_COMMIT_MESSAGE" value="update server1" />
+    <MESSAGE value="update server 25/10/2024" />
+    <option name="LAST_COMMIT_MESSAGE" value="update server 25/10/2024" />
   </component>
 </project>

@@ -178,8 +178,7 @@ public class UserController {
 
         Gcoin newGcoin = new Gcoin();
         newGcoin.setMagcoin("G" + System.currentTimeMillis()); // Tạo ID Gcoin duy nhất
-        newGcoin.setSogcoin(0); // Số dư ban đầu
-        GcoinService.save(newGcoin); // Lưu lại entity Gcoin mới
+        GcoinService.save(newGcoin);
 
         nguoiDung.setMaGCoin(newGcoin.getMagcoin()); // Gán ID Gcoin cho người dùng
         nguoiDungService.save(nguoiDung); // Cập nhật thông tin người dùng
@@ -228,16 +227,26 @@ public class UserController {
             return ResponseEntity.badRequest().body("Tài khoản không tồn tại.");
         }
 
-        if (newPin == null || newPin.length() > 6) {
-            return ResponseEntity.badRequest().body("Mã PIN mới phải có tối đa 6 ký tự.");
+        // Kiểm tra nếu chưa có mã PIN
+        if (user.getMapin() == null || user.getMapin().isEmpty()) {
+            // Tạo mã PIN mới
+            if (newPin == null || newPin.length() > 6) {
+                return ResponseEntity.badRequest().body("Mã PIN mới phải có tối đa 6 ký tự.");
+            }
+            user.setMapin(passwordEncoder.encode(newPin));
+        } else {
+            // Đổi mã PIN
+            if (!passwordEncoder.matches(oldPin, user.getMapin())) {
+                return ResponseEntity.badRequest().body("Mã PIN cũ không chính xác.");
+            }
+            if (newPin == null || newPin.length() > 6) {
+                return ResponseEntity.badRequest().body("Mã PIN mới phải có tối đa 6 ký tự.");
+            }
+            user.setMapin(passwordEncoder.encode(newPin));
         }
 
-        if (!passwordEncoder.matches(oldPin, user.getMapin())) {
-            return ResponseEntity.badRequest().body("Mã PIN cũ không chính xác.");
-        }
-
-        user.setMapin(passwordEncoder.encode(newPin));
         taiKhoanService.save(user);
         return ResponseEntity.ok().body(Collections.singletonMap("message", "Cập nhật mã PIN thành công."));
     }
+
 }
