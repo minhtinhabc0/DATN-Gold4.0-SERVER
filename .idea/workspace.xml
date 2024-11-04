@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update server 25/10/2024">
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 4/11/2024 fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/ProductsController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +67,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;two.files.diff.last.used.folder&quot;: &quot;C:/Users/minht/IdeaProjects/DATN-Gold4.0-SERVER&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -131,7 +134,10 @@
       <workItem from="1729866998320" duration="129000" />
       <workItem from="1729867151037" duration="1725000" />
       <workItem from="1729872575725" duration="605000" />
-      <workItem from="1729938734654" duration="6162000" />
+      <workItem from="1729938734654" duration="7500000" />
+      <workItem from="1730105172144" duration="12870000" />
+      <workItem from="1730211676393" duration="281000" />
+      <workItem from="1730704538731" duration="2381000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -157,7 +163,31 @@
       <option name="project" value="LOCAL" />
       <updated>1729868880486</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update 26/10/2024">
+      <option name="closed" value="true" />
+      <created>1729948470871</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729948470871</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update 4/11/2024">
+      <option name="closed" value="true" />
+      <created>1730705586432</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730705586432</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update 4/11/2024 fix">
+      <option name="closed" value="true" />
+      <created>1730705717092</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730705717092</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +209,9 @@
     <MESSAGE value="create1" />
     <MESSAGE value="update server1" />
     <MESSAGE value="update server 25/10/2024" />
-    <option name="LAST_COMMIT_MESSAGE" value="update server 25/10/2024" />
+    <MESSAGE value="update 26/10/2024" />
+    <MESSAGE value="update 4/11/2024" />
+    <MESSAGE value="update 4/11/2024 fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 4/11/2024 fix" />
   </component>
 </project>
