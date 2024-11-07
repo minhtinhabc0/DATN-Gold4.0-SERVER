@@ -24,15 +24,7 @@ public class NguoiDungService {
     public boolean kiemTraNguoiDung(String maNguoiDung) {
         return nguoiDungDAO.existsByMaNguoiDung(maNguoiDung);
     }
-    public boolean register(String maNguoiDung) {
-        if (!nguoiDungDAO.existsByMaNguoiDung(maNguoiDung)) {
-            NguoiDung nguoiDung = new NguoiDung();
-            nguoiDung.setMaNguoiDung(maNguoiDung);
-            nguoiDungDAO.save(nguoiDung);
-            return true; // Đăng ký thành công
-        }
-        return false; // Đã tồn tại
-    }
+
     public NguoiDung findByMaNguoiDung(String maNguoiDung) {
         return nguoiDungDAO.findByMaNguoiDung(maNguoiDung);
     }

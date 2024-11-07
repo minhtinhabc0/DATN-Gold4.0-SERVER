@@ -23,5 +23,6 @@ public class Admin {
 
     @Column(name = "hoten", length = 255, nullable = false)
     private String hoTen;
+
 }
 

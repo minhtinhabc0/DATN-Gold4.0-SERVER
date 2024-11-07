@@ -4,7 +4,6 @@ import Gold40.DAO.NguoiDungDAO;
 import Gold40.DAO.TaiKhoanDAO;
 import Gold40.Entity.TaiKhoan;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -39,8 +38,8 @@ public class TaiKhoanService {
         return user;
     }
 
-    // Phương thức đăng ký
-    public TaiKhoan register(String taikhoan, String matkhau, String maNguoiDung, int vaitro) {
+    // Phương thức đăng ký cho người dùng
+    public TaiKhoan registerForUser(String taikhoan, String matkhau, String maNguoiDung) {
         if (taiKhoanRepository.findByTaikhoan(taikhoan).isPresent()) {
             throw new RuntimeException("Tài khoản đã tồn tại");
         }
@@ -56,17 +55,55 @@ public class TaiKhoanService {
         // Mã hóa mật khẩu trước khi lưu
         String encodedPassword = passwordEncoder.encode(matkhau);
         newTaiKhoan.setMatkhau(encodedPassword);
+        newTaiKhoan.setVaitro(0); // Người dùng có vaitro = 0
 
-        newTaiKhoan.setVaitro(vaitro);
-        if (vaitro == 0) {
-            newTaiKhoan.setManguoidung(maNguoiDung);
-        } else if (vaitro == 1) {
-            newTaiKhoan.setMaadmin(generateCode());
-        } else if (vaitro == 2) {
-            newTaiKhoan.setManhaphanphoi(generateCode());
-        } else {
-            throw new RuntimeException("Vai trò không hợp lệ");
+        newTaiKhoan.setManguoidung(maNguoiDung); // Lưu mã người dùng
+
+        return taiKhoanRepository.save(newTaiKhoan);
+    }
+
+    // Phương thức đăng ký cho admin
+    public TaiKhoan registerForAdmin(String taikhoan, String matkhau, String maAdmin) {
+        if (taiKhoanRepository.findByTaikhoan(taikhoan).isPresent()) {
+            throw new RuntimeException("Tài khoản đã tồn tại");
         }
+
+        TaiKhoan newTaiKhoan = new TaiKhoan();
+        newTaiKhoan.setId(generateRandomId());
+        newTaiKhoan.setTaikhoan(taikhoan);
+
+        // Mã hóa mật khẩu trước khi lưu
+        String encodedPassword = passwordEncoder.encode(matkhau);
+        newTaiKhoan.setMatkhau(encodedPassword);
+        newTaiKhoan.setVaitro(1); // Admin có vaitro = 1
+
+        // Tạo mã admin mới và lưu vào maadmin
+        newTaiKhoan.setMaadmin(maAdmin);
+
+        return taiKhoanRepository.save(newTaiKhoan);
+    }
+
+    // Phương thức đăng ký cho nhà phân phối
+    public TaiKhoan registerForDistributor(String taikhoan, String matkhau, String maNguoiDung) {
+        if (taiKhoanRepository.findByTaikhoan(taikhoan).isPresent()) {
+            throw new RuntimeException("Tài khoản đã tồn tại");
+        }
+
+        if (!nguoiDungRepository.existsByMaNguoiDung(maNguoiDung)) {
+            throw new RuntimeException("Mã người dùng không tồn tại");
+        }
+
+        TaiKhoan newTaiKhoan = new TaiKhoan();
+        newTaiKhoan.setId(generateRandomId());
+        newTaiKhoan.setTaikhoan(taikhoan);
+
+        // Mã hóa mật khẩu trước khi lưu
+        String encodedPassword = passwordEncoder.encode(matkhau);
+        newTaiKhoan.setMatkhau(encodedPassword);
+        newTaiKhoan.setVaitro(2); // Nhà phân phối có vaitro = 2
+
+        // Tạo mã nhà phân phối và lưu vào manhaphanphoi
+        newTaiKhoan.setManhaphanphoi(newTaiKhoan.getManhaphanphoi());
 
         return taiKhoanRepository.save(newTaiKhoan);
     }
@@ -80,7 +117,7 @@ public class TaiKhoanService {
     }
 
     private String generateCode() {
-        return UUID.randomUUID().toString().substring(0, 10);
+        return UUID.randomUUID().toString().substring(0, 10); // Create a random UUID and use the first 10 characters
     }
 
     public boolean checkPassword(TaiKhoan user, String oldPassword) {

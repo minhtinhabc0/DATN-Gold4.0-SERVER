@@ -1,11 +1,8 @@
 package Gold40.Controller;
 
-import Gold40.Entity.NguoiDung;
+import Gold40.Entity.Admin;
 import Gold40.Entity.TaiKhoan;
-import Gold40.Service.EmailService;
-import Gold40.Service.NguoiDungService;
-import Gold40.Service.RecapchaService;
-import Gold40.Service.TaiKhoanService;
+import Gold40.Service.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,76 +15,72 @@ import java.util.Map;
 import java.util.Random;
 
 @RestController
-@RequestMapping("/api/re")
-public class RegisterController {
+@RequestMapping("/api/ad")
+public class RegisterAdminController {
 
-    private final TaiKhoanService taiKhoanService;
-
-    private final NguoiDungService nguoiDungService;
-
-    private final RecapchaService reCaptchaService;
-
-    private final EmailService emailService;
+    private TaiKhoanService taiKhoanService;
+    private AdminService adminService;
+    private RecapchaService reCaptchaService;
+    private EmailService emailService;
 
     private final Map<String, TaiKhoan> temporaryTaiKhoanData = new HashMap<>();
-    private final Map<String, NguoiDung> temporaryNguoiDungData = new HashMap<>();
+    private final Map<String, Admin> temporaryAdminData = new HashMap<>();
     private final Map<String, String> temporaryOtps = new HashMap<>();
     private final Map<String, LocalDateTime> temporaryOtpTimestamps = new HashMap<>();
 
-    public RegisterController(TaiKhoanService taiKhoanService, NguoiDungService nguoiDungService, RecapchaService reCaptchaService, EmailService emailService) {
+    public RegisterAdminController(TaiKhoanService taiKhoanService, AdminService adminService, RecapchaService reCaptchaService, EmailService emailService) {
         this.taiKhoanService = taiKhoanService;
-        this.nguoiDungService = nguoiDungService;
+        this.adminService = adminService;
         this.reCaptchaService = reCaptchaService;
         this.emailService = emailService;
     }
-
-    @PostMapping("/register")
+    @GetMapping("/check-admin-account")
+    public ResponseEntity<?> checkAdminAccount() {
+        // Kiểm tra xem có tài khoản admin nào trong cơ sở dữ liệu không
+        if (adminService.kiemTraNguoiDung("")) {
+            // Nếu có tài khoản admin, trả về thông báo và chuyển hướng đến trang đăng nhập
+            return ResponseEntity.badRequest().body("Đã có tài khoản admin trong hệ thống. Bạn không thể truy cập trang đăng ký.");
+        }
+        // Nếu không có tài khoản admin, cho phép truy cập trang đăng ký
+        return ResponseEntity.ok("Bạn có thể đăng ký tài khoản admin.");
+    }
+    @PostMapping("/registerad")
     public ResponseEntity<?> register(@RequestBody Map<String, String> registrationData) {
-        // Validate input data
         if (registrationData == null ||
                 !registrationData.containsKey("taikhoan") ||
                 !registrationData.containsKey("matkhau") ||
                 !registrationData.containsKey("email") ||
                 !registrationData.containsKey("hoten") ||
-                !registrationData.containsKey("sdt") ||
                 !registrationData.containsKey("recaptchaToken")) {
             return ResponseEntity.badRequest().body("Thiếu thông tin đăng ký");
         }
-
         String taikhoan = registrationData.get("taikhoan");
         String matkhau = registrationData.get("matkhau");
         String email = registrationData.get("email");
         String hoten = registrationData.get("hoten");
-        String sdt = registrationData.get("sdt");
         String recaptchaToken = registrationData.get("recaptchaToken");
-
         boolean isRecaptchaValid = reCaptchaService.verifyRecaptcha(recaptchaToken);
         if (!isRecaptchaValid) {
             return ResponseEntity.badRequest().body("Xác minh reCAPTCHA thất bại");
         }
 
         if (taiKhoanService.existsByTaikhoan(taikhoan)) {
-            System.out.println("tai khoan da ton tai ");
             return ResponseEntity.badRequest().body(2);
         }
-        if (nguoiDungService.existsByEmail(email)) {
-            System.out.println("Email da ton tai ");
+        if (adminService.existsByEmail(email)) {
             return ResponseEntity.badRequest().body(1);
-
         }
-
         try {
-            String maNguoiDung = generateRandomId();
-            NguoiDung newNguoiDung = new NguoiDung();
-            newNguoiDung.setMaNguoiDung(maNguoiDung);
-            newNguoiDung.setHoTen(hoten);
-            newNguoiDung.setSdt(sdt);
-            newNguoiDung.setEmail(email);
+            String maadmin = generateRandomId();
+            Admin adminnew = new Admin();
+            adminnew.setMaAdmin(maadmin);
+            adminnew.setEmail(email);
+            adminnew.setHoTen(hoten);
 
             TaiKhoan newTaiKhoan = new TaiKhoan();
             newTaiKhoan.setTaikhoan(taikhoan);
             newTaiKhoan.setMatkhau(matkhau);
-            newTaiKhoan.setManguoidung(maNguoiDung);
+            newTaiKhoan.setMaadmin(adminnew.getMaAdmin());
 
             String otp = generateOtp();
             String subject = "GOLD 4.0 SUPPORT - Mã OTP Của Bạn";
@@ -117,11 +110,9 @@ public class RegisterController {
                     "</body>" +
                     "</html>";
 
-            emailService.sendEmail(email, subject, body, true);  // 'true' để gửi email dưới dạng HTML
-
-
+            emailService.sendEmail(email, subject, body, true);
             temporaryTaiKhoanData.put(email, newTaiKhoan);
-            temporaryNguoiDungData.put(email, newNguoiDung);
+            temporaryAdminData.put(email, adminnew);
             temporaryOtps.put(email, otp);
             temporaryOtpTimestamps.put(email, LocalDateTime.now());
 
@@ -132,18 +123,17 @@ public class RegisterController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Đăng ký thất bại: " + e.getMessage());
         }
     }
-
     @PostMapping("/verify-otp")
     public ResponseEntity<Map<String, Object>> verifyOtp(@RequestBody Map<String, String> verificationData) {
         String email = verificationData.get("email");
         String otp = verificationData.get("otp");
 
-        TaiKhoan userData = temporaryTaiKhoanData.get(email);
-        NguoiDung nguoiDungData = temporaryNguoiDungData.get(email);
+        Admin adminData = temporaryAdminData.get(email);  // Use Admin instead of NguoiDung
         String savedOtp = temporaryOtps.get(email);
+        TaiKhoan userData = temporaryTaiKhoanData.get(email);
         LocalDateTime otpSentTime = temporaryOtpTimestamps.get(email);
 
-        if (userData == null || nguoiDungData == null) {
+        if (adminData == null) {
             return ResponseEntity.badRequest().body(Collections.singletonMap("message", "Không tìm thấy thông tin đăng ký cho email: " + email));
         }
 
@@ -152,12 +142,17 @@ public class RegisterController {
         }
 
         if (savedOtp != null && savedOtp.equals(otp)) {
-            nguoiDungService.save(nguoiDungData);
-            String maNguoiDung = nguoiDungData.getMaNguoiDung();
-            taiKhoanService.registerForUser(userData.getTaikhoan(), userData.getMatkhau(), maNguoiDung);
+            // Save admin data
+            adminService.save(adminData);  // Save the Admin entity
+            String maadmin = adminData.getMaAdmin();
+            // Save corresponding TaiKhoan entity
 
+
+            taiKhoanService.registerForAdmin(userData.getTaikhoan(), userData.getMatkhau(), maadmin);
+
+            // Clear temporary data
             temporaryTaiKhoanData.remove(email);
-            temporaryNguoiDungData.remove(email);
+            temporaryAdminData.remove(email);
             temporaryOtps.remove(email);
             temporaryOtpTimestamps.remove(email);
 
@@ -169,15 +164,16 @@ public class RegisterController {
         }
     }
 
+
     @PostMapping("/resend-otp")
     public ResponseEntity<?> resendOtp(@RequestBody Map<String, String> resendData) {
         String email = resendData.get("email");
 
         // Lấy thông tin người dùng tạm thời
         TaiKhoan userData = temporaryTaiKhoanData.get(email);
-        NguoiDung nguoiDungData = temporaryNguoiDungData.get(email);
+        Admin adminData = temporaryAdminData.get(email);
 
-        if (userData == null || nguoiDungData == null) {
+        if (userData == null || adminData == null) {
             return ResponseEntity.badRequest().body(Collections.singletonMap("message", "Không tìm thấy thông tin đăng ký cho email: " + email));
         }
 
@@ -199,7 +195,7 @@ public class RegisterController {
                     "<body>" +
                     "<div class='container'>" +
                     "  <h1>Chào bạn,</h1>" +
-                    "  <p>đây là mã OTP đã được gửi lại:</p>" +
+                    "  <p>Đây là mã OTP đã được gửi lại:</p>" +
                     "  <p class='otp'>" + otp + "</p>" +
                     "  <p>Vui lòng nhập mã này trong vòng 1 phút để xác nhận tài khoản của bạn.</p>" +
                     "  <p>Trân trọng,<br>Đội ngũ GOLD 4.0 SUPPORT</p>" +
@@ -242,7 +238,7 @@ public class RegisterController {
             }
 
             newId = result.toString();
-        } while (nguoiDungService.kiemTraNguoiDung(newId));
+        } while (adminService.kiemTraNguoiDung(newId));
 
         return newId;
     }

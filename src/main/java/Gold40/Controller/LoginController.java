@@ -4,8 +4,6 @@ import Gold40.Entity.TaiKhoan;
 import Gold40.Service.RecapchaService;
 import Gold40.Service.TaiKhoanService;
 import Gold40.Util.JwtUtil;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,27 +40,32 @@ public class LoginController {
         String matKhau = loginData.get("matKhau");
         String recaptchaToken = loginData.get("recaptchaToken");
 
+        // Kiểm tra reCAPTCHA
         boolean isRecaptchaValid = recaptchaService.verifyRecaptcha(recaptchaToken);
         if (!isRecaptchaValid) {
             return ResponseEntity.badRequest().body("Xác minh reCAPTCHA thất bại");
         }
 
         try {
+            // Đăng nhập và lấy người dùng
             TaiKhoan user = taiKhoanService.login(tenTK, matKhau);
+
+            // Lấy thời gian hiện tại
             LocalDateTime currentTime = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
             String formattedTime = currentTime.format(formatter);
-            System.out.println("khách hàng " + tenTK + " đã đăng nhập thành công vào lúc " + formattedTime);
+            System.out.println("Khách hàng " + tenTK + " đã đăng nhập thành công vào lúc " + formattedTime);
 
+            // Tạo token JWT cho người dùng
             String token = jwtUtil.generateToken(user.getTaikhoan());
 
             // Lấy thông tin người dùng
-            Map<String, Object> userInfo = Map.of(
-                    "username", user.getTaikhoan(),
-                    "email", user.getNguoiDung().getEmail(),
-                    "roles", user.getVaitro()
-            );
+            Map<String, Object> userInfo = new HashMap<>();
+            userInfo.put("username", user.getTaikhoan());
+            userInfo.put("email", user.getNguoiDung().getEmail());
+            userInfo.put("roles", user.getVaitro());
 
+            // Tạo response trả về cho client
             Map<String, Object> response = new HashMap<>();
             response.put("token", token);
             response.put("userInfo", userInfo);

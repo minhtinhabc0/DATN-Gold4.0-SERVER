@@ -10,6 +10,7 @@ public interface TaiKhoanDAO extends JpaRepository<TaiKhoan, Long> {
 
     boolean existsByTaikhoan(String taikhoan);
 
-
+    // Kiểm tra nếu có tài khoản với vai trò admin (vaitro = 1)
+    boolean existsByVaitro(int vaitro);
 
 }
