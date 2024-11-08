@@ -135,4 +135,8 @@ public class TaiKhoanService {
     public boolean existsByTaikhoan(String taikhoan) {
         return taiKhoanRepository.existsByTaikhoan(taikhoan);
     }
+
+    public boolean existsByVaitro(int i) {
+        return taiKhoanRepository.existsByVaitro(i);
+    }
 }

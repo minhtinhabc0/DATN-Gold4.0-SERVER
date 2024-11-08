@@ -36,14 +36,20 @@ public class RegisterAdminController {
     }
     @GetMapping("/check-admin-account")
     public ResponseEntity<?> checkAdminAccount() {
-        // Kiểm tra xem có tài khoản admin nào trong cơ sở dữ liệu không
-        if (adminService.kiemTraNguoiDung("")) {
-            // Nếu có tài khoản admin, trả về thông báo và chuyển hướng đến trang đăng nhập
-            return ResponseEntity.badRequest().body("Đã có tài khoản admin trong hệ thống. Bạn không thể truy cập trang đăng ký.");
+        Map<String, String> response = new HashMap<>();
+        if (taiKhoanService.existsByVaitro(1)) {
+            // Nếu có tài khoản admin, trả về thông báo lỗi
+            response.put("message", "Đã có tài khoản admin trong hệ thống. Bạn không thể truy cập trang đăng ký.");
+            System.out.println("Phản hồi: " + response);
+            return ResponseEntity.badRequest().body(response);
         }
-        // Nếu không có tài khoản admin, cho phép truy cập trang đăng ký
-        return ResponseEntity.ok("Bạn có thể đăng ký tài khoản admin.");
+        // Nếu không có tài khoản admin, trả về thông báo thành công
+        response.put("message", "Bạn có thể đăng ký tài khoản admin.");
+        System.out.println("Phản hồi: " + response);
+        return ResponseEntity.ok(response);
     }
+
+
     @PostMapping("/registerad")
     public ResponseEntity<?> register(@RequestBody Map<String, String> registrationData) {
         if (registrationData == null ||

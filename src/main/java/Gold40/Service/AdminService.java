@@ -16,12 +16,15 @@ public class AdminService {
 
     @Autowired
     private AdminDAO adminDAO;
+
     public void save(Admin admin) {
         adminDAO.save(admin);
     }
+
     public boolean existsByEmail(String email) {
         return adminDAO.existsByEmail(email);
     }
+
     public boolean kiemTraNguoiDung(String maAdmin) {
         return adminDAO.existsByMaAdmin(maAdmin);
     }

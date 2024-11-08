@@ -16,7 +16,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auth")
-public class LoginController {
+public class LoginAdminController {
 
     @Autowired
     private TaiKhoanService taiKhoanService;
@@ -27,8 +27,8 @@ public class LoginController {
     @Autowired
     private RecapchaService recaptchaService;
 
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody Map<String, String> loginData) {
+    @PostMapping("/admin/login")
+    public ResponseEntity<?> loginAdmin(@RequestBody Map<String, String> loginData) {
         if (loginData == null ||
                 !loginData.containsKey("tenTK") ||
                 !loginData.containsKey("matKhau") ||
@@ -50,46 +50,52 @@ public class LoginController {
             // Đăng nhập và lấy người dùng
             TaiKhoan user = taiKhoanService.login(tenTK, matKhau);
 
-            // Kiểm tra vai trò người dùng
-            if (user.getVaitro() != 0) {
-                System.out.println("@@@@ co ve co mot tai khoan dang co gang truy cap khi khong duoc cap phep @@@@ co ve co mot tai khoan dang co gang truy cap khi khong duoc cap phep @@@@ co ve co mot tai khoan dang co gang truy cap khi khong duoc cap phep");
+            // Kiểm tra vai trò người dùng (admin hay không)
+            if (user.getVaitro() == 1) {
+                // Admin login
+                return loginForAdmin(user);
+            } else {
                 return ResponseEntity.status(HttpStatus.FORBIDDEN)
-                        .body("co ve co mot tai khoan dang co gang truy cap khi khong duoc cap phep");
-
+                        .body("Chỉ admin mới có thể đăng nhập tại đây");
             }
 
-            // Lấy thời gian hiện tại
-            LocalDateTime currentTime = LocalDateTime.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
-            String formattedTime = currentTime.format(formatter);
-            System.out.println("Khách hàng " + tenTK + " đã đăng nhập thành công vào lúc " + formattedTime);
-
-            // Tạo token JWT cho người dùng
-            String token = jwtUtil.generateToken(user.getTaikhoan());
-
-            // Lấy thông tin người dùng
-            Map<String, Object> userInfo = new HashMap<>();
-            userInfo.put("username", user.getTaikhoan());
-            userInfo.put("email", user.getNguoiDung().getEmail());
-            userInfo.put("roles", user.getVaitro());
-
-            // Tạo response trả về cho client
-            Map<String, Object> response = new HashMap<>();
-            response.put("token", token);
-            response.put("userInfo", userInfo);
-            response.put("redirectUrl", "/home");
-
-            return ResponseEntity.ok(response);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body("Đăng nhập thất bại: " + e.getMessage());
         }
     }
 
-    @GetMapping("/check-auth")
+    private ResponseEntity<?> loginForAdmin(TaiKhoan user) {
+        // Xử lý đăng nhập cho admin (vaitro = 1)
+        LocalDateTime currentTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
+        String formattedTime = currentTime.format(formatter);
+        System.out.println("Admin " + user.getTaikhoan() + " đã đăng nhập thành công vào lúc " + formattedTime);
+
+        // Tạo token JWT cho admin
+        String token = jwtUtil.generateToken(user.getTaikhoan());
+
+        // Lấy thông tin admin
+        Map<String, Object> userInfo = new HashMap<>();
+        userInfo.put("username", user.getTaikhoan());
+        userInfo.put("hoTen", user.getAdmin().getHoTen());
+        userInfo.put("id", user.getMaadmin());
+        userInfo.put("email", user.getAdmin().getEmail());
+        userInfo.put("roles", user.getVaitro());
+
+        // Tạo response trả về cho client
+        Map<String, Object> response = new HashMap<>();
+        response.put("token", token);
+        response.put("userInfo", userInfo);
+        response.put("redirectUrl", "/admin/index.html"); // Redirect to the admin dashboard
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/admin/check-auth")
     public ResponseEntity<?> checkAuth(@RequestHeader("Authorization") String token) {
         if (token != null && token.startsWith("Bearer ")) {
-            token = token.substring(7);
+            token = token.substring(7); // Remove "Bearer " prefix
             String username = jwtUtil.extractUsername(token);
             if (jwtUtil.validateToken(token, username)) {
                 return ResponseEntity.ok("Xác thực thành công");
