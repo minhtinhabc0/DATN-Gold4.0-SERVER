@@ -30,4 +30,7 @@ public class AdminService {
     }
 
 
+    public Optional<Admin> getAdminById(String maadmin) {
+        return adminDAO.findByMaAdmin(maadmin);
+    }
 }

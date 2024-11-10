@@ -1,10 +1,13 @@
 package Gold40.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
-
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity
 @Table(name = "San_Pham")
@@ -41,9 +44,9 @@ public class SanPham {
     @Column(name = "loaida", length = 255, nullable = false)
     private String loaiDa;
 
-    @ManyToOne
-    @JoinColumn(name = "madanhmuc")
-    private DanhMuc danhMuc;  // Assuming a DanhMuc entity exists
+
+    @Column(name = "soluong")
+    private int soLuong;
 
     @ManyToOne
     @JoinColumn(name = "manhaphanphoi")

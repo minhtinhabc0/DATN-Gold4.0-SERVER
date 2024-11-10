@@ -52,10 +52,8 @@ public class LoginController {
 
             // Kiểm tra vai trò người dùng
             if (user.getVaitro() != 0) {
-                System.out.println("@@@@ co ve co mot tai khoan dang co gang truy cap khi khong duoc cap phep @@@@ co ve co mot tai khoan dang co gang truy cap khi khong duoc cap phep @@@@ co ve co mot tai khoan dang co gang truy cap khi khong duoc cap phep");
                 return ResponseEntity.status(HttpStatus.FORBIDDEN)
-                        .body("co ve co mot tai khoan dang co gang truy cap khi khong duoc cap phep");
-
+                        .body("Tài khoản không có quyền truy cập");
             }
 
             // Lấy thời gian hiện tại
@@ -65,7 +63,7 @@ public class LoginController {
             System.out.println("Khách hàng " + tenTK + " đã đăng nhập thành công vào lúc " + formattedTime);
 
             // Tạo token JWT cho người dùng
-            String token = jwtUtil.generateToken(user.getTaikhoan());
+            String token = jwtUtil.generateToken(user.getTaikhoan(), "ROLE_USER");
 
             // Lấy thông tin người dùng
             Map<String, Object> userInfo = new HashMap<>();
@@ -89,12 +87,17 @@ public class LoginController {
     @GetMapping("/check-auth")
     public ResponseEntity<?> checkAuth(@RequestHeader("Authorization") String token) {
         if (token != null && token.startsWith("Bearer ")) {
-            token = token.substring(7);
-            String username = jwtUtil.extractUsername(token);
+            token = token.substring(7);  // Lấy token sau "Bearer "
+
+            // Giải mã token để lấy username
+            String username = jwtUtil.extractUsername(token);  // Lấy username từ token
+
+            // Kiểm tra token hợp lệ và username
             if (jwtUtil.validateToken(token, username)) {
                 return ResponseEntity.ok("Xác thực thành công");
             }
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Bạn không có quyền truy cập");
     }
+
 }

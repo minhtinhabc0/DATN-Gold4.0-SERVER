@@ -52,7 +52,6 @@ public class LoginAdminController {
 
             // Kiểm tra vai trò người dùng (admin hay không)
             if (user.getVaitro() == 1) {
-                // Admin login
                 return loginForAdmin(user);
             } else {
                 return ResponseEntity.status(HttpStatus.FORBIDDEN)
@@ -61,9 +60,10 @@ public class LoginAdminController {
 
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body("Đăng nhập thất bại: " + e.getMessage());
+                    .body("Tên tài khoản hoặc mật khẩu không đúng. Vui lòng kiểm tra lại.");
         }
     }
+
 
     private ResponseEntity<?> loginForAdmin(TaiKhoan user) {
         // Xử lý đăng nhập cho admin (vaitro = 1)
@@ -73,20 +73,23 @@ public class LoginAdminController {
         System.out.println("Admin " + user.getTaikhoan() + " đã đăng nhập thành công vào lúc " + formattedTime);
 
         // Tạo token JWT cho admin
-        String token = jwtUtil.generateToken(user.getTaikhoan());
+        String username = taiKhoanService.findByTaikhoan(user.getTaikhoan()).getTaikhoan(); // Lấy tên tài khoản từ database
+        String role = "ROLE_ADMIN"; // Quyền cho admin
+        String token = jwtUtil.generateToken(username, role);  // Tạo token cho admin
+
 
         // Lấy thông tin admin
-        Map<String, Object> userInfo = new HashMap<>();
-        userInfo.put("username", user.getTaikhoan());
-        userInfo.put("hoTen", user.getAdmin().getHoTen());
-        userInfo.put("id", user.getMaadmin());
-        userInfo.put("email", user.getAdmin().getEmail());
-        userInfo.put("roles", user.getVaitro());
+        Map<String, Object> ADInfor = new HashMap<>();
+        ADInfor.put("username", user.getTaikhoan());
+        ADInfor.put("hoTen", user.getAdmin().getHoTen());
+        ADInfor.put("id", user.getMaadmin());
+        ADInfor.put("email", user.getAdmin().getEmail());
+        ADInfor.put("roles", user.getVaitro());
 
         // Tạo response trả về cho client
         Map<String, Object> response = new HashMap<>();
         response.put("token", token);
-        response.put("userInfo", userInfo);
+        response.put("ADInfor", ADInfor);
         response.put("redirectUrl", "/admin/index.html"); // Redirect to the admin dashboard
 
         return ResponseEntity.ok(response);
