@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class NguoiDungService {
     @Autowired
     private NguoiDungDAO nguoiDungDAO;
-    private final BCryptPasswordEncoder passwordEncoder;
+//    private final BCryptPasswordEncoder passwordEncoder;
 
     public void save(NguoiDung nguoiDung) {
         nguoiDungDAO.save(nguoiDung);
@@ -29,9 +29,9 @@ public class NguoiDungService {
         return nguoiDungDAO.findByMaNguoiDung(maNguoiDung);
     }
 
-    @Autowired
-    public NguoiDungService(BCryptPasswordEncoder PinPasswordEncoder) {
-        this.passwordEncoder = PinPasswordEncoder;
-    }
+//    @Autowired
+//    public NguoiDungService(BCryptPasswordEncoder PinPasswordEncoder) {
+//        this.passwordEncoder = PinPasswordEncoder;
+//    }
 
 }

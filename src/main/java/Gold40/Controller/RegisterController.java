@@ -117,9 +117,7 @@ public class RegisterController {
                     "</body>" +
                     "</html>";
 
-            emailService.sendEmail(email, subject, body, true);  // 'true' để gửi email dưới dạng HTML
-
-
+            emailService.sendEmail(email, subject, body, true);
             temporaryTaiKhoanData.put(email, newTaiKhoan);
             temporaryNguoiDungData.put(email, newNguoiDung);
             temporaryOtps.put(email, otp);
@@ -172,15 +170,12 @@ public class RegisterController {
     @PostMapping("/resend-otp")
     public ResponseEntity<?> resendOtp(@RequestBody Map<String, String> resendData) {
         String email = resendData.get("email");
-
-        // Lấy thông tin người dùng tạm thời
         TaiKhoan userData = temporaryTaiKhoanData.get(email);
         NguoiDung nguoiDungData = temporaryNguoiDungData.get(email);
 
         if (userData == null || nguoiDungData == null) {
             return ResponseEntity.badRequest().body(Collections.singletonMap("message", "Không tìm thấy thông tin đăng ký cho email: " + email));
         }
-
         try {
             String otp = generateOtp();
             String subject = "GOLD 4.0 SUPPORT - Mã OTP Của Bạn";
@@ -211,8 +206,6 @@ public class RegisterController {
                     "</html>";
 
             emailService.sendEmail(email, subject, body, true);
-
-            // Cập nhật lại mã OTP và thời gian gửi
             temporaryOtps.put(email, otp);
             temporaryOtpTimestamps.put(email, LocalDateTime.now());
 
@@ -221,12 +214,10 @@ public class RegisterController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Gửi lại mã OTP thất bại: " + e.getMessage());
         }
     }
-
     private String generateOtp() {
         Random random = new Random();
         return String.format("%06d", random.nextInt(1000000));
     }
-
     private String generateRandomId() {
         String characters = "0123456789";
         StringBuilder result;

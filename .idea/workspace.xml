@@ -4,16 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 7/11/2024 them chuc nang dang nhap tai khoan admin vao he thong">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/NhaPhanPhoiService.java" afterDir="false" />
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 10/11/2024 chuc nang them tai khoan nha phan phoi (co bug)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/CloudinaryConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/FileUploadController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/RegisterNPPController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/CloudinaryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/OtpService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Util/JwtAuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/LoginAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/LoginAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/DanhMuc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/lsgdnpp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/SanPham.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/RegisterAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/RegisterAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/NhaPhanPhoiDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/NhaPhanPhoiDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/NhaPhanPhoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/NhaPhanPhoi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/NguoiDungService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/NguoiDungService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/NhaPhanPhoiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/NhaPhanPhoiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/TaiKhoanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/TaiKhoanService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Util/JwtUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
@@ -65,6 +73,7 @@
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Spring Boot.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -101,8 +110,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -155,7 +164,16 @@
       <workItem from="1731049841305" duration="5846000" />
       <workItem from="1731152097661" duration="6961000" />
       <workItem from="1731193667954" duration="6993000" />
-      <workItem from="1731237798150" duration="8408000" />
+      <workItem from="1731237798150" duration="8725000" />
+      <workItem from="1731268668604" duration="1640000" />
+      <workItem from="1731270720852" duration="5513000" />
+      <workItem from="1731322456389" duration="1097000" />
+      <workItem from="1731324965653" duration="456000" />
+      <workItem from="1731375784230" duration="69000" />
+      <workItem from="1731375862387" duration="7067000" />
+      <workItem from="1731542032519" duration="119000" />
+      <workItem from="1731542307156" duration="7185000" />
+      <workItem from="1731595145717" duration="4828000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -229,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731031306890</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update 10/11/2024 chuc nang them tai khoan nha phan phoi (co bug)">
+      <option name="closed" value="true" />
+      <created>1731247062999</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1731247062999</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +282,7 @@
     <MESSAGE value="update 4/11/2024 fix" />
     <MESSAGE value="update 7/11/2024 them chuc nang dang ky tai khoan admin fix loi mat khau" />
     <MESSAGE value="update 7/11/2024 them chuc nang dang nhap tai khoan admin vao he thong" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 7/11/2024 them chuc nang dang nhap tai khoan admin vao he thong" />
+    <MESSAGE value="update 10/11/2024 chuc nang them tai khoan nha phan phoi (co bug)" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 10/11/2024 chuc nang them tai khoan nha phan phoi (co bug)" />
   </component>
 </project>

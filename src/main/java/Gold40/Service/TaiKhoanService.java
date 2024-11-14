@@ -63,7 +63,7 @@ public class TaiKhoanService {
     }
 
     // Phương thức đăng ký cho admin
-    public TaiKhoan registerForAdmin(String taikhoan, String matkhau, String maAdmin) {
+    public TaiKhoan registerForAdmin(String taikhoan, String matkhau, String mapin,String maAdmin) {
         if (taiKhoanRepository.findByTaikhoan(taikhoan).isPresent()) {
             throw new RuntimeException("Tài khoản đã tồn tại");
         }
@@ -75,6 +75,8 @@ public class TaiKhoanService {
         // Mã hóa mật khẩu trước khi lưu
         String encodedPassword = passwordEncoder.encode(matkhau);
         newTaiKhoan.setMatkhau(encodedPassword);
+        String encodedMaPin = passwordEncoder.encode(mapin);
+        newTaiKhoan.setMapin(encodedMaPin);
         newTaiKhoan.setVaitro(1); // Admin có vaitro = 1
 
         // Tạo mã admin mới và lưu vào maadmin

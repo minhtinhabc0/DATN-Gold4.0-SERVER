@@ -27,6 +27,7 @@ public class LoginAdminController {
     @Autowired
     private RecapchaService recaptchaService;
 
+    // Login method for Admin
     @PostMapping("/admin/login")
     public ResponseEntity<?> loginAdmin(@RequestBody Map<String, String> loginData) {
         if (loginData == null ||
@@ -40,17 +41,17 @@ public class LoginAdminController {
         String matKhau = loginData.get("matKhau");
         String recaptchaToken = loginData.get("recaptchaToken");
 
-        // Kiểm tra reCAPTCHA
+        // Check recaptcha validity
         boolean isRecaptchaValid = recaptchaService.verifyRecaptcha(recaptchaToken);
         if (!isRecaptchaValid) {
             return ResponseEntity.badRequest().body("Xác minh reCAPTCHA thất bại");
         }
 
         try {
-            // Đăng nhập và lấy người dùng
+            // Attempt to login and retrieve user details
             TaiKhoan user = taiKhoanService.login(tenTK, matKhau);
 
-            // Kiểm tra vai trò người dùng (admin hay không)
+            // Check if user role is admin (vaitro == 1)
             if (user.getVaitro() == 1) {
                 return loginForAdmin(user);
             } else {
@@ -64,37 +65,41 @@ public class LoginAdminController {
         }
     }
 
-
+    // Method to handle login for admin users
     private ResponseEntity<?> loginForAdmin(TaiKhoan user) {
-        // Xử lý đăng nhập cho admin (vaitro = 1)
+        // Process admin login (vaitro = 1)
         LocalDateTime currentTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
         String formattedTime = currentTime.format(formatter);
         System.out.println("Admin " + user.getTaikhoan() + " đã đăng nhập thành công vào lúc " + formattedTime);
 
-        // Tạo token JWT cho admin
-        String username = taiKhoanService.findByTaikhoan(user.getTaikhoan()).getTaikhoan(); // Lấy tên tài khoản từ database
-        String role = "ROLE_ADMIN"; // Quyền cho admin
-        String token = jwtUtil.generateToken(username, role);  // Tạo token cho admin
+        // Generate JWT token for admin
+        String username = taiKhoanService.findByTaikhoan(user.getTaikhoan()).getTaikhoan(); // Fetch username from the database
+        String role = "ROLE_ADMIN"; // Role for admin
+        String token = jwtUtil.generateToken(username, role); // Generate token
 
+        // Log the generated token (ensure to remove in production for security)
+        System.out.println("Generated Token: " + token);
 
-        // Lấy thông tin admin
-        Map<String, Object> ADInfor = new HashMap<>();
-        ADInfor.put("username", user.getTaikhoan());
-        ADInfor.put("hoTen", user.getAdmin().getHoTen());
-        ADInfor.put("id", user.getMaadmin());
-        ADInfor.put("email", user.getAdmin().getEmail());
-        ADInfor.put("roles", user.getVaitro());
+        // Collect admin information to send in the response
+        Map<String, Object> adminInfo = new HashMap<>();
+        adminInfo.put("username", user.getTaikhoan());
+        adminInfo.put("mapin", user.getMapin());
+        adminInfo.put("hoTen", user.getAdmin().getHoTen());
+        adminInfo.put("id", user.getMaadmin());
+        adminInfo.put("email", user.getAdmin().getEmail());
+        adminInfo.put("roles", user.getVaitro());
 
-        // Tạo response trả về cho client
+        // Prepare response for the client
         Map<String, Object> response = new HashMap<>();
-        response.put("token", token);
-        response.put("ADInfor", ADInfor);
-        response.put("redirectUrl", "/admin/index.html"); // Redirect to the admin dashboard
+        response.put("token", token); // Include JWT token
+        response.put("adminInfo", adminInfo); // Include admin information
+        response.put("redirectUrl", "/admin/index.html"); // URL to redirect after login (admin dashboard)
 
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(response); // Respond with success
     }
 
+    // Endpoint to check if the user is authenticated
     @GetMapping("/admin/check-auth")
     public ResponseEntity<?> checkAuth(@RequestHeader("Authorization") String token) {
         if (token != null && token.startsWith("Bearer ")) {

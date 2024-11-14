@@ -30,5 +30,14 @@ public class NhaPhanPhoi {
 
     @Column(name = "diachi", length = 255, nullable = false)
     private String diaChi;
+    @Column(name = "dl1", length = 255)
+    private String dl1;
+    @Column(name = "dl2", length = 255)
+    private String dl2;
+    @Column(name = "dl3", length = 255)
+    private String dl3;
+
+
+
 }
 

@@ -8,10 +8,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class NhaPhanPhoiService {
     @Autowired
-    private NhaPhanPhoiDAO nhaPhanPhoiRepository;
+    private static NhaPhanPhoiDAO NPPDAO;
+
+    public static boolean existsByEmail(String email) {
+        return NPPDAO.existsByEmail(email);
+    }
 
     // Lưu nhà phân phối vào cơ sở dữ liệu
     public NhaPhanPhoi saveNhaPhanPhoi(NhaPhanPhoi nhaPhanPhoi) {
-        return nhaPhanPhoiRepository.save(nhaPhanPhoi);
+        return NPPDAO.save(nhaPhanPhoi);
+    }
+
+    public void save(NhaPhanPhoi nhaPhanPhoi) {
+        NPPDAO.save(nhaPhanPhoi);
+    }
+
+    public boolean kiemTraNguoiDung(String maNhaPhanPhoi) {
+        return NPPDAO.existsByMaNhaPhanPhoi(maNhaPhanPhoi);
+
     }
 }
