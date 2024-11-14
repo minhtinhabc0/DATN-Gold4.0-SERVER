@@ -31,7 +31,7 @@ public class WebConfig implements WebMvcConfigurer {
                         .requestMatchers("/api/auth/**", "/api/profile/**", "/api/re/**",
                                 "/api/ad/**", "/api/user/**", "/api/users/**",
                                 "/api/gold-prices", "/api/upload/**",
-                                "/api/products/**").permitAll()
+                                "/api/products/**","/api/checkout/**").permitAll()
                         .requestMatchers("/api/admin/create-distributor").hasRole("ADMIN") // Check for "ADMIN" role
                         .anyRequest().authenticated() // All other requests must be authenticated
                 );
