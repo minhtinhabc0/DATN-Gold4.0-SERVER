@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 7/11/2024 them chuc nang dang ky tai khoan admin fix loi mat khau">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/PayOSConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/CheckoutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/PaymentRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/DonHangController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/HoaDonController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/DonHangDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/HoaDonDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_8_2024_9_01_AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_8_2024_9_01_AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/GiamGia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/GiamGia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/HoaDon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/AdminController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Entity/GiamGia.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Entity/GiamGia.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Entity/HoaDon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Entity/HoaDon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +43,12 @@
     &quot;assignee&quot;: &quot;minhtinhabc0&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git&quot;,
-    &quot;accountId&quot;: &quot;ba9ab3e1-8e71-4702-bbcb-495c62b2969d&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git",
+    "accountId": "3f49799c-5c9e-4b48-a5c6-296494d96e9d"
   }
-}</component>
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -56,36 +64,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
-    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/minht/IdeaProjects/DATN-Gold4.0-SERVER&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;two.files.diff.last.used.folder&quot;: &quot;C:/Users/minht/IdeaProjects/DATN-Gold4.0-SERVER&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
+    "Notification.DoNotAsk-Database detector": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.Unnamed.executor": "Run",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/DATN-Gold4.0-SERVER/src/main/java/Gold40/Controller",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "two.files.diff.last.used.folder": "C:/Users/minht/IdeaProjects/DATN-Gold4.0-SERVER",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\DATN-Gold4.0-SERVER\src\main\java\Gold40\Controller" />
+      <recent name="D:\DATN-Gold4.0-SERVER\src\main\java\Gold40\DAO" />
+      <recent name="D:\DATN-Gold4.0-SERVER\src\main\java\Gold40\Entity" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="Gold40.Config" />
     </key>
@@ -152,6 +165,7 @@
       <workItem from="1730978475492" duration="11421000" />
       <workItem from="1731021768984" duration="3205000" />
       <workItem from="1731025089051" duration="5154000" />
+      <workItem from="1731636197264" duration="3214000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />

@@ -16,7 +16,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**") // Chỉ áp dụng cho các API
-                .allowedOrigins("http://127.0.0.1:5500") // Địa chỉ frontend của bạn
+                .allowedOrigins("http://127.0.0.1:5500","http://127.0.0.1:5501") // Địa chỉ frontend của bạn
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Các phương thức cho phép
                 .allowCredentials(true); // Cho phép cookies
     }
@@ -29,11 +29,11 @@ public class WebConfig implements WebMvcConfigurer {
                 .csrf().disable() // Vô hiệu hóa CSRF để thử nghiệm
                 .authorizeRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/api/auth/**", "/api/profile/**", "/api/re/**",
-                                "/api/ad/**", "/api/user/**", "/api/users/**",
+                                "/api/ad/**", "/api/user/**", "/api/users/**","/api/donhang/**","/api/hoadon/**",
                                 "/api/gold-prices", "/api/upload/**",
                                 "/api/products/**","/api/checkout/**").permitAll()
-                        .requestMatchers("/api/admin/create-distributor").hasRole("ADMIN") // Check for "ADMIN" role
-                        .anyRequest().authenticated() // All other requests must be authenticated
+                        .requestMatchers("/api/admin/create-distributor").hasRole("ADMIN") // Kiểm tra quyền "ADMIN"
+                        .anyRequest().authenticated() // Tất cả các yêu cầu khác phải được xác thực
                 );
 
         return http.build();
