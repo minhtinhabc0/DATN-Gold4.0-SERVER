@@ -49,27 +49,27 @@ public class UserController {
         return token != null && token.startsWith("Bearer ") ? token.substring(7) : null;
     }
 
-    @PostMapping("/upload/{manguoidung}")
-    public ResponseEntity<String> uploadImage(@PathVariable("manguoidung") String maNguoiDung, @RequestParam("file") MultipartFile file) {
-        try {
-            // Tải ảnh lên Cloudinary
-            Map<String, Object> result = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
-            String imageUrl = (String) result.get("url"); // Nhận URL của ảnh đã upload
-
-            // Lưu URL vào NguoiDung
-            NguoiDung nguoiDung = nguoiDungService.findByMaNguoiDung(maNguoiDung);
-            if (nguoiDung != null) {
-                nguoiDung.setAvt(imageUrl); // Lưu URL vào trường avt
-                nguoiDungService.save(nguoiDung); // Lưu lại NguoiDung với URL mới
-                return ResponseEntity.ok(imageUrl); // Trả về URL
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
+//    @PostMapping("/upload/{manguoidung}")
+//    public ResponseEntity<String> uploadImage(@PathVariable("manguoidung") String maNguoiDung, @RequestParam("file") MultipartFile file) {
+//        try {
+//            // Tải ảnh lên Cloudinary
+//            Map<String, Object> result = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
+//            String imageUrl = (String) result.get("url"); // Nhận URL của ảnh đã upload
+//
+//            // Lưu URL vào NguoiDung
+//            NguoiDung nguoiDung = nguoiDungService.findByMaNguoiDung(maNguoiDung);
+//            if (nguoiDung != null) {
+//                nguoiDung.setAvt(imageUrl); // Lưu URL vào trường avt
+//                nguoiDungService.save(nguoiDung); // Lưu lại NguoiDung với URL mới
+//                return ResponseEntity.ok(imageUrl); // Trả về URL
+//            } else {
+//                return ResponseEntity.notFound().build();
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+//        }
+//    }
 
     @GetMapping("/profile")
     public ResponseEntity<?> getUserProfile(@RequestHeader("Authorization") String token) {

@@ -29,7 +29,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .csrf().disable() // Vô hiệu hóa CSRF để thử nghiệm
                 .authorizeRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/api/auth/**", "/api/profile/**", "/api/re/**",
-                                "/api/ad/**", "/api/user/**", "/api/users/**","/api/donhang/**","/api/hoadon/**",
+                                "/api/ad/**", "/api/user/**", "/api/users/**","/api/donhang/**","/api/hoadon/**","/api/npp/**",
                                 "/api/gold-prices", "/api/upload/**",
                                 "/api/products/**","/api/checkout/**").permitAll()
                         .requestMatchers("/api/admin/create-distributor").hasRole("ADMIN") // Kiểm tra quyền "ADMIN"
@@ -38,4 +38,5 @@ public class WebConfig implements WebMvcConfigurer {
 
         return http.build();
     }
+
 }

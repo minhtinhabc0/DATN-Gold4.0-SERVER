@@ -46,8 +46,8 @@ public class CheckoutController {
         try {
             final String productName = paymentRequest.getProductName();
             final String description = "Thanh toán đơn hàng";
-            String successUrl = "http://127.0.0.1:5500/success.html";
-            String cancelUrl = "http://127.0.0.1:5500/cancel.html";
+            String successUrl = "http://127.0.0.1:5500/api/checkout/success.html";
+            String cancelUrl = "http://127.0.0.1:5501/user/index.html#!/user/spvang";
             final int quantity = paymentRequest.getQuantity();
             final int price = paymentRequest.getPrice();
 

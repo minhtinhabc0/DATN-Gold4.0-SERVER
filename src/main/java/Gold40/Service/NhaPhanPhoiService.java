@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class NhaPhanPhoiService {
     @Autowired
-    private static NhaPhanPhoiDAO NPPDAO;
+    private NhaPhanPhoiDAO NPPDAO;
 
-    public static boolean existsByEmail(String email) {
+    public boolean existsByEmail(String email) {
         return NPPDAO.existsByEmail(email);
     }
 

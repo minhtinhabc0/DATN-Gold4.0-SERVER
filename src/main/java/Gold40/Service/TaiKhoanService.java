@@ -86,13 +86,9 @@ public class TaiKhoanService {
     }
 
     // Phương thức đăng ký cho nhà phân phối
-    public TaiKhoan registerForDistributor(String taikhoan, String matkhau, String maNguoiDung) {
+    public TaiKhoan registerForDistributor(String taikhoan, String matkhau, String manhaPhanPhoi) {
         if (taiKhoanRepository.findByTaikhoan(taikhoan).isPresent()) {
             throw new RuntimeException("Tài khoản đã tồn tại");
-        }
-
-        if (!nguoiDungRepository.existsByMaNguoiDung(maNguoiDung)) {
-            throw new RuntimeException("Mã người dùng không tồn tại");
         }
 
         TaiKhoan newTaiKhoan = new TaiKhoan();
@@ -102,10 +98,10 @@ public class TaiKhoanService {
         // Mã hóa mật khẩu trước khi lưu
         String encodedPassword = passwordEncoder.encode(matkhau);
         newTaiKhoan.setMatkhau(encodedPassword);
-        newTaiKhoan.setVaitro(2); // Nhà phân phối có vaitro = 2
+        newTaiKhoan.setVaitro(4); // Nhà phân phối có vaitro = 2
 
         // Tạo mã nhà phân phối và lưu vào manhaphanphoi
-        newTaiKhoan.setManhaphanphoi(newTaiKhoan.getManhaphanphoi());
+        newTaiKhoan.setManhaphanphoi(manhaPhanPhoi);
 
         return taiKhoanRepository.save(newTaiKhoan);
     }

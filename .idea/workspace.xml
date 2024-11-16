@@ -5,21 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 7/11/2024 them chuc nang dang ky tai khoan admin fix loi mat khau">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/DonHangController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/HoaDonController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/DonHangDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/HoaDonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_8_2024_9_01_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_8_2024_9_01_AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/GiamGia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/GiamGia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/HoaDon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/CheckoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/CheckoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/RegisterNPPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/RegisterNPPController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/CloudinaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/CloudinaryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/NhaPhanPhoiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/NhaPhanPhoiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/TaiKhoanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/TaiKhoanService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/AdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Entity/GiamGia.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Entity/GiamGia.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Entity/HoaDon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Entity/HoaDon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/CheckoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Controller/CheckoutController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/RegisterNPPController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Controller/RegisterNPPController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Service/CloudinaryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Service/CloudinaryService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,12 +42,12 @@
     &quot;assignee&quot;: &quot;minhtinhabc0&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git",
-    "accountId": "3f49799c-5c9e-4b48-a5c6-296494d96e9d"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git&quot;,
+    &quot;accountId&quot;: &quot;ba9ab3e1-8e71-4702-bbcb-495c62b2969d&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -74,12 +73,13 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.Unnamed.executor": "Run",
     "com.codeium.enabled": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/DATN-Gold4.0-SERVER/src/main/java/Gold40/Controller",
+    "last_opened_file_path": "C:/Users/minht/IdeaProjects/DATN-Gold4.0-SERVER",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -94,11 +94,6 @@
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\DATN-Gold4.0-SERVER\src\main\java\Gold40\Controller" />
-      <recent name="D:\DATN-Gold4.0-SERVER\src\main\java\Gold40\DAO" />
-      <recent name="D:\DATN-Gold4.0-SERVER\src\main\java\Gold40\Entity" />
-    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="Gold40.Config" />
     </key>
@@ -115,8 +110,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -165,7 +160,11 @@
       <workItem from="1730978475492" duration="11421000" />
       <workItem from="1731021768984" duration="3205000" />
       <workItem from="1731025089051" duration="5154000" />
-      <workItem from="1731636197264" duration="3214000" />
+      <workItem from="1731641796927" duration="2127000" />
+      <workItem from="1731649416557" duration="3285000" />
+      <workItem from="1731749329332" duration="675000" />
+      <workItem from="1731750064087" duration="3403000" />
+      <workItem from="1731792283922" duration="6461000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
