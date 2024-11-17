@@ -16,7 +16,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auth")
-public class LoginAdminController {
+public class LoginDistributorController {
 
     @Autowired
     private TaiKhoanService taiKhoanService;
@@ -27,81 +27,96 @@ public class LoginAdminController {
     @Autowired
     private RecapchaService recaptchaService;
 
-    // Login method for Admin
-    @PostMapping("/admin/login")
-    public ResponseEntity<?> loginAdmin(@RequestBody Map<String, String> loginData) {
-        if (loginData == null ||
-                !loginData.containsKey("tenTK") ||
-                !loginData.containsKey("matKhau") ||
-                !loginData.containsKey("recaptchaToken")) {
+    // Login method for Distributor
+    @PostMapping("/distributor/login")
+    public ResponseEntity<?> loginDistributor(@RequestBody Map<String, String> loginData1) {
+        if (loginData1 == null ||
+                !loginData1.containsKey("tenTK") ||
+                !loginData1.containsKey("mathau") ||
+                !loginData1.containsKey("recaptchaToken")) {
+            System.out.println("thieeu thong tin dang nhap");
             return ResponseEntity.badRequest().body("Thiếu thông tin đăng nhập");
         }
 
-        String tenTK = loginData.get("tenTK");
-        String matKhau = loginData.get("matKhau");
-        String recaptchaToken = loginData.get("recaptchaToken");
-        System.out.println("Login data received: " + loginData);
+        String tenTK = loginData1.get("tenTK");
+        String matKhau = loginData1.get("mathau");
+        String recaptchaToken = loginData1.get("recaptchaToken");
+
+        System.out.println("Login data received: " + loginData1);
+        System.out.println(tenTK);
+        System.out.println(matKhau);
+
         // Check recaptcha validity
         boolean isRecaptchaValid = recaptchaService.verifyRecaptcha(recaptchaToken);
         if (!isRecaptchaValid) {
+            System.out.println("recaptcha invalid");
             return ResponseEntity.badRequest().body("Xác minh reCAPTCHA thất bại");
         }
 
         try {
             // Attempt to login and retrieve user details
+            System.out.println("Login data received: " + loginData1);
+            System.out.println(tenTK);
+            System.out.println(matKhau);
             TaiKhoan user = taiKhoanService.login(tenTK, matKhau);
+            System.out.println(user);
+            System.out.println("dang nhap");
 
-
-            if (user.getVaitro() == 1) {
-                return loginForAdmin(user);
+            if (user.getVaitro() == 2) {
+                System.out.println("ddanwg nhap thanh cong");
+                return loginForDistributor(user);
             } else {
+                System.out.println("sai role");
                 return ResponseEntity.status(HttpStatus.FORBIDDEN)
-                        .body("Chỉ admin mới có thể đăng nhập tại đây");
+
+                        .body("Chỉ nhà phân phối mới có thể đăng nhập tại đây");
+
             }
 
         } catch (Exception e) {
-            System.out.println("sai tk, mk");
+            System.out.println("sai tk mat khau");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body("Tên tài khoản hoặc mật khẩu không đúng. Vui lòng kiểm tra lại.");
         }
     }
 
-    // Method to handle login for admin users
-    private ResponseEntity<?> loginForAdmin(TaiKhoan user) {
-        // Process admin login (vaitro = 1)
+    // Method to handle login for distributor users
+    private ResponseEntity<?> loginForDistributor(TaiKhoan user) {
+        // Process distributor login (vaitro = 2)
+        System.out.println("10");
         LocalDateTime currentTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
         String formattedTime = currentTime.format(formatter);
-        System.out.println("Admin " + user.getTaikhoan() + " đã đăng nhập thành công vào lúc " + formattedTime);
-
-        // Generate JWT token for admin
+        System.out.println("Distributor " + user.getTaikhoan() + " đã đăng nhập thành công vào lúc " + formattedTime);
+        System.out.println("11");
+        // Generate JWT token for distributor
         String username = taiKhoanService.findByTaikhoan(user.getTaikhoan()).getTaikhoan(); // Fetch username from the database
-        String role = "ROLE_ADMIN"; // Role for admin
+        String role = "ROLE_DISTRIBUTOR"; // Role for distributor
         String token = jwtUtil.generateToken(username, role); // Generate token
 
         // Log the generated token (ensure to remove in production for security)
         System.out.println("Generated Token: " + token);
 
-        // Collect admin information to send in the response
-        Map<String, Object> adminInfo = new HashMap<>();
-        adminInfo.put("username", user.getTaikhoan());
-        adminInfo.put("mapin", user.getMapin());
-        adminInfo.put("hoTen", user.getAdmin().getHoTen());
-        adminInfo.put("id", user.getMaadmin());
-        adminInfo.put("email", user.getAdmin().getEmail());
-        adminInfo.put("roles", user.getVaitro());
+        // Collect distributor information to send in the response
+        Map<String, Object> distributorInfo = new HashMap<>();
+        distributorInfo.put("username", user.getTaikhoan());
+        distributorInfo.put("mapin", user.getMapin());
+        distributorInfo.put("tencuahang", user.getNhaPhanPhoi().getTenCuaHang());
+        distributorInfo.put("id", user.getManhaphanphoi());
+        distributorInfo.put("email", user.getNhaPhanPhoi().getEmail());
+        distributorInfo.put("roles", user.getVaitro());
 
         // Prepare response for the client
         Map<String, Object> response = new HashMap<>();
         response.put("token", token); // Include JWT token
-        response.put("adminInfo", adminInfo); // Include admin information
-        response.put("redirectUrl", "/admin/index.html"); // URL to redirect after login (admin dashboard)
+        response.put("distributorInfo", distributorInfo); // Include distributor information
+        response.put("redirectUrl", "/distributor/index.html"); // URL to redirect after login (distributor dashboard)
 
         return ResponseEntity.ok(response); // Respond with success
     }
 
     // Endpoint to check if the user is authenticated
-    @GetMapping("/admin/check-auth")
+    @GetMapping("/distributor/check-auth")
     public ResponseEntity<?> checkAuth(@RequestHeader("Authorization") String token) {
         if (token != null && token.startsWith("Bearer ")) {
             token = token.substring(7); // Remove "Bearer " prefix

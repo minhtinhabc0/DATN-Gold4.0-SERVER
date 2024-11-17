@@ -29,10 +29,11 @@ public class WebConfig implements WebMvcConfigurer {
                 .csrf().disable() // Vô hiệu hóa CSRF để thử nghiệm
                 .authorizeRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/api/auth/**", "/api/profile/**", "/api/re/**",
-                                "/api/ad/**", "/api/user/**", "/api/users/**","/api/donhang/**","/api/hoadon/**","/api/npp/**",
+                                "/api/ad/**", "/api/user/**", "/api/users/**","/api/donhang/**","/api/hoadon/**","/api/npp/**","/api/npp/verify-otp",
+                                "/api/adctrl/**",
                                 "/api/gold-prices", "/api/upload/**",
                                 "/api/products/**","/api/checkout/**").permitAll()
-                        .requestMatchers("/api/admin/create-distributor").hasRole("ADMIN") // Kiểm tra quyền "ADMIN"
+
                         .anyRequest().authenticated() // Tất cả các yêu cầu khác phải được xác thực
                 );
 

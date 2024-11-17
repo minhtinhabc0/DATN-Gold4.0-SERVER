@@ -40,13 +40,14 @@ public class TaiKhoan {
     @JoinColumn(name = "manguoidung", referencedColumnName = "manguoidung", insertable = false, updatable = false)
     private NguoiDung nguoiDung;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "manhaphanphoi", referencedColumnName = "manhaphanphoi", insertable = false, updatable = false)
     private NhaPhanPhoi nhaPhanPhoi;
 
     @OneToOne
     @JoinColumn(name = "maadmin", referencedColumnName = "maadmin", insertable = false, updatable = false)
     private Admin admin;
+
 
 
 }

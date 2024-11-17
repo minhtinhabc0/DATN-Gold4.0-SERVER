@@ -8,6 +8,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -32,6 +34,12 @@ public class TaiKhoanService {
 
         // Sử dụng passwordEncoder để kiểm tra mật khẩu đã mã hóa
         if (!passwordEncoder.matches(matKhau, user.getMatkhau())) {
+            System.out.println("sai mat khauuuuu");
+            System.out.println(passwordEncoder.matches(matKhau, user.getMatkhau()));
+            String encodedPassword = passwordEncoder.encode(matKhau);
+            System.out.println("Mật khẩu người dùng nhập: " + encodedPassword);
+            System.out.println("Mật khẩu mã hóa trong cơ sở dữ liệu: " + user.getMatkhau());
+
             throw new RuntimeException("Mật khẩu không đúng");
         }
 
@@ -136,5 +144,19 @@ public class TaiKhoanService {
 
     public boolean existsByVaitro(int i) {
         return taiKhoanRepository.existsByVaitro(i);
+    }
+
+
+
+    public Optional<TaiKhoan> findById(String id) {
+        return taiKhoanRepository.findById(id);
+    }
+
+    public void delete(TaiKhoan taiKhoan) {
+        taiKhoanRepository.delete(taiKhoan);
+    }
+
+    public List<TaiKhoan> findByVaitro(int i) {
+        return taiKhoanRepository.findByVaitro(i);
     }
 }

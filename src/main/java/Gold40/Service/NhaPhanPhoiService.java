@@ -27,4 +27,9 @@ public class NhaPhanPhoiService {
         return NPPDAO.existsByMaNhaPhanPhoi(maNhaPhanPhoi);
 
     }
+
+
+
+    public void deleteByTaiKhoanId(String id) {
+    }
 }

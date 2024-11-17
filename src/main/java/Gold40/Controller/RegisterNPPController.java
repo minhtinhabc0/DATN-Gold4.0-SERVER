@@ -63,7 +63,7 @@ public class RegisterNPPController {
 
             TaiKhoan newTaiKhoan = new TaiKhoan();
             newTaiKhoan.setTaikhoan(registrationData.get("taikhoan"));
-            newTaiKhoan.setMatkhau(passwordEncoder.encode(registrationData.get("matkhau")));
+            newTaiKhoan.setMatkhau(registrationData.get("matkhau"));
             newTaiKhoan.setManhaphanphoi(maNhaPhanPhoi);
 
             // Generate OTP and send email

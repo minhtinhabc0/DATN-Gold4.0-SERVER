@@ -4,22 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 7/11/2024 them chuc nang dang ky tai khoan admin fix loi mat khau">
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 17/11/2024 them chuc nang dang ky tai khoan npp">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/LoginDistributorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/CheckoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/CheckoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/LoginAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/LoginAdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/RegisterNPPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/RegisterNPPController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/CloudinaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/CloudinaryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/TaiKhoanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/TaiKhoanDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/TaiKhoan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/TaiKhoan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/NhaPhanPhoiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/NhaPhanPhoiService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/TaiKhoanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/TaiKhoanService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/CheckoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Controller/CheckoutController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/RegisterNPPController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Controller/RegisterNPPController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Service/CloudinaryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Service/CloudinaryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/DAO/TaiKhoanDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/DAO/TaiKhoanDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Entity/TaiKhoan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Entity/TaiKhoan.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Service/NhaPhanPhoiService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Service/NhaPhanPhoiService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Service/TaiKhoanService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Service/TaiKhoanService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,36 +63,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
-    "Notification.DoNotAsk-Database detector": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.Unnamed.executor": "Run",
-    "com.codeium.enabled": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/minht/IdeaProjects/DATN-Gold4.0-SERVER",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "two.files.diff.last.used.folder": "C:/Users/minht/IdeaProjects/DATN-Gold4.0-SERVER",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
+    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/minht/IdeaProjects/DATN-Gold4.0-SERVER&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;two.files.diff.last.used.folder&quot;: &quot;C:/Users/minht/IdeaProjects/DATN-Gold4.0-SERVER&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="Gold40.Config" />
@@ -164,7 +164,8 @@
       <workItem from="1731649416557" duration="3285000" />
       <workItem from="1731749329332" duration="675000" />
       <workItem from="1731750064087" duration="3403000" />
-      <workItem from="1731792283922" duration="6461000" />
+      <workItem from="1731792283922" duration="8748000" />
+      <workItem from="1731809178704" duration="16769000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -230,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730989581392</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update 17/11/2024 them chuc nang dang ky tai khoan npp">
+      <option name="closed" value="true" />
+      <created>1731798878544</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1731798878544</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +265,7 @@
     <MESSAGE value="update 4/11/2024" />
     <MESSAGE value="update 4/11/2024 fix" />
     <MESSAGE value="update 7/11/2024 them chuc nang dang ky tai khoan admin fix loi mat khau" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 7/11/2024 them chuc nang dang ky tai khoan admin fix loi mat khau" />
+    <MESSAGE value="update 17/11/2024 them chuc nang dang ky tai khoan npp" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 17/11/2024 them chuc nang dang ky tai khoan npp" />
   </component>
 </project>
