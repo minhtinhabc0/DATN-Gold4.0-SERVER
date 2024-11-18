@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 17/11/2024 them chuc nang dang nhap/ duyet tai khoan nha phan phoi">
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="a">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/NhaPhanPhoiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/NhaPhanPhoiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/LoginAdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Controller/LoginAdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/DonHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/DonHangController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/DonHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/DonHangDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/TaiKhoanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/TaiKhoanService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,12 +31,12 @@
     &quot;assignee&quot;: &quot;minhtinhabc0&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git&quot;,
-    &quot;accountId&quot;: &quot;ba9ab3e1-8e71-4702-bbcb-495c62b2969d&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git",
+    "accountId": "3f49799c-5c9e-4b48-a5c6-296494d96e9d"
   }
-}</component>
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -69,7 +68,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/minht/IdeaProjects/DATN-Gold4.0-SERVER&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/DATN-Gold4.0-SERVER&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -89,6 +88,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Gold4_0" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Gold4_0" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Unnamed" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Gold4_0" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="Gold40.Gold40Application" />
@@ -100,8 +112,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
   </component>
@@ -158,6 +170,8 @@
       <workItem from="1731809178704" duration="23742000" />
       <workItem from="1731875771289" duration="65000" />
       <workItem from="1731900329442" duration="7290000" />
+      <workItem from="1731912331327" duration="66000" />
+      <workItem from="1731912398807" duration="10777000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />

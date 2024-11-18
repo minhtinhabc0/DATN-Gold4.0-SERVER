@@ -3,6 +3,7 @@ package Gold40.Service;
 import Gold40.DAO.NguoiDungDAO;
 import Gold40.DAO.TaiKhoanDAO;
 import Gold40.Entity.TaiKhoan;
+import Gold40.Util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,8 @@ import java.util.UUID;
 
 @Service
 public class TaiKhoanService {
-
+    @Autowired
+    private JwtUtil jwtUtil;
     @Autowired
     private TaiKhoanDAO taiKhoanRepository;
 
@@ -159,4 +161,5 @@ public class TaiKhoanService {
     public List<TaiKhoan> findByVaitro(int i) {
         return taiKhoanRepository.findByVaitro(i);
     }
+
 }
