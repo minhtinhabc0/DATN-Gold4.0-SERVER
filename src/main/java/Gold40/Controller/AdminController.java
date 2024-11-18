@@ -1,9 +1,12 @@
 package Gold40.Controller;
 
 import Gold40.DAO.NhaPhanPhoiDAO;
+import Gold40.Entity.NhaPhanPhoi;
 import Gold40.Entity.TaiKhoan;
+import Gold40.Service.EmailService;
 import Gold40.Service.NhaPhanPhoiService;
 import Gold40.Service.TaiKhoanService;
+import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -23,7 +26,8 @@ public class AdminController {
     private TaiKhoanService taiKhoanService;
     @Autowired
     private NhaPhanPhoiDAO nhaPhanPhoiDAO;
-
+    @Autowired
+    private EmailService emailService;
     // Hiển thị danh sách nhà phân phối với vai trò 2 (đã duyệt)
     @GetMapping("/approved")
     public ResponseEntity<List<TaiKhoan>> getApprovedDistributors() {
@@ -34,6 +38,25 @@ public class AdminController {
         }
         return ResponseEntity.ok(approvedDistributors);
     }
+@GetMapping("/ngdung")
+    public ResponseEntity<List<TaiKhoan>> getDistributors() {
+        // Fetching all distributors with role 2 (approved)
+        List<TaiKhoan> UserAccount = taiKhoanService.findByVaitro(0); // Vai trò 2 - đã duyệt
+        if (UserAccount.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(UserAccount);
+    }
+    @GetMapping("/ngdungband")
+    public ResponseEntity<List<TaiKhoan>> getuserbandDistributors() {
+        // Fetching all distributors with role 2 (approved)
+        List<TaiKhoan> UserAccountb = taiKhoanService.findByVaitro(6); // Vai trò 2 - đã duyệt
+        if (UserAccountb.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(UserAccountb);
+    }
+
 
     // Hiển thị danh sách nhà phân phối với vai trò 4 (chờ duyệt)
     @GetMapping("/pending")
@@ -64,6 +87,15 @@ public class AdminController {
             if (taiKhoan.getVaitro() == 2) { // Ensure it's an approved distributor (role 2)
                 taiKhoan.setVaitro(5); // Chuyển vai trò thành 5 (khóa tài khoản)
                 taiKhoanService.save(taiKhoan);
+
+                // Gửi email thông báo tài khoản đã bị khóa
+                try {
+                    String emailBody = "<h2>Tài khoản của bạn đã bị khóa</h2><p>Chúng tôi thông báo rằng tài khoản của bạn đã bị khóa do vi phạm quy định.</p>";
+                    emailService.sendEmail(nhaPhanPhoiDAO.findById(taiKhoan.getManhaphanphoi()).get().getEmail(), "Thông báo khóa tài khoản", emailBody, true);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+
                 return ResponseEntity.ok("Tài khoản đã bị khóa.");
             } else {
                 return ResponseEntity.badRequest().body("Tài khoản không phải là nhà phân phối đã duyệt.");
@@ -72,6 +104,7 @@ public class AdminController {
             return ResponseEntity.notFound().build();
         }
     }
+
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     // Duyệt hồ sơ nhà phân phối (chuyển vai trò 4 thành vai trò 2)
     @PostMapping("/approve/{id}")
@@ -82,6 +115,12 @@ public class AdminController {
             if (taiKhoan.getVaitro() == 4) { // Ensure it's a pending distributor (role 4)
                 taiKhoan.setVaitro(2); // Chuyển vai trò thành 2 (đã duyệt)
                 taiKhoanService.save(taiKhoan);
+                try {
+                    String emailBody = "<h2>chúc mừng bạn đã đăng ký hợp tác với chúng tôi thành công</h2><p>bây giờ bạn có thể tới trang đăng nhập của nhà phân phối để có thể truy cập và tạo các sản phẩm của bạn </p>";
+                    emailService.sendEmail(nhaPhanPhoiDAO.findById(taiKhoan.getManhaphanphoi()).get().getEmail(), "Duyệt hồ sơ", emailBody, true);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
                 return ResponseEntity.ok("Hồ sơ đã được duyệt.");
             } else {
                 return ResponseEntity.badRequest().body("Tài khoản không phải là nhà phân phối chờ duyệt.");
@@ -102,7 +141,12 @@ public class AdminController {
                     taiKhoanService.delete(taiKhoan);
                     nhaPhanPhoiDAO.deleteById(taiKhoan.getManhaphanphoi());
 
-
+                try {
+                    String emailBody = "<h2>Tài khoản của bạn đã bị từ chối</h2><p>chúng tôi rất tiêc khi gửi thông báo này nhưng có vẻ như thông tin bạn cung cấp cho chúng tôi không đúng hoặc không đủ yêu cầu để có thể duyệt hồ sơ bạn có thể tạo lại hồ sơ</p>";
+                    emailService.sendEmail(nhaPhanPhoiDAO.findById(taiKhoan.getManhaphanphoi()).get().getEmail(), "Mong rằng chúng ta có thể hợp tác với nhau trong thời gian tới", emailBody, true);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
 
 
 
@@ -114,7 +158,7 @@ public class AdminController {
             return ResponseEntity.notFound().build();
         }
     }
-    @PostMapping("unlock/{id}")
+    @PostMapping("/unlock/{id}")
     public ResponseEntity<String> unlockDistributorAccount(@PathVariable String id) {
         Optional<TaiKhoan> taiKhoanOpt = taiKhoanService.findById(id);
         if (taiKhoanOpt.isPresent()) {
@@ -122,13 +166,31 @@ public class AdminController {
             if (taiKhoan.getVaitro() == 5) { // Ensure it's a locked distributor (role 5)
                 taiKhoan.setVaitro(2); // Chuyển vai trò thành 2 (đã duyệt)
                 taiKhoanService.save(taiKhoan);
-                return ResponseEntity.ok("Tài khoản đã được khóa.");
+
+                // Gửi email thông báo tài khoản đã được mở khóa
+                try {
+                    String emailBody = "<h2>Tài khoản của bạn đã được mở khóa</h2><p>Chúng tôi vui mừng thông báo rằng tài khoản của bạn đã được mở khóa. Bạn có thể tiếp tục sử dụng tài khoản.</p>";
+                    emailService.sendEmail(nhaPhanPhoiDAO.findById(taiKhoan.getManhaphanphoi()).get().getEmail(), "Thông báo mở khóa tài khoản", emailBody, true);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+
+                return ResponseEntity.ok("Tài khoản đã được mở khóa.");
             } else {
                 return ResponseEntity.badRequest().body("Tài khoản không phải là nhà phân phối khóa.");
             }
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+    @GetMapping("/usser")
+    public ResponseEntity<List<TaiKhoan>> getUserAccount() {
+        // Fetching all distributors with role 4 (pending)
+        List<TaiKhoan> pendingDistributors = taiKhoanService.findByVaitro(0); // Vai trò 4 - chờ duyệt
+        if (pendingDistributors.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(pendingDistributors);
     }
 
 }

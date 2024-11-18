@@ -51,7 +51,7 @@ public class LoginController {
             TaiKhoan user = taiKhoanService.login(tenTK, matKhau);
 
             // Kiểm tra vai trò người dùng
-            if (user.getVaitro() != 0) {
+            if (user.getVaitro() != 0 || user.getVaitro() != 6) {
                 return ResponseEntity.status(HttpStatus.FORBIDDEN)
                         .body("Tài khoản không có quyền truy cập");
             }

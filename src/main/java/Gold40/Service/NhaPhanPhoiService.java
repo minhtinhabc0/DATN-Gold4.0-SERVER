@@ -5,6 +5,8 @@ import Gold40.Entity.NhaPhanPhoi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class NhaPhanPhoiService {
     @Autowired
@@ -31,5 +33,9 @@ public class NhaPhanPhoiService {
 
 
     public void deleteByTaiKhoanId(String id) {
+    }
+
+    public Optional<NhaPhanPhoi> findById(String id) {
+        return NPPDAO.findById(id);
     }
 }
