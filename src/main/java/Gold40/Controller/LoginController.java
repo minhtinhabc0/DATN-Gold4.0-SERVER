@@ -51,37 +51,43 @@ public class LoginController {
             TaiKhoan user = taiKhoanService.login(tenTK, matKhau);
 
             // Kiểm tra vai trò người dùng
-            if (user.getVaitro() != 0 || user.getVaitro() != 6) {
-                return ResponseEntity.status(HttpStatus.FORBIDDEN)
-                        .body("Tài khoản không có quyền truy cập");
+            if (user.getVaitro() == 6 || user.getVaitro() == 0) {
+                return loginforuser(user);
+
             }
-
+            System.out.println("lỗi vai trò người dùng");
             // Lấy thời gian hiện tại
-            LocalDateTime currentTime = LocalDateTime.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
-            String formattedTime = currentTime.format(formatter);
-            System.out.println("Khách hàng " + tenTK + " đã đăng nhập thành công vào lúc " + formattedTime);
 
-            // Tạo token JWT cho người dùng
-            String token = jwtUtil.generateToken(user.getTaikhoan(), "ROLE_USER");
 
-            // Lấy thông tin người dùng
-            Map<String, Object> userInfo = new HashMap<>();
-            userInfo.put("username", user.getTaikhoan());
-            userInfo.put("email", user.getNguoiDung().getEmail());
-            userInfo.put("roles", user.getVaitro());
 
-            // Tạo response trả về cho client
-            Map<String, Object> response = new HashMap<>();
-            response.put("token", token);
-            response.put("userInfo", userInfo);
-            response.put("redirectUrl", "/home");
-
-            return ResponseEntity.ok(response);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body("Đăng nhập thất bại: " + e.getMessage());
         }
+
+        return null;
+    }
+    private ResponseEntity<?> loginforuser (TaiKhoan user){
+        LocalDateTime currentTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy");
+        String formattedTime = currentTime.format(formatter);
+        System.out.println("Khách hàng " + user.getTaikhoan() + " đã đăng nhập thành công vào lúc " + formattedTime);
+
+        // Tạo token JWT cho người dùng
+        String token = jwtUtil.generateToken(user.getTaikhoan(), "ROLE_USER");
+
+        // Lấy thông tin người dùng
+        Map<String, Object> userInfo = new HashMap<>();
+        userInfo.put("username", user.getTaikhoan());
+        userInfo.put("email", user.getNguoiDung().getEmail());
+        userInfo.put("roles", user.getVaitro());
+
+        // Tạo response trả về cho client
+        Map<String, Object> response = new HashMap<>();
+        response.put("token", token);
+        response.put("userInfo", userInfo);
+        response.put("redirectUrl", "/home");
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/check-auth")

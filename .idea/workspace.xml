@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 17/11/2024 them chuc nang dang nhap/ duyet tai khoan nha phan phoi">
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 18/11/2024 chuc nang quan ly tai khoan cua AdminController">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/GioHangController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/NPPController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/GioHangDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/SanPhamEditDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/SanPhamedit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/GioHangService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/NhaPhanPhoiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/NhaPhanPhoiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/LoginAdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Controller/LoginAdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Service/NhaPhanPhoiService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Service/NhaPhanPhoiService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +25,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -38,6 +45,9 @@
     &quot;accountId&quot;: &quot;ba9ab3e1-8e71-4702-bbcb-495c62b2969d&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -157,7 +167,7 @@
       <workItem from="1731792283922" duration="8748000" />
       <workItem from="1731809178704" duration="23742000" />
       <workItem from="1731875771289" duration="65000" />
-      <workItem from="1731900329442" duration="7290000" />
+      <workItem from="1731900329442" duration="17237000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -239,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731826528626</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update 18/11/2024 chuc nang quan ly tai khoan cua AdminController">
+      <option name="closed" value="true" />
+      <created>1731911852615</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1731911852615</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,6 +285,7 @@
     <MESSAGE value="update 7/11/2024 them chuc nang dang ky tai khoan admin fix loi mat khau" />
     <MESSAGE value="update 17/11/2024 them chuc nang dang ky tai khoan npp" />
     <MESSAGE value="update 17/11/2024 them chuc nang dang nhap/ duyet tai khoan nha phan phoi" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 17/11/2024 them chuc nang dang nhap/ duyet tai khoan nha phan phoi" />
+    <MESSAGE value="update 18/11/2024 chuc nang quan ly tai khoan cua AdminController" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 18/11/2024 chuc nang quan ly tai khoan cua AdminController" />
   </component>
 </project>
