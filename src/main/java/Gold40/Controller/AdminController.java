@@ -8,6 +8,7 @@ import Gold40.Service.NhaPhanPhoiService;
 import Gold40.Service.TaiKhoanService;
 import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -55,6 +56,51 @@ public class AdminController {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok(UserAccountb);
+    }
+    @PostMapping("/ngdungband/{id}")
+    public ResponseEntity<String> lockUserAccount(@PathVariable String id) {
+        Optional<TaiKhoan> taiKhoanOpt = taiKhoanService.findById(id);
+        if (taiKhoanOpt.isPresent()) {
+            TaiKhoan taiKhoan = taiKhoanOpt.get();
+            if (taiKhoan.getVaitro() == 0) {
+                taiKhoan.setVaitro(6);
+                taiKhoanService.save(taiKhoan);
+                try {
+                    String emailBody = "<h2>Tài khoản "+taiKhoan.getTaikhoan()+ " của bạn đã bị khóa</h2><p>Chúng tôi thông báo rằng tài khoản của bạn đã bị khóa do vi phạm quy định.</p>";
+                    emailService.sendEmail(nhaPhanPhoiDAO.findById(taiKhoan.getManhaphanphoi()).get().getEmail(), "Thông báo khóa tài khoản", emailBody, true);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+                return ResponseEntity.ok("Tài khoản nguoidung đã được khóa.");
+            } else {
+                return ResponseEntity.badRequest().body("Tài khoản bi khoa chua?.");
+            }
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+            }
+
+    @PostMapping("/ngdungunband/{id}")
+    public ResponseEntity<String> unlockUserAccount(@PathVariable String id) {
+        Optional<TaiKhoan> taiKhoanOpt = taiKhoanService.findById(id);
+        if (taiKhoanOpt.isPresent()) {
+            TaiKhoan taiKhoan = taiKhoanOpt.get();
+            if (taiKhoan.getVaitro() == 6) {
+                taiKhoan.setVaitro(0);
+                taiKhoanService.save(taiKhoan);
+                try {
+                    String emailBody = "<h2>Tài khoản "+taiKhoan.getTaikhoan()+" của bạn đã được mở khóa</h2><p>Tài khoản của bạn đã được mở khóa bây giờ bạn có thể sử dụng tài khoản để có thể giao dịch Gcoin.</p>";
+                    emailService.sendEmail(nhaPhanPhoiDAO.findById(taiKhoan.getManhaphanphoi()).get().getEmail(), "Thông báo khóa tài khoản", emailBody, true);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+                return ResponseEntity.ok("Tài khoản nguoidung đã được khóa.");
+            } else {
+                return ResponseEntity.badRequest().body("Tài khoản bi khoa chua?.");
+            }
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 
@@ -182,15 +228,6 @@ public class AdminController {
         } else {
             return ResponseEntity.notFound().build();
         }
-    }
-    @GetMapping("/usser")
-    public ResponseEntity<List<TaiKhoan>> getUserAccount() {
-        // Fetching all distributors with role 4 (pending)
-        List<TaiKhoan> pendingDistributors = taiKhoanService.findByVaitro(0); // Vai trò 4 - chờ duyệt
-        if (pendingDistributors.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(pendingDistributors);
     }
 
 }
