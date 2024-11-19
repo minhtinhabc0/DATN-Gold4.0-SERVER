@@ -15,7 +15,7 @@ public class ProductsController {
     ProductsDAO productsDAO;
     @GetMapping("/products")
     public List<SanPham> getAll(Model model) {
-        return productsDAO.findAll();
+        return productsDAO.findAllByTrangThaiTrue();
     }
 
     @GetMapping("/products/{id}")
