@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 18/11/2024 chuc nang quan ly tai khoan cua AdminController">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/BaoCaoNPPController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/BaoCaoNPPDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/BaoCaoNPP.java" afterDir="false" />
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="baocaonpp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/NhaPhanPhoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/NhaPhanPhoi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/SanPham.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Entity/NhaPhanPhoi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Entity/NhaPhanPhoi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Entity/SanPham.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Entity/SanPham.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,12 +29,12 @@
     &quot;assignee&quot;: &quot;minhtinhabc0&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git&quot;,
-    &quot;accountId&quot;: &quot;ba9ab3e1-8e71-4702-bbcb-495c62b2969d&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git",
+    "accountId": "3f49799c-5c9e-4b48-a5c6-296494d96e9d"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -109,8 +100,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
   </component>
@@ -167,6 +158,7 @@
       <workItem from="1731809178704" duration="23742000" />
       <workItem from="1731875771289" duration="65000" />
       <workItem from="1731900329442" duration="17237000" />
+      <workItem from="1732022460627" duration="252000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -256,7 +248,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731911852615</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="baocaonpp">
+      <option name="closed" value="true" />
+      <created>1732022400238</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1732022400238</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,6 +285,7 @@
     <MESSAGE value="update 17/11/2024 them chuc nang dang ky tai khoan npp" />
     <MESSAGE value="update 17/11/2024 them chuc nang dang nhap/ duyet tai khoan nha phan phoi" />
     <MESSAGE value="update 18/11/2024 chuc nang quan ly tai khoan cua AdminController" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 18/11/2024 chuc nang quan ly tai khoan cua AdminController" />
+    <MESSAGE value="baocaonpp" />
+    <option name="LAST_COMMIT_MESSAGE" value="baocaonpp" />
   </component>
 </project>
