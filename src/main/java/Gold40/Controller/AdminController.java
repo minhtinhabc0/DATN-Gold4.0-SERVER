@@ -21,9 +21,6 @@ import java.util.Optional;
 public class AdminController {
 
     @Autowired
-    private NhaPhanPhoiService nhaPhanPhoiService;
-
-    @Autowired
     private TaiKhoanService taiKhoanService;
     @Autowired
     private NhaPhanPhoiDAO nhaPhanPhoiDAO;

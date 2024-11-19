@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -12,8 +13,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "San_Pham")
 public class SanPham {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "masanpham", nullable = false)
     private Integer maSanPham;
 
@@ -21,9 +22,9 @@ public class SanPham {
     private String tenSanPham;
 
     @Column(name = "gia", nullable = false)
-    private Integer gia;
+    private BigDecimal gia; // Changed to BigDecimal for monetary values
 
-    @Column(name = "chitiet", length = 255, nullable = false)
+    @Column(name = "chitiet", length = 1000, nullable = false) // Increased length for description
     private String chiTiet;
 
     @Column(name = "loai", length = 255, nullable = false)
@@ -44,12 +45,18 @@ public class SanPham {
     @Column(name = "loaida", length = 255, nullable = false)
     private String loaiDa;
 
-
     @Column(name = "soluong")
     private int soLuong;
+
+    @Column(name = "tiencong")
+    private int tienCong;
+
+    @Column(name = "trangthai")
+    private boolean trangThai;
 
     @ManyToOne
     @JoinColumn(name = "manhaphanphoi")
     private NhaPhanPhoi nhaPhanPhoi;
-}
 
+
+}
