@@ -1,11 +1,9 @@
 package Gold40.Controller;
 
+
 import Gold40.DAO.ProductsDAO;
 import Gold40.Entity.SanPham;
 import Gold40.Entity.TaiKhoan;
-import Gold40.Service.EmailService;
-import Gold40.Service.NhaPhanPhoiService;
-import Gold40.Service.SanPhamService;
 import Gold40.Service.TaiKhoanService;
 import Gold40.Util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
-
-import static com.cloudinary.AccessControlRule.AccessType.token;
 
 @RestController
 @RequestMapping("/api/nppctrl")
@@ -30,16 +26,9 @@ public class NPPController {
     private TaiKhoanService taiKhoanService;
 
     @Autowired
-    private NhaPhanPhoiService nhaPhanPhoiService;
-
-    @Autowired
     private ProductsDAO productsDAO;
 
-    @Autowired
-    private SanPhamService sanPhamService;
 
-    @Autowired
-    private EmailService mailService;
 
     private String extractToken(String token) {
         // Return null if token is invalid or doesn't start with "Bearer "
@@ -158,5 +147,40 @@ public class NPPController {
         SanPham updated = productsDAO.save(existingProduct);
         return ResponseEntity.ok(updated); // Trả về sản phẩm đã sửa
     }
+
+    @DeleteMapping("/delete-product/{id}")
+    public ResponseEntity<String> deleteProduct(
+            @PathVariable("id") int productId,
+            @RequestHeader("Authorization") String token) {
+
+        String extractedToken = extractToken(token);
+
+        if (extractedToken == null) {
+            return ResponseEntity.badRequest().body("Token không hợp lệ");
+        }
+
+        String username = jwtUtil.extractUsername(extractedToken);
+        TaiKhoan taiKhoan = taiKhoanService.findByTaikhoan(username);
+
+        if (taiKhoan == null || taiKhoan.getNhaPhanPhoi() == null) {
+            return ResponseEntity.status(404).body("Không tìm thấy nhà phân phối");
+        }
+
+        // Lấy sản phẩm từ cơ sở dữ liệu
+        SanPham existingProduct = productsDAO.findById(productId).orElse(null);
+        if (existingProduct == null) {
+            return ResponseEntity.status(404).body("Sản phẩm không tồn tại");
+        }
+
+        // Kiểm tra quyền của nhà phân phối, chỉ có thể xóa sản phẩm của chính mình
+        if (!existingProduct.getNhaPhanPhoi().getMaNhaPhanPhoi().equals(taiKhoan.getNhaPhanPhoi().getMaNhaPhanPhoi())) {
+            return ResponseEntity.status(403).body("Không có quyền xóa sản phẩm này");
+        }
+
+        // Xóa sản phẩm
+        productsDAO.delete(existingProduct);
+        return ResponseEntity.ok("Sản phẩm đã được xóa thành công");
+    }
+
 
 }

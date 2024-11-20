@@ -13,4 +13,7 @@ public interface ProductsDAO extends JpaRepository<SanPham, Integer> {
     List<SanPham> findByNhaPhanPhoi_MaNhaPhanPhoi(String maNhaPhanPhoi);
 
     boolean existsByMaSanPham(Integer maSanPham); // Thay đổi kiểu dữ liệu từ String sang Integer
+
+    @Query("SELECT p FROM SanPham p WHERE p.trangThai = false")
+    List<SanPham> findAllByTrangThaiFalse();
 }

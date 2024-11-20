@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 20/11/2024 chuc nang CRUD san pham npp">
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/RegisterNPPController.class" beforeDir="false" />
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 20/11/2024 chuc nang CRUD san pham npp fix update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/NPPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/NPPController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/BaoCaoNPPDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/BaoCaoNPPDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/ProductsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/ProductsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/BaoCaoNPP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/BaoCaoNPP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/NhaPhanPhoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/NhaPhanPhoi.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -162,6 +168,8 @@
       <workItem from="1732003871632" duration="7138000" />
       <workItem from="1732024199980" duration="2790000" />
       <workItem from="1732061428596" duration="4821000" />
+      <workItem from="1732067089797" duration="1243000" />
+      <workItem from="1732075515624" duration="2263000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -283,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732067056360</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="update 20/11/2024 chuc nang CRUD san pham npp fix update">
+      <option name="closed" value="true" />
+      <created>1732067394372</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1732067394372</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,6 +330,7 @@
     <MESSAGE value="update 18/11/2024 chuc nang quan ly tai khoan cua AdminController" />
     <MESSAGE value="update 19/11/2024 chuc nang them san pham npp" />
     <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20/11/2024 chuc nang CRUD san pham npp" />
+    <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp fix update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20/11/2024 chuc nang CRUD san pham npp fix update" />
   </component>
 </project>
