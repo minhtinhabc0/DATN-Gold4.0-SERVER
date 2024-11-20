@@ -10,7 +10,6 @@ import lombok.Data;
 @Table(name = "Lich_Su_Nap")
 public class LichSuNap {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "malichsunap")
     private Integer maLichSuNap;
 
@@ -24,10 +23,10 @@ public class LichSuNap {
     @Column(name="trangthai")
     private String trangThai;
 
-    @Column(name="soGcoin")
+    @Column(name="sogcoin")
     private Integer soGcoin;
 
-    @Column(name = "sotiennap", nullable = false)
+    @Column(name = "sotien", nullable = false)
     private Float soTienNap;
 
     @Column(name = "thoigiannap")

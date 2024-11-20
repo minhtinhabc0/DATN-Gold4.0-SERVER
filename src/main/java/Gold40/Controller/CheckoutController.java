@@ -71,6 +71,7 @@ public class CheckoutController {
             // Lưu vào lịch sử nạp với trạng thái "đang xử lý"
             String taikhoan = jwtUtil.extractUsername(token);
             String maNguoiDung = taiKhoanService.findByTaikhoan(taikhoan).getManguoidung();
+            System.out.println(maNguoiDung);
             paymentService.savePaymentHistory(maNguoiDung, "đang xử lý", quantity, price,orderCode);
 
             // Trả về checkoutUrl để chuyển hướng người dùng
