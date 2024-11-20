@@ -18,6 +18,15 @@ public class LichSuNap {
     @JoinColumn(name = "manguoidung")
     private NguoiDung nguoiDung;
 
+    @Column(name="ordercode")
+    private long orderCode;
+
+    @Column(name="trangthai")
+    private String trangThai;
+
+    @Column(name="soGcoin")
+    private Integer soGcoin;
+
     @Column(name = "sotiennap", nullable = false)
     private Float soTienNap;
 
