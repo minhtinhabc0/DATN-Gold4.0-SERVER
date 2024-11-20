@@ -1,12 +1,11 @@
 package Gold40.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 
 @NoArgsConstructor
@@ -36,7 +35,8 @@ public class NhaPhanPhoi {
     private String dl2;
     @Column(name = "dl3", length = 255)
     private String dl3;
-
+    @OneToMany(mappedBy = "manhaPhanphoi")  // Quan hệ 1:N với DoanhThu
+    private List<BaoCaoNPP> baoCaoNPPS;
 
 
 }

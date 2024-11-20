@@ -32,7 +32,7 @@ public class WebConfig implements WebMvcConfigurer {
                                 "/api/ad/**", "/api/user/**", "/api/users/**","/api/donhang/**","/api/hoadon/**","/api/npp/**","/api/npp/verify-otp",
                                 "/api/adctrl/**","/api/nppctrl/**",
                                 "/api/gold-prices", "/api/upload/**",
-                                "/api/products/**","/api/checkout/**").permitAll()
+                                "/api/products/**","/api/checkout/**","/api/baocaonpp/**").permitAll()
 
                         .anyRequest().authenticated() // Tất cả các yêu cầu khác phải được xác thực
                 );
