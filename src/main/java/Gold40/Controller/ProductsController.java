@@ -23,11 +23,7 @@ public class ProductsController {
         return productsDAO.findById(id).get();
     }
 
-    @PostMapping("/products")
-    public SanPham post(@RequestBody SanPham sanpham) {
-        productsDAO.save(sanpham);
-        return sanpham;
-    }
+
 
     @PutMapping("/products/{id}")
     public SanPham put(@PathVariable("id") Integer id, @RequestBody SanPham sanpham) {

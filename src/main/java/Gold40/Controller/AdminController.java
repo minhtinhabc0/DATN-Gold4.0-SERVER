@@ -235,15 +235,12 @@ public class AdminController {
     //quan ly san pham ===============================
 
 
-    @GetMapping("/productstrue")
-    public List<SanPham> getAlltrue(Model model) {
-        return productsDAO.findAllByTrangThaiTrue();
+    @GetMapping("/productsall")
+    public List<SanPham> getAllsp(Model model) {
+        return productsDAO.findAll();
     }
 
-    @GetMapping("/productsfalse")
-    public List<SanPham> getAllfalse(Model model) {
-        return productsDAO.findAllByTrangThaiFalse();
-    }
+
 
 
 }

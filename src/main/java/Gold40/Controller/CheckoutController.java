@@ -4,6 +4,7 @@ import Gold40.Entity.LichSuNap;
 import Gold40.Entity.NguoiDung;
 import Gold40.Entity.PaymentRequest;
 import Gold40.Service.PaymentService;
+import Gold40.Service.TaiKhoanService;
 import Gold40.Util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,12 +27,14 @@ public class CheckoutController {
     private final PayOS payOS;
     private final PaymentService paymentService;
     private final JwtUtil jwtUtil;
+    private final TaiKhoanService taiKhoanService;
 
     @Autowired
-    public CheckoutController(PayOS payOS, PaymentService paymentService, JwtUtil jwtUtil) {
+    public CheckoutController(PayOS payOS, PaymentService paymentService, JwtUtil jwtUtil, TaiKhoanService taiKhoanService) {
         this.payOS = payOS;
         this.paymentService = paymentService;
         this.jwtUtil = jwtUtil;
+        this.taiKhoanService = taiKhoanService;
     }
 
     private String extractToken(String token) {
@@ -66,7 +69,8 @@ public class CheckoutController {
             CheckoutResponseData data = payOS.createPaymentLink(paymentData);
 
             // Lưu vào lịch sử nạp với trạng thái "đang xử lý"
-            String maNguoiDung = jwtUtil.extractUsername(token); // Lấy mã người dùng từ token
+            String taikhoan = jwtUtil.extractUsername(token);
+            String maNguoiDung = taiKhoanService.findByTaikhoan(taikhoan).getManguoidung();
             paymentService.savePaymentHistory(maNguoiDung, "đang xử lý", quantity, price,orderCode);
 
             // Trả về checkoutUrl để chuyển hướng người dùng
