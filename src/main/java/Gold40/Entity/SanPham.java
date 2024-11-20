@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -15,7 +16,6 @@ import java.util.List;
 @Table(name = "San_Pham")
 public class SanPham {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "masanpham", nullable = false)
     private Integer maSanPham;
 
@@ -23,7 +23,9 @@ public class SanPham {
     private String tenSanPham;
 
     @Column(name = "gia", nullable = false)
-    private Integer gia;
+    private BigDecimal gia;
+    @Column(name = "tiencong", nullable = false)
+    private Integer tienCong;
 
     @Column(name = "chitiet", length = 255, nullable = false)
     private String chiTiet;
@@ -49,13 +51,11 @@ public class SanPham {
 
     @Column(name = "soluong")
     private int soLuong;
-
+    @Column(name = "trangthai")
+    private boolean trangThai;
     @ManyToOne
     @JoinColumn(name = "manhaphanphoi")
     private NhaPhanPhoi nhaPhanPhoi;
 
-
-    @OneToMany(mappedBy = "manhaPhanphoi")  // Quan hệ 1:N với DoanhThu
-    private List<BaoCaoNPP> baoCaoNPPS;
 }
 

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 20/11/2024 chuc nang CRUD san pham npp" />
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 20/11/2024 chuc nang CRUD san pham npp">
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/RegisterNPPController.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -159,7 +161,7 @@
       <workItem from="1731975513016" duration="7569000" />
       <workItem from="1732003871632" duration="7138000" />
       <workItem from="1732024199980" duration="2790000" />
-      <workItem from="1732061428596" duration="4771000" />
+      <workItem from="1732061428596" duration="4821000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -273,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732066581038</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="update 20/11/2024 chuc nang CRUD san pham npp">
+      <option name="closed" value="true" />
+      <created>1732067056360</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1732067056360</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
