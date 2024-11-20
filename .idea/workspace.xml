@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 19/11/2024 chuc nang them san pham npp">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/NPPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/NPPController.java" afterDir="false" />
-    </list>
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 20/11/2024 chuc nang CRUD san pham npp" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -162,7 +159,7 @@
       <workItem from="1731975513016" duration="7569000" />
       <workItem from="1732003871632" duration="7138000" />
       <workItem from="1732024199980" duration="2790000" />
-      <workItem from="1732061428596" duration="4237000" />
+      <workItem from="1732061428596" duration="4771000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -268,7 +265,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732011174143</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="update 20/11/2024 chuc nang CRUD san pham npp">
+      <option name="closed" value="true" />
+      <created>1732066581038</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1732066581038</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,6 +303,7 @@
     <MESSAGE value="update 17/11/2024 them chuc nang dang nhap/ duyet tai khoan nha phan phoi" />
     <MESSAGE value="update 18/11/2024 chuc nang quan ly tai khoan cua AdminController" />
     <MESSAGE value="update 19/11/2024 chuc nang them san pham npp" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 19/11/2024 chuc nang them san pham npp" />
+    <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20/11/2024 chuc nang CRUD san pham npp" />
   </component>
 </project>
