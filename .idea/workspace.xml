@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="baocaonpp">
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 20/11/2024 chuc nang CRUD san pham npp fix update">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/CheckoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/CheckoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/ProductsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/ProductsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/ProductsDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -29,12 +34,12 @@
     &quot;assignee&quot;: &quot;minhtinhabc0&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git",
-    "accountId": "3f49799c-5c9e-4b48-a5c6-296494d96e9d"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git&quot;,
+    &quot;accountId&quot;: &quot;ba9ab3e1-8e71-4702-bbcb-495c62b2969d&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -100,8 +105,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -157,8 +162,13 @@
       <workItem from="1731792283922" duration="8748000" />
       <workItem from="1731809178704" duration="23742000" />
       <workItem from="1731875771289" duration="65000" />
-      <workItem from="1731900329442" duration="17237000" />
-      <workItem from="1732022460627" duration="252000" />
+      <workItem from="1731900329442" duration="17965000" />
+      <workItem from="1731975513016" duration="7569000" />
+      <workItem from="1732003871632" duration="7138000" />
+      <workItem from="1732024199980" duration="2790000" />
+      <workItem from="1732061428596" duration="4821000" />
+      <workItem from="1732067089797" duration="1243000" />
+      <workItem from="1732075515624" duration="2263000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -248,15 +258,47 @@
       <option name="project" value="LOCAL" />
       <updated>1731911852615</updated>
     </task>
-    <task id="LOCAL-00012" summary="baocaonpp">
+    <task id="LOCAL-00012" summary="update 18/11/2024 chuc nang quan ly tai khoan cua AdminController">
       <option name="closed" value="true" />
-      <created>1732022400238</created>
+      <created>1731926343019</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1732022400238</updated>
+      <updated>1731926343019</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update 19/11/2024 chuc nang them san pham npp">
+      <option name="closed" value="true" />
+      <created>1732011174143</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1732011174143</updated>
+    </task>
+    <task id="LOCAL-00014" summary="update 20/11/2024 chuc nang CRUD san pham npp">
+      <option name="closed" value="true" />
+      <created>1732066581038</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1732066581038</updated>
+    </task>
+    <task id="LOCAL-00015" summary="update 20/11/2024 chuc nang CRUD san pham npp">
+      <option name="closed" value="true" />
+      <created>1732067056360</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1732067056360</updated>
+    </task>
+    <task id="LOCAL-00016" summary="update 20/11/2024 chuc nang CRUD san pham npp fix update">
+      <option name="closed" value="true" />
+      <created>1732067394372</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1732067394372</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +327,9 @@
     <MESSAGE value="update 17/11/2024 them chuc nang dang ky tai khoan npp" />
     <MESSAGE value="update 17/11/2024 them chuc nang dang nhap/ duyet tai khoan nha phan phoi" />
     <MESSAGE value="update 18/11/2024 chuc nang quan ly tai khoan cua AdminController" />
-    <MESSAGE value="baocaonpp" />
-    <option name="LAST_COMMIT_MESSAGE" value="baocaonpp" />
+    <MESSAGE value="update 19/11/2024 chuc nang them san pham npp" />
+    <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp" />
+    <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp fix update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 20/11/2024 chuc nang CRUD san pham npp fix update" />
   </component>
 </project>

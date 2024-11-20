@@ -35,7 +35,8 @@ public class NhaPhanPhoi {
     private String dl2;
     @Column(name = "dl3", length = 255)
     private String dl3;
-
+//    @OneToMany(mappedBy = "manhaPhanphoi")  // Quan hệ 1:N với DoanhThu
+//    private List<BaoCaoNPP> baoCaoNPPS;
 
 
 }

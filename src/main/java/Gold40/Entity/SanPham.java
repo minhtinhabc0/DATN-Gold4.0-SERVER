@@ -16,7 +16,6 @@ import java.util.List;
 @Table(name = "San_Pham")
 public class SanPham {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "masanpham", nullable = false)
     private Integer maSanPham;
 
@@ -25,8 +24,10 @@ public class SanPham {
 
     @Column(name = "gia", nullable = false)
     private BigDecimal gia;
+    @Column(name = "tiencong", nullable = false)
+    private Integer tienCong;
 
-    @Column(name = "chitiet", length = 1000, nullable = false)
+    @Column(name = "chitiet", length = 255, nullable = false)
     private String chiTiet;
 
     @Column(name = "loai", length = 255, nullable = false)
@@ -50,15 +51,11 @@ public class SanPham {
 
     @Column(name = "soluong")
     private int soLuong;
-    @Column(name = "tiencong")
-    private int tienCong;
     @Column(name = "trangthai")
     private boolean trangThai;
     @ManyToOne
     @JoinColumn(name = "manhaphanphoi")
     private NhaPhanPhoi nhaPhanPhoi;
-
-
 
 }
 

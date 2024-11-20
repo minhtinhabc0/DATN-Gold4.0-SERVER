@@ -1,16 +1,17 @@
 package Gold40.Controller;
 
 import Gold40.DAO.NhaPhanPhoiDAO;
-import Gold40.Entity.NhaPhanPhoi;
+
+import Gold40.DAO.ProductsDAO;
+import Gold40.Entity.SanPham;
 import Gold40.Entity.TaiKhoan;
 import Gold40.Service.EmailService;
-import Gold40.Service.NhaPhanPhoiService;
 import Gold40.Service.TaiKhoanService;
 import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +27,8 @@ public class AdminController {
     private NhaPhanPhoiDAO nhaPhanPhoiDAO;
     @Autowired
     private EmailService emailService;
+    @Autowired
+    private ProductsDAO productsDAO;
     // Hiển thị danh sách nhà phân phối với vai trò 2 (đã duyệt)
     @GetMapping("/approved")
     public ResponseEntity<List<TaiKhoan>> getApprovedDistributors() {
@@ -226,5 +229,18 @@ public class AdminController {
             return ResponseEntity.notFound().build();
         }
     }
+
+
+
+    //quan ly san pham ===============================
+
+
+    @GetMapping("/productsall")
+    public List<SanPham> getAllsp(Model model) {
+        return productsDAO.findAll();
+    }
+
+
+
 
 }

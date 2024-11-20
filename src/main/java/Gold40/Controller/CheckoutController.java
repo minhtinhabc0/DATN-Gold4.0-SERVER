@@ -1,6 +1,10 @@
 package Gold40.Controller;
 
+import Gold40.Entity.LichSuNap;
+import Gold40.Entity.NguoiDung;
 import Gold40.Entity.PaymentRequest;
+import Gold40.Service.PaymentService;
+import Gold40.Service.TaiKhoanService;
 import Gold40.Util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,32 +20,36 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-
-
 @RestController
 @RequestMapping("/api/checkout")
 public class CheckoutController {
+
     private final PayOS payOS;
+    private final PaymentService paymentService;
+    private final JwtUtil jwtUtil;
+    private final TaiKhoanService taiKhoanService;
+
     @Autowired
-    private JwtUtil jwtUtil;
+    public CheckoutController(PayOS payOS, PaymentService paymentService, JwtUtil jwtUtil, TaiKhoanService taiKhoanService) {
+        this.payOS = payOS;
+        this.paymentService = paymentService;
+        this.jwtUtil = jwtUtil;
+        this.taiKhoanService = taiKhoanService;
+    }
+
     private String extractToken(String token) {
         return token != null && token.startsWith("Bearer ") ? token.substring(7) : null;
     }
 
-    public CheckoutController(PayOS payOS) {
-        this.payOS = payOS;
-    }
     @CrossOrigin(origins = {"http://127.0.0.1:5500", "http://localhost:5500"})
     @RequestMapping(value = "/create-payment-link", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Map<String, String>> checkout(@RequestBody PaymentRequest paymentRequest,@RequestHeader("Authorization") String token) {
+    public ResponseEntity<Map<String, String>> checkout(@RequestBody PaymentRequest paymentRequest, @RequestHeader("Authorization") String token) {
         token = extractToken(token);
         if (token == null) {
-            // Đặt thông báo lỗi vào Map để trả về đúng kiểu dữ liệu
             Map<String, String> unauthorizedResponse = new HashMap<>();
             unauthorizedResponse.put("error", "Bạn không có quyền truy cập");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(unauthorizedResponse);
         }
-
 
         try {
             final String productName = paymentRequest.getProductName();
@@ -60,13 +68,17 @@ public class CheckoutController {
 
             CheckoutResponseData data = payOS.createPaymentLink(paymentData);
 
-            String checkoutUrl = data.getCheckoutUrl();
+            // Lưu vào lịch sử nạp với trạng thái "đang xử lý"
+            String taikhoan = jwtUtil.extractUsername(token);
+            String maNguoiDung = taiKhoanService.findByTaikhoan(taikhoan).getManguoidung();
+            paymentService.savePaymentHistory(maNguoiDung, "đang xử lý", quantity, price,orderCode);
 
-            // Trả về JSON thay vì plain text
+            // Trả về checkoutUrl để chuyển hướng người dùng
+            String checkoutUrl = data.getCheckoutUrl();
             Map<String, String> response = new HashMap<>();
             response.put("checkoutUrl", checkoutUrl);
 
-            return ResponseEntity.ok(response);  // Trả về Map dạng JSON
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             e.printStackTrace();
             Map<String, String> errorResponse = new HashMap<>();
@@ -75,4 +87,3 @@ public class CheckoutController {
         }
     }
 }
-
