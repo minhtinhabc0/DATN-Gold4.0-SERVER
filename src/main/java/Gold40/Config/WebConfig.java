@@ -28,16 +28,18 @@ public class WebConfig implements WebMvcConfigurer {
                 .and()
                 .csrf().disable() // Vô hiệu hóa CSRF để thử nghiệm
                 .authorizeRequests(authorizeRequests -> authorizeRequests
-                        .requestMatchers("/api/auth/**", "/api/profile/**", "/api/re/**",
-                                "/api/ad/**", "/api/user/**", "/api/users/**","/api/donhang/**","/api/hoadon/**","/api/npp/**","/api/npp/verify-otp",
-                                "/api/adctrl/**","/api/nppctrl/**",
-                                "/api/gold-prices", "/api/upload/**",
-                                "/api/products/**","/api/checkout/**","/api/baocaonpp/**").permitAll()
-
-                        .anyRequest().authenticated() // Tất cả các yêu cầu khác phải được xác thực
+                        .requestMatchers(
+                                "/api/auth/**", "/api/profile/**", "/api/re/**", "/api/ad/**",
+                                "/api/user/**", "/api/users/**", "/api/donhang/**", "/api/hoadon/**",
+                                "/api/npp/**", "/api/npp/verify-otp", "/api/adctrl/**", "/api/nppctrl/**",
+                                "/api/gold-prices", "/api/upload/**", "/api/products/**",
+                                "/api/checkout/**", "/api/baocaonpp/**"
+                        ).permitAll() // Đường dẫn confirm-webhook không yêu cầu token
+                        .anyRequest().authenticated() // Các yêu cầu khác phải được xác thực
                 );
 
         return http.build();
     }
+
 
 }
