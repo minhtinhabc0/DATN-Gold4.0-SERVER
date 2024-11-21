@@ -19,7 +19,8 @@ public class LichSuNap {
 
     @Column(name="ordercode")
     private long orderCode;
-
+    @Column(name="phuongthuc")
+    private String phuongThuc;
     @Column(name="trangthai")
     private String trangThai;
 

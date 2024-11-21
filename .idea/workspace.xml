@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="thanh toan update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/CheckoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/CheckoutController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/GcoinDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/GcoinDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/Gcoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/Gcoin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/PaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,14 +30,12 @@
     &quot;assignee&quot;: &quot;minhtinhabc0&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="a521bf9f-217d-40e2-a138-2accf6495680" />
-        <option name="url" value="https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git&quot;,
+    &quot;accountId&quot;: &quot;ba9ab3e1-8e71-4702-bbcb-495c62b2969d&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -68,7 +63,6 @@
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Spring Boot.Unnamed.executor&quot;: &quot;Run&quot;,
@@ -107,9 +101,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-        <option value="jdk-21.0.2-corretto-21.0.2-4caba194b151-51586f01" />
-        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -172,8 +165,6 @@
       <workItem from="1732061428596" duration="4821000" />
       <workItem from="1732067089797" duration="1243000" />
       <workItem from="1732075515624" duration="2263000" />
-      <workItem from="1732177330831" duration="752000" />
-      <workItem from="1732184996048" duration="5041000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -303,15 +294,7 @@
       <option name="project" value="LOCAL" />
       <updated>1732067394372</updated>
     </task>
-    <task id="LOCAL-00017" summary="thanh toan update">
-      <option name="closed" value="true" />
-      <created>1732177428811</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1732177428811</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

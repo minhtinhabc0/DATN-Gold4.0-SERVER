@@ -29,7 +29,7 @@ public class PaymentService {
         Random random = new Random();
         return random.nextInt(900000) + 100000;  // Generate a 6-digit number between 100000 and 999999
     }
-    public void savePaymentHistory(String maNguoiDung, String trangThai, int soGcoin, float soTienNap, long orderCode) {
+    public void savePaymentHistory(String maNguoiDung,String phuongthuc, String trangThai, int soGcoin, float soTienNap, long orderCode) {
         // Lấy thông tin người dùng từ mã người dùng
         NguoiDung nguoiDung = nguoiDungRepository.findByMaNguoiDung(maNguoiDung);
         System.out.println(nguoiDung);
@@ -38,6 +38,7 @@ public class PaymentService {
             int randomProductCode = generateRandomProductCode();
             lichSuNap.setMaLichSuNap(randomProductCode);
             lichSuNap.setNguoiDung(nguoiDung);
+            lichSuNap.setPhuongThuc(phuongthuc);
             lichSuNap.setTrangThai(trangThai);
             lichSuNap.setSoGcoin(soGcoin);
             lichSuNap.setSoTienNap(soTienNap);
