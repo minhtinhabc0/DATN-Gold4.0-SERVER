@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 20/11/2024 chuc nang CRUD san pham npp fix update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/BaoCaoNPPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/BaoCaoNPPController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/BaoCaoNPPDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/BaoCaoNPPDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/BaoCaoNPP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/BaoCaoNPP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Entity/LichSuNap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Entity/LichSuNap.class" afterDir="false" />
-    </list>
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="bangbaocao" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -297,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732067394372</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="bangbaocao">
+      <option name="closed" value="true" />
+      <created>1732185385207</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1732185385207</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,6 +331,7 @@
     <MESSAGE value="update 19/11/2024 chuc nang them san pham npp" />
     <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp" />
     <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp fix update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 20/11/2024 chuc nang CRUD san pham npp fix update" />
+    <MESSAGE value="bangbaocao" />
+    <option name="LAST_COMMIT_MESSAGE" value="bangbaocao" />
   </component>
 </project>
