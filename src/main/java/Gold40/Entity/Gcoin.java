@@ -18,6 +18,9 @@ public class Gcoin {
     @Column(name = "magcoin")
     private String magcoin; // Assuming magcoin is a String, adjust type if necessary
 
+    @Column(name = "malichsunap")
+    private String malichsunap; // Adjust type as needed
+
     @Column(name = "sogcoin")
     private int sogcoin; // Assuming sogcoin is an integer
 
