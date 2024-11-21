@@ -240,7 +240,47 @@ public class AdminController {
         return productsDAO.findAll();
     }
 
+    @GetMapping("/products/{id}")
+    public SanPham getOne(@PathVariable("id") Integer id) {
+        return productsDAO.findById(id).get();
+    }
 
+    @PutMapping("/duyetsp/{id}")
+    public ResponseEntity<String> duyetSanPham(@PathVariable Integer id) {
+        Optional<SanPham> sanPhamOpt = productsDAO.findById(id);
+        if (sanPhamOpt.isPresent()) {
+            SanPham sanPham = sanPhamOpt.get();
+            sanPham.setTrangThai(true);
+            productsDAO.save(sanPham);
+            return ResponseEntity.ok("Duyết thanh cong");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @PutMapping("/kduyetsp/{id}")
+    public ResponseEntity<String> kduyetSanPham(@PathVariable Integer id) {
+        Optional<SanPham> sanPhamOpt = productsDAO.findById(id);
+        if (sanPhamOpt.isPresent()) {
+            SanPham sanPham = sanPhamOpt.get();
+            sanPham.setTrangThai(false);
+            productsDAO.save(sanPham);
+            return ResponseEntity.ok("Duyết thanh cong");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/delete-product/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable("id") Integer id) {
+        Optional<SanPham> sanPhamOpt = productsDAO.findById(id);
+        if (sanPhamOpt.isPresent()) {
+            SanPham sanPham = sanPhamOpt.get();
+            productsDAO.delete(sanPham);
+            return ResponseEntity.ok("Xóa thanh cong");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 
 }
