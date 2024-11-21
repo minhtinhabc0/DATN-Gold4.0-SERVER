@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="thanh toan update">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" afterDir="false" />
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="thanh toan gcoin">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/Gcoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/Gcoin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/CheckoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Controller/CheckoutController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Entity/Gcoin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Entity/Gcoin.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,13 +25,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;minhtinhabc0&quot;
-  }
-}</component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {}
+}]]></component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git&quot;,
@@ -165,6 +165,7 @@
       <workItem from="1732061428596" duration="4821000" />
       <workItem from="1732067089797" duration="1243000" />
       <workItem from="1732075515624" duration="2263000" />
+      <workItem from="1732191033474" duration="1702000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
