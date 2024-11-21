@@ -44,7 +44,6 @@ public class CheckoutController {
         return token != null && token.startsWith("Bearer ") ? token.substring(7) : null;
     }
 
-    @CrossOrigin(origins = {"http://127.0.0.1:5500", "http://localhost:9999"})
     @PostMapping(path = "/create")
     public ResponseEntity<Map<String, String>> createPaymentLink(@RequestBody PaymentRequest paymentRequest, @RequestHeader("Authorization") String token) {
         token = extractToken(token);
@@ -74,7 +73,7 @@ public class CheckoutController {
             // Lưu vào lịch sử nạp với trạng thái "đang xử lý"
             String taikhoan = jwtUtil.extractUsername(token);
             String maNguoiDung = taiKhoanService.findByTaikhoan(taikhoan).getManguoidung();
-            paymentService.savePaymentHistory(maNguoiDung, "đang xử lý", quantity, price, orderCode);
+            paymentService.savePaymentHistory(maNguoiDung,"Chuyển khoản" ,"đang xử lý", quantity, price, orderCode);
 
             // Trả về dữ liệu thanh toán và checkoutUrl
             ObjectMapper objectMapper = new ObjectMapper();

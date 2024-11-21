@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="thanh toan update">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" afterDir="false" />
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="fix thanh toan">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/CheckoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/CheckoutController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/LichSuNap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/LichSuNap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/PaymentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/CheckoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Controller/CheckoutController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Service/NguoiDungService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Service/NguoiDungService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +171,10 @@
       <workItem from="1732061428596" duration="4821000" />
       <workItem from="1732067089797" duration="1243000" />
       <workItem from="1732075515624" duration="2263000" />
+      <workItem from="1732095413980" duration="76000" />
+      <workItem from="1732157912386" duration="26000" />
+      <workItem from="1732157958999" duration="25000" />
+      <workItem from="1732158052941" duration="6112000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -294,7 +304,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732067394372</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fix thanh toan">
+      <option name="closed" value="true" />
+      <created>1732086214392</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1732086214392</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix thanh toan">
+      <option name="closed" value="true" />
+      <created>1732087971494</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1732087971494</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +352,7 @@
     <MESSAGE value="update 19/11/2024 chuc nang them san pham npp" />
     <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp" />
     <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp fix update" />
-    <MESSAGE value="thanh toan update" />
-    <option name="LAST_COMMIT_MESSAGE" value="thanh toan update" />
+    <MESSAGE value="fix thanh toan" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix thanh toan" />
   </component>
 </project>
