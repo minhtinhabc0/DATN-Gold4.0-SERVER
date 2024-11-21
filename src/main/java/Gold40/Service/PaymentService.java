@@ -43,6 +43,12 @@ public class PaymentService {
             // Lưu vào cơ sở dữ liệu
             lichSuNapRepository.save(lichSuNap);
         }
-        System.out.println("ronggg");
     }
+    public LichSuNap findByOrderCode(long orderCode) {
+        return lichSuNapRepository.findByOrderCode(orderCode);
+    }
+    public void updatePaymentHistory(LichSuNap lichSuNap) {
+        lichSuNapRepository.save(lichSuNap);  // Lưu lại bản ghi đã cập nhật trạng thái
+    }
+
 }
