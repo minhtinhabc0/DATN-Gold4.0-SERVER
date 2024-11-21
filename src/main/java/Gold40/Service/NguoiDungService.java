@@ -29,6 +29,10 @@ public class NguoiDungService {
         return nguoiDungDAO.findByMaNguoiDung(maNguoiDung);
     }
 
+    public boolean emailExists(String newEmail) {
+        return nguoiDungDAO.existsByEmail(newEmail);
+    }
+
 //    @Autowired
 //    public NguoiDungService(BCryptPasswordEncoder PinPasswordEncoder) {
 //        this.passwordEncoder = PinPasswordEncoder;
