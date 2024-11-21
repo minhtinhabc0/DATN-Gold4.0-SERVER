@@ -1,7 +1,9 @@
 package Gold40.Service;
 
+import Gold40.DAO.GcoinDAO;
 import Gold40.DAO.LichSuNapDAO;
 import Gold40.DAO.NguoiDungDAO;
+import Gold40.Entity.Gcoin;
 import Gold40.Entity.LichSuNap;
 import Gold40.Entity.NguoiDung;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +17,12 @@ public class PaymentService {
 
     private final LichSuNapDAO lichSuNapRepository;
     private final NguoiDungDAO nguoiDungRepository;
+    private final GcoinDAO gCoinRepository;
 
     @Autowired
-    public PaymentService(LichSuNapDAO lichSuNapRepository, NguoiDungDAO nguoiDungRepository) {
+    public PaymentService(LichSuNapDAO lichSuNapRepository, NguoiDungDAO nguoiDungRepository,GcoinDAO gCoinRepository) {
         this.lichSuNapRepository = lichSuNapRepository;
+        this.gCoinRepository =gCoinRepository;
         this.nguoiDungRepository = nguoiDungRepository;
     }
     private int generateRandomProductCode() {

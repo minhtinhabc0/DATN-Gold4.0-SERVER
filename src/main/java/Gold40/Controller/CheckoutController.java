@@ -1,7 +1,11 @@
 package Gold40.Controller;
 
+import Gold40.DAO.GcoinDAO;
+import Gold40.Entity.Gcoin;
 import Gold40.Entity.LichSuNap;
 import Gold40.Entity.PaymentRequest;
+import Gold40.Service.GcoinService;
+import Gold40.Service.NguoiDungService;
 import Gold40.Service.PaymentService;
 import Gold40.Service.TaiKhoanService;
 import Gold40.Util.JwtUtil;
@@ -31,13 +35,17 @@ public class CheckoutController {
     private final PaymentService paymentService;
     private final JwtUtil jwtUtil;
     private final TaiKhoanService taiKhoanService;
+    private final GcoinDAO gcoinService;
+    private final NguoiDungService nguoiDungService;
 
     @Autowired
-    public CheckoutController(PayOS payOS, PaymentService paymentService, JwtUtil jwtUtil, TaiKhoanService taiKhoanService) {
+    public CheckoutController(PayOS payOS, PaymentService paymentService, JwtUtil jwtUtil, TaiKhoanService taiKhoanService,GcoinDAO gcoinService,NguoiDungService nguoiDungService) {
         this.payOS = payOS;
         this.paymentService = paymentService;
         this.jwtUtil = jwtUtil;
         this.taiKhoanService = taiKhoanService;
+        this.nguoiDungService = nguoiDungService;
+        this.gcoinService = gcoinService;
     }
 
     private String extractToken(String token) {
@@ -102,10 +110,23 @@ public class CheckoutController {
                 LichSuNap lichSuNap = paymentService.findByOrderCode(orderCode);
 
                 if (lichSuNap != null) {
+                    //Lấy mã người dùng
+                    String maNguoiDung = lichSuNap.getNguoiDung().getMaNguoiDung();
+                    // Lấy mã Gcoin
+                    String maGcoin = nguoiDungService.findByMaNguoiDung(maNguoiDung).getMaGCoin();
+                    // Lấy sl Gcoin
+                    int soGcoin = lichSuNap.getSoGcoin();
+                    // Cập nhật sl Gcoin
+                    if (maGcoin != null) {
+                        Gcoin gcoin = gcoinService.findByMagcoin(maGcoin);
+                        if (gcoin != null) {
+                            gcoin.setSogcoin(gcoin.getSogcoin()+soGcoin);
+                            gcoinService.save(gcoin);
+                        }
+                    }
                     // Cập nhật trạng thái thành công mà không tạo hóa đơn mới
                     lichSuNap.setTrangThai("thành công");
                     paymentService.updatePaymentHistory(lichSuNap);  // Cập nhật thay vì lưu mới
-
                     // Trả về mã trạng thái 200 OK và chuyển hướng
                     return ResponseEntity.status(HttpStatus.FOUND)
                             .location(URI.create("http://127.0.0.1:5501/user/index.html#!/user/spvang"))
@@ -132,6 +153,10 @@ public class CheckoutController {
                 LichSuNap lichSuNap = paymentService.findByOrderCode(orderCode);
 
                 if (lichSuNap != null) {
+                    String maNguoiDung = lichSuNap.getNguoiDung().getMaNguoiDung();
+                    String maGcoin = nguoiDungService.findByMaNguoiDung(maNguoiDung).getMaGCoin();
+                    System.out.println(maGcoin);
+
                     // Cập nhật trạng thái hủy mà không tạo hóa đơn mới
                     lichSuNap.setTrangThai("hủy");
                     paymentService.updatePaymentHistory(lichSuNap);  // Cập nhật thay vì lưu mới
