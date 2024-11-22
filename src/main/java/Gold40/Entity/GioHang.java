@@ -3,25 +3,32 @@ package Gold40.Entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 
 @Data
 @Entity
 @Table(name = "Gio_Hang")
 public class GioHang {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "magiohang")
     private Integer maGioHang;
 
     @ManyToOne
-    @JoinColumn(name = "manguoidung")
+    @JoinColumn(name = "manguoidung", nullable = false)
     private NguoiDung nguoiDung;
 
     @ManyToOne
-    @JoinColumn(name = "masanpham")
+    @JoinColumn(name = "masanpham", nullable = false)
     private SanPham sanPham;
 
     @Column(name = "soluong")
     private Integer soLuong;
+
+    @Column(name = "kichthuoc")
+    private String kichThuoc;
+
+
+
 }
 

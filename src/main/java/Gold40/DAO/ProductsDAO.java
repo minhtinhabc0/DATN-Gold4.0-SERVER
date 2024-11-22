@@ -15,4 +15,5 @@ public interface ProductsDAO extends JpaRepository<SanPham, Integer> {
     boolean existsByMaSanPham(Integer maSanPham); // Thay đổi kiểu dữ liệu từ String sang Integer
 
 
+    SanPham findByMaSanPham(Integer maSanPham);
 }
