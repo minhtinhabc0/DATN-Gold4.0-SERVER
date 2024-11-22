@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="yeuthich">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/DonHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/DonHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Entity/DonHang.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Entity/DonHang.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Entity/GioHang.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Entity/GioHang.class" afterDir="false" />
-    </list>
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="xoamagiamgia" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,7 +165,7 @@
       <workItem from="1732075515624" duration="2263000" />
       <workItem from="1732191033474" duration="1702000" />
       <workItem from="1732274875244" duration="36000" />
-      <workItem from="1732280352481" duration="6412000" />
+      <workItem from="1732280352481" duration="7266000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -316,7 +311,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732274888398</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="xoamagiamgia">
+      <option name="closed" value="true" />
+      <created>1732291623465</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1732291623465</updated>
+    </task>
+    <task id="LOCAL-00020" summary="xoamagiamgia">
+      <option name="closed" value="true" />
+      <created>1732291637531</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1732291637531</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,6 +361,7 @@
     <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp fix update" />
     <MESSAGE value="thanh toan update" />
     <MESSAGE value="yeuthich" />
-    <option name="LAST_COMMIT_MESSAGE" value="yeuthich" />
+    <MESSAGE value="xoamagiamgia" />
+    <option name="LAST_COMMIT_MESSAGE" value="xoamagiamgia" />
   </component>
 </project>
