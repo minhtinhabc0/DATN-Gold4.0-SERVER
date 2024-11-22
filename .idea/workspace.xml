@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="thanh toan gcoin">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/Gcoin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/Gcoin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Controller/CheckoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Controller/CheckoutController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Entity/Gcoin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Entity/Gcoin.class" afterDir="false" />
-    </list>
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="yeuthich" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,9 +22,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {}
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {}
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git&quot;,
@@ -295,7 +290,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732067394372</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="yeuthich">
+      <option name="closed" value="true" />
+      <created>1732274813802</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1732274813802</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +331,7 @@
     <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp" />
     <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp fix update" />
     <MESSAGE value="thanh toan update" />
-    <option name="LAST_COMMIT_MESSAGE" value="thanh toan update" />
+    <MESSAGE value="yeuthich" />
+    <option name="LAST_COMMIT_MESSAGE" value="yeuthich" />
   </component>
 </project>
