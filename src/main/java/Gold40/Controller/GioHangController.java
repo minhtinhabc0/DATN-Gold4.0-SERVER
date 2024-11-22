@@ -121,7 +121,7 @@ private GioHangService gioHangService;
             System.out.println(gioHang);
         } else {
             // Cập nhật thông tin giỏ hàng nếu sản phẩm đã có
-            gioHang.setSoLuong(gioHang.getSoLuong() + gioHangRequest.getSoLuong());
+            gioHang.setSoLuong(gioHangRequest.getSoLuong());
             gioHang.setKichThuoc(gioHangRequest.getKichThuoc());
         }
 

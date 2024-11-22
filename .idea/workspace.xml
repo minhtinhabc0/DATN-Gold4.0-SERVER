@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="update 21/11/2024">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_14_2024_11_24_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_14_2024_11_24_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="thanh toan update">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/GioHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/GioHangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/GioHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/GioHangDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/ProductsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/ProductsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/GioHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/GioHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/SanPham.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/GioHangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/GioHangService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,17 +17,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {}
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;minhtinhabc0&quot;
+  }
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
@@ -170,10 +166,6 @@
       <workItem from="1732061428596" duration="4821000" />
       <workItem from="1732067089797" duration="1243000" />
       <workItem from="1732075515624" duration="2263000" />
-      <workItem from="1732191033474" duration="1702000" />
-      <workItem from="1732192923571" duration="160000" />
-      <workItem from="1732235945613" duration="5953000" />
-      <workItem from="1732255138334" duration="12101000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -303,15 +295,7 @@
       <option name="project" value="LOCAL" />
       <updated>1732067394372</updated>
     </task>
-    <task id="LOCAL-00017" summary="update 21/11/2024">
-      <option name="closed" value="true" />
-      <created>1732193041360</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1732193041360</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +328,6 @@
     <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp" />
     <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp fix update" />
     <MESSAGE value="thanh toan update" />
-    <MESSAGE value="update 21/11/2024" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 21/11/2024" />
+    <option name="LAST_COMMIT_MESSAGE" value="thanh toan update" />
   </component>
 </project>
