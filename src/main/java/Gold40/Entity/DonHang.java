@@ -36,9 +36,7 @@ public class DonHang {
     @Column(name = "dongia")
     private Float donGia;
 
-    @ManyToOne
-    @JoinColumn(name = "magiamgia")
-    private GiamGia giamGia;  // Assuming a GiamGia entity exists
+
 
     @ManyToOne
     @JoinColumn(name = "mahoadon")
