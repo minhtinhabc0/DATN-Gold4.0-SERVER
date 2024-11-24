@@ -85,6 +85,7 @@
       <workItem from="1732430825146" duration="2193000" />
       <workItem from="1732435354236" duration="420000" />
       <workItem from="1732435788666" duration="158000" />
+      <workItem from="1732435962395" duration="141000" />
     </task>
     <task id="LOCAL-00001" summary="api yêu thích">
       <option name="closed" value="true" />
@@ -102,7 +103,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732435852581</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="api yêu thích">
+      <option name="closed" value="true" />
+      <created>1732436061444</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732436061444</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
