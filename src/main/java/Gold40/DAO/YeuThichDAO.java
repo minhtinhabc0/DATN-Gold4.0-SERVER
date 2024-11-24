@@ -13,12 +13,12 @@ public interface YeuThichDAO extends JpaRepository<YeuThich, Integer> {
 
 
     // Kiểm tra sản phẩm yêu thích của người dùng
-    @Query("SELECT y FROM YeuThich y WHERE y.nguoiDung.maNguoiDung = :maNguoiDung AND y.sanPham.maSanPham = :maSanPham")
-    YeuThich findByNguoiDung_MaNguoiDungAndSanPham_MaSanPham(String maNguoiDung, Integer maSanPham);
+
     @Query("SELECT y FROM YeuThich y WHERE y.nguoiDung.maNguoiDung = :maNguoiDung")
     List<YeuThich> findByNguoiDung_MaNguoiDung(@Param("maNguoiDung") String maNguoiDung);
 
     @Query("DELETE FROM YeuThich y WHERE y.sanPham.maSanPham = :maSanPham AND y.nguoiDung.maNguoiDung = :maNguoiDung")
     void deleteBySanPhamAndNguoiDung(@Param("maSanPham") Integer maSanPham, @Param("maNguoiDung") String maNguoiDung);
-
+    @Query("SELECT y FROM YeuThich y WHERE y.nguoiDung.maNguoiDung = :maNguoiDung AND y.sanPham.maSanPham = :maSanPham")
+    YeuThich findByNguoiDungMaNguoiDungAndSanPhamMaSanPham(String maNguoiDung, Integer maSanPham);
 }
