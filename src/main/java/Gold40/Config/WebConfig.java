@@ -32,8 +32,8 @@ public class WebConfig implements WebMvcConfigurer {
                                 "/api/auth/**", "/api/profile/**", "/api/re/**", "/api/ad/**",
                                 "/api/user/**", "/api/users/**", "/api/donhang/**", "/api/hoadon/**",
                                 "/api/npp/**", "/api/npp/verify-otp", "/api/adctrl/**", "/api/nppctrl/**",
-                                "/api/gold-prices", "/api/upload/**", "/api/products/**",
-                                "/api/checkout/**", "/api/baocaonpp/**","/api/yeuthich/**"
+                                "/api/gold-prices", "/api/upload/**", "/api/products/**","/api/danhgia/**",
+                                "/api/checkout/**", "/api/baocaonpp/**"
                         ).permitAll() // Đường dẫn confirm-webhook không yêu cầu token
                         .anyRequest().authenticated() // Các yêu cầu khác phải được xác thực
                 );
