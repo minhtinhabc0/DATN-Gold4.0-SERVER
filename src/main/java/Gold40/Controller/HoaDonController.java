@@ -16,8 +16,7 @@ public class HoaDonController {
     @Autowired
     private HoaDonDAO hoaDonDAO;
 
-    // Lấy danh sách đơn hàng
-
+    // Lấy danh sách hoa đơn
 
     // Lấy chi tiết đơn hàng theo mã đơn hàng
     @GetMapping("/{maHoaDon}")

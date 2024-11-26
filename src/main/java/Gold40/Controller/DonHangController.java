@@ -56,7 +56,40 @@ public class DonHangController {
         Optional<DonHang> donHang = donHangDao.findById(maDonHang);
         return donHang.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
-
+    // Cập nhật trạng thái đơn hàng khi xác nhận
+    @PostMapping("/{maDonHang}/xacnhan")
+    public ResponseEntity<?> xacNhanDonHang(@PathVariable("maDonHang") String maDonHang,
+                                            @RequestBody String trangThaiMoi,
+                                            @RequestHeader("Authorization") String token) {
+        if (token != null && token.startsWith("Bearer ")) {
+            token = token.substring(7); // Loại bỏ "Bearer "
+            String username = jwtUtil.extractUsername(token);
+            if (jwtUtil.validateToken(token, username)) {
+                // Kiểm tra tài khoản có vai trò nhà phân phối
+                var taiKhoan = taiKhoanService.findByTaikhoan(username);
+                if (taiKhoan != null && taiKhoan.getVaitro() == 2) {
+                    Optional<DonHang> donHangOpt = donHangDao.findById(maDonHang);
+                    if (donHangOpt.isPresent()) {
+                        DonHang donHang = donHangOpt.get();
+                        // Chỉ cập nhật nếu trạng thái hiện tại là "Đang xử lý"
+                        if ("Đang xử lý".equals(donHang.getTrangThai())) {
+                            donHang.setTrangThai(trangThaiMoi); // Cập nhật trạng thái mới
+                            donHangDao.save(donHang); // Lưu lại đơn hàng với trạng thái mới
+                            return ResponseEntity.ok("Cập nhật trạng thái thành công");
+                        } else {
+                            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                                    .body("Trạng thái không thể thay đổi");
+                        }
+                    } else {
+                        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Đơn hàng không tồn tại");
+                    }
+                } else {
+                    return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Bạn không có quyền cập nhật");
+                }
+            }
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Token không hợp lệ");
+    }
     @GetMapping("/demsl/hoanthanh")
     public long countCompletedOrders(@RequestHeader("Authorization") String token) {
         if (token != null && token.startsWith("Bearer ")) {

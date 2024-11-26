@@ -35,11 +35,21 @@ public class DonHang {
 
     @Column(name = "dongia")
     private Float donGia;
-
+    @Column(name = "kichthuoc")
+    private String kichThuoc; // Cột kích thước
 
 
     @ManyToOne
     @JoinColumn(name = "mahoadon")
     private HoaDon hoaDon;  // Assuming a HoaDon entity exists
+    // Hàm lấy tên cửa hàng của nhà phân phối
+    public String getTenCuaHang() {
+        return sanPham != null && sanPham.getNhaPhanPhoi() != null ? sanPham.getNhaPhanPhoi().getTenCuaHang() : null;
+    }
+
+    // Hàm lấy địa chỉ của nhà phân phối
+    public String getDiaChiNhaPhanPhoi() {
+        return sanPham != null && sanPham.getNhaPhanPhoi() != null ? sanPham.getNhaPhanPhoi().getDiaChi() : null;
+    }
 }
 
