@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="xoamagiamgia">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/CheckoutTSController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/DonHangNDController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/HoaDonNDController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/PaymentTSRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/PaymentTSService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/DonHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/DonHangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/HoaDonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/HoaDonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/YeuThichController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/YeuThichController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/DonHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/DonHangDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/HoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/HoaDonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/DonHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/DonHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/HoaDon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/GioHangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/GioHangService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Config/WebConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Entity/DonHang.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Entity/DonHang.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Gold40/Entity/HoaDon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Gold40/Entity/HoaDon.class" afterDir="false" />
-    </list>
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="thanhtoantrangsuc" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -188,7 +169,7 @@
       <workItem from="1732280352481" duration="7266000" />
       <workItem from="1732516695620" duration="24054000" />
       <workItem from="1732546876262" duration="10149000" />
-      <workItem from="1732587224925" duration="10519000" />
+      <workItem from="1732587224925" duration="10914000" />
     </task>
     <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
@@ -350,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732291637531</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="thanhtoantrangsuc">
+      <option name="closed" value="true" />
+      <created>1732606338068</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1732606338068</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,6 +374,7 @@
     <MESSAGE value="thanh toan update" />
     <MESSAGE value="yeuthich" />
     <MESSAGE value="xoamagiamgia" />
-    <option name="LAST_COMMIT_MESSAGE" value="xoamagiamgia" />
+    <MESSAGE value="thanhtoantrangsuc" />
+    <option name="LAST_COMMIT_MESSAGE" value="thanhtoantrangsuc" />
   </component>
 </project>
