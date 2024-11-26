@@ -59,16 +59,6 @@ public class HoaDon {
     @Column(name = "hinhanh", length = 255, nullable = false)
     private String hinhAnh;
     // Thêm mối quan hệ với SanPham
-    @ManyToOne
-    @JoinColumn(name = "masanpham")  // Thêm khóa ngoại "masanpham"
-    private SanPham sanPham; // Mỗi hóa đơn có một sản phẩm
 
-    // Hàm lấy tên cửa hàng của nhà phân phối từ sản phẩm
-    public String getTenCuaHang() {
-        if (this.sanPham != null && this.sanPham.getNhaPhanPhoi() != null) {
-            return this.sanPham.getNhaPhanPhoi().getTenCuaHang();
-        }
-        return null; // Nếu không có thông tin sản phẩm hoặc nhà phân phối
-    }
 
 }

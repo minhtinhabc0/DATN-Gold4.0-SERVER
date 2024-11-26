@@ -150,7 +150,7 @@ public class CheckoutTSController {
                     // Cập nhật trạng thái thành công
                     hoaDon.setTrangThai("thành công");
                     paymentTSService.updatePaymentHistory(hoaDon);
-                    paymentTSService.addProductsToOrder(hoaDon.getMaNguoiDung(), orderCode);
+
                     // Trả về mã trạng thái 200 OK và chuyển hướng
                     return ResponseEntity.status(HttpStatus.FOUND)
                             .location(URI.create("http://127.0.0.1:5501/user/index.html#!/user/profileuser#pills-order"))
@@ -181,10 +181,10 @@ public class CheckoutTSController {
                     hoaDon.setTrangThai("hủy");
 
                     paymentTSService.updatePaymentHistory(hoaDon);
-
+                    paymentTSService.addProductsToOrder(hoaDon.getMaNguoiDung(), orderCode);
                     // Trả về mã trạng thái 200 OK và chuyển hướng
                     return ResponseEntity.status(HttpStatus.FOUND)
-                            .location(URI.create("http://127.0.0.1:5501/user/index.html#!/user/giohang"))
+                            .location(URI.create("http://127.0.0.1:5501/user/index.html#!/user/profileuser#pills-order"))
                             .build();
                 } else {
                     // Nếu không tìm thấy hóa đơn, trả về lỗi
