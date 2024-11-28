@@ -103,6 +103,9 @@ private GioHangService gioHangService;
         if (productsDAO.findByMaSanPham(gioHangRequest.getSanPham().getMaSanPham()) == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Sản phẩm không tồn tại");
         }
+        if (gioHangRequest.getKichThuoc()==null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("vui long chon kich thuoc");
+        }
 
         // Tìm giỏ hàng của người dùng với sản phẩm tương ứng
         GioHang gioHang = GioHangDAO.findByNguoiDungAndSanPham_MaSanPham(

@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89aa718b-c6dc-4514-b6ea-07a17ac1b761" name="Changes" comment="api ql admin">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/DonHangService.java" afterDir="false" />
+    <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="thanhtoantrangsuc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/DonHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/DonHangDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/ProductsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/ProductsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/SanPhamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/SanPhamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/GioHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/GioHangController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/HoaDon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,57 +17,83 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;zinhcuteee&quot;
-  }
+  &quot;lastFilter&quot;: {}
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git&quot;,
-    &quot;accountId&quot;: &quot;7201cec0-95d1-46ca-95aa-dd7871c3ac04&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git",
+    "accountId": "ba9ab3e1-8e71-4702-bbcb-495c62b2969d"
   }
-}</component>
+}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="2pFVGNnY4HZy8eZrsCO3x6IVl1i" />
+  <component name="ProjectId" id="2mfERQO1y0Tp7LyikaWKdWqQOvn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
+    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.Gold40Application.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/DATN-Gold4.0-SERVER&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/minht/IdeaProjects/DATN-Gold4.0-SERVER&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;two.files.diff.last.used.folder&quot;: &quot;C:/Users/minht/IdeaProjects/DATN-Gold4.0-SERVER&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="Gold40.Config" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Gold40.Service" />
+      <recent name="Gold40.Controller" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="Gold40Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+    <configuration name="Unnamed" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Gold4_0" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="Gold40.Gold40Application" />
       <method v="2">
@@ -89,51 +112,283 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="89aa718b-c6dc-4514-b6ea-07a17ac1b761" name="Changes" comment="" />
-      <created>1732361715156</created>
+      <changelist id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="" />
+      <created>1727459221744</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1732361715156</updated>
-      <workItem from="1732361717026" duration="88000" />
-      <workItem from="1732361806522" duration="8507000" />
-      <workItem from="1732430825146" duration="2193000" />
-      <workItem from="1732435354236" duration="420000" />
-      <workItem from="1732435788666" duration="158000" />
-      <workItem from="1732435962395" duration="141000" />
-      <workItem from="1732763737402" duration="1136000" />
+      <updated>1727459221744</updated>
+      <workItem from="1727459222809" duration="708000" />
+      <workItem from="1727765951301" duration="420000" />
+      <workItem from="1727792378301" duration="1090000" />
+      <workItem from="1727879681955" duration="2000" />
+      <workItem from="1727934492949" duration="97000" />
+      <workItem from="1727934607628" duration="352000" />
+      <workItem from="1727952078579" duration="39000" />
+      <workItem from="1729706727541" duration="22000" />
+      <workItem from="1729706770638" duration="38000" />
+      <workItem from="1729706826676" duration="44000" />
+      <workItem from="1729706911606" duration="1347000" />
+      <workItem from="1729708281936" duration="393000" />
+      <workItem from="1729708685103" duration="557000" />
+      <workItem from="1729709288406" duration="21000" />
+      <workItem from="1729709317764" duration="130000" />
+      <workItem from="1729709457191" duration="26000" />
+      <workItem from="1729709493229" duration="1919000" />
+      <workItem from="1729747118957" duration="267000" />
+      <workItem from="1729772967002" duration="2008000" />
+      <workItem from="1729794688112" duration="861000" />
+      <workItem from="1729839002298" duration="4298000" />
+      <workItem from="1729843605475" duration="422000" />
+      <workItem from="1729844124888" duration="762000" />
+      <workItem from="1729859405543" duration="1173000" />
+      <workItem from="1729860594384" duration="2508000" />
+      <workItem from="1729866654707" duration="240000" />
+      <workItem from="1729866998320" duration="129000" />
+      <workItem from="1729867151037" duration="1725000" />
+      <workItem from="1729872575725" duration="605000" />
+      <workItem from="1729938734654" duration="7500000" />
+      <workItem from="1730105172144" duration="12870000" />
+      <workItem from="1730211676393" duration="281000" />
+      <workItem from="1730704538731" duration="3624000" />
+      <workItem from="1730730454666" duration="4305000" />
+      <workItem from="1730978475492" duration="11421000" />
+      <workItem from="1731021768984" duration="3205000" />
+      <workItem from="1731025089051" duration="5154000" />
+      <workItem from="1731641796927" duration="2127000" />
+      <workItem from="1731649416557" duration="3285000" />
+      <workItem from="1731749329332" duration="675000" />
+      <workItem from="1731750064087" duration="3403000" />
+      <workItem from="1731792283922" duration="8748000" />
+      <workItem from="1731809178704" duration="23742000" />
+      <workItem from="1731875771289" duration="65000" />
+      <workItem from="1731900329442" duration="17965000" />
+      <workItem from="1731975513016" duration="7569000" />
+      <workItem from="1732003871632" duration="7138000" />
+      <workItem from="1732024199980" duration="2790000" />
+      <workItem from="1732061428596" duration="4821000" />
+      <workItem from="1732067089797" duration="1243000" />
+      <workItem from="1732075515624" duration="2263000" />
+      <workItem from="1732191033474" duration="1702000" />
+      <workItem from="1732274875244" duration="36000" />
+      <workItem from="1732280352481" duration="7266000" />
+      <workItem from="1732516695620" duration="24054000" />
+      <workItem from="1732546876262" duration="10149000" />
+      <workItem from="1732587224925" duration="10914000" />
+      <workItem from="1732606533642" duration="1861000" />
+      <workItem from="1732767937282" duration="3883000" />
     </task>
-    <task id="LOCAL-00001" summary="api yêu thích">
+    <task id="LOCAL-00001" summary="create1">
       <option name="closed" value="true" />
-      <created>1732435737832</created>
+      <created>1727459624248</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1732435737832</updated>
+      <updated>1727459624248</updated>
     </task>
-    <task id="LOCAL-00002" summary="api yêu thích">
+    <task id="LOCAL-00002" summary="update server1">
       <option name="closed" value="true" />
-      <created>1732435852581</created>
+      <created>1729711393672</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1732435852581</updated>
+      <updated>1729711393672</updated>
     </task>
-    <task id="LOCAL-00003" summary="api yêu thích">
+    <task id="LOCAL-00003" summary="update server 25/10/2024">
       <option name="closed" value="true" />
-      <created>1732436061444</created>
+      <created>1729868880486</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1732436061444</updated>
+      <updated>1729868880486</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update 26/10/2024">
+      <option name="closed" value="true" />
+      <created>1729948470871</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729948470871</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update 4/11/2024">
+      <option name="closed" value="true" />
+      <created>1730705586432</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730705586432</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update 4/11/2024 fix">
+      <option name="closed" value="true" />
+      <created>1730705717092</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730705717092</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update 4/11/2024 fix">
+      <option name="closed" value="true" />
+      <created>1730707581385</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730707581385</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update 7/11/2024 them chuc nang dang ky tai khoan admin fix loi mat khau">
+      <option name="closed" value="true" />
+      <created>1730989581392</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730989581392</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update 17/11/2024 them chuc nang dang ky tai khoan npp">
+      <option name="closed" value="true" />
+      <created>1731798878544</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1731798878544</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update 17/11/2024 them chuc nang dang nhap/ duyet tai khoan nha phan phoi">
+      <option name="closed" value="true" />
+      <created>1731826528626</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1731826528626</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update 18/11/2024 chuc nang quan ly tai khoan cua AdminController">
+      <option name="closed" value="true" />
+      <created>1731911852615</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1731911852615</updated>
+    </task>
+    <task id="LOCAL-00012" summary="update 18/11/2024 chuc nang quan ly tai khoan cua AdminController">
+      <option name="closed" value="true" />
+      <created>1731926343019</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1731926343019</updated>
+    </task>
+    <task id="LOCAL-00013" summary="update 19/11/2024 chuc nang them san pham npp">
+      <option name="closed" value="true" />
+      <created>1732011174143</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1732011174143</updated>
+    </task>
+    <task id="LOCAL-00014" summary="update 20/11/2024 chuc nang CRUD san pham npp">
+      <option name="closed" value="true" />
+      <created>1732066581038</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1732066581038</updated>
+    </task>
+    <task id="LOCAL-00015" summary="update 20/11/2024 chuc nang CRUD san pham npp">
+      <option name="closed" value="true" />
+      <created>1732067056360</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1732067056360</updated>
+    </task>
+    <task id="LOCAL-00016" summary="update 20/11/2024 chuc nang CRUD san pham npp fix update">
+      <option name="closed" value="true" />
+      <created>1732067394372</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1732067394372</updated>
+    </task>
+    <task id="LOCAL-00017" summary="yeuthich">
+      <option name="closed" value="true" />
+      <created>1732274813802</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1732274813802</updated>
+    </task>
+    <task id="LOCAL-00018" summary="yeuthich">
+      <option name="closed" value="true" />
+      <created>1732274888398</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1732274888398</updated>
+    </task>
+    <task id="LOCAL-00019" summary="xoamagiamgia">
+      <option name="closed" value="true" />
+      <created>1732291623465</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1732291623465</updated>
+    </task>
+    <task id="LOCAL-00020" summary="xoamagiamgia">
+      <option name="closed" value="true" />
+      <created>1732291637531</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1732291637531</updated>
+    </task>
+    <task id="LOCAL-00021" summary="thanhtoantrangsuc">
+      <option name="closed" value="true" />
+      <created>1732606338068</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1732606338068</updated>
+    </task>
+    <task id="LOCAL-00022" summary="thanhtoantrangsuc">
+      <option name="closed" value="true" />
+      <created>1732606601880</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1732606601880</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="api yêu thích" />
-    <option name="LAST_COMMIT_MESSAGE" value="api yêu thích" />
+    <MESSAGE value="create" />
+    <MESSAGE value="create1" />
+    <MESSAGE value="update server1" />
+    <MESSAGE value="update server 25/10/2024" />
+    <MESSAGE value="update 26/10/2024" />
+    <MESSAGE value="update 4/11/2024" />
+    <MESSAGE value="update 4/11/2024 fix" />
+    <MESSAGE value="update 7/11/2024 them chuc nang dang ky tai khoan admin fix loi mat khau" />
+    <MESSAGE value="update 17/11/2024 them chuc nang dang ky tai khoan npp" />
+    <MESSAGE value="update 17/11/2024 them chuc nang dang nhap/ duyet tai khoan nha phan phoi" />
+    <MESSAGE value="update 18/11/2024 chuc nang quan ly tai khoan cua AdminController" />
+    <MESSAGE value="update 19/11/2024 chuc nang them san pham npp" />
+    <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp" />
+    <MESSAGE value="update 20/11/2024 chuc nang CRUD san pham npp fix update" />
+    <MESSAGE value="thanh toan update" />
+    <MESSAGE value="yeuthich" />
+    <MESSAGE value="xoamagiamgia" />
+    <MESSAGE value="thanhtoantrangsuc" />
+    <option name="LAST_COMMIT_MESSAGE" value="thanhtoantrangsuc" />
   </component>
 </project>
