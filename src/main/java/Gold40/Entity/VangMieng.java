@@ -9,23 +9,21 @@ import lombok.Data;
 @Table(name = "Vang_Mieng")
 public class VangMieng {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "mavang")
-    private Integer maVang;
+    private String maVang;
 
-    @Column(name = "tenvang", length = 255, nullable = false)
+    @Column(name = "loaivang", length = 255)
+    private String loaiVang;
+
+    @Column(name = "tenvang")
     private String tenVang;
 
-    @Column(name = "trongluong", nullable = false)
-    private Float trongLuong;
+    @ManyToOne
+    @JoinColumn(name = "manhaphanphoi", referencedColumnName = "manhaphanphoi")
+    private NhaPhanPhoi maNhaPhanPhoi;
 
-    @Column(name = "gia", nullable = false)
-    private Float gia;
+    @Column(name = "giavang", nullable = false)
+    private Float giaVang;
 
-    @Column(name = "hinhanh", length = 255)
-    private String hinhAnh;
-
-    @Column(name = "thongtin", length = 255)
-    private String thongTin;
 }
 
