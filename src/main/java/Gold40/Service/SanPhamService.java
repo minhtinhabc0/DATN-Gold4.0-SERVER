@@ -5,6 +5,7 @@ import Gold40.Entity.SanPham;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,5 +28,10 @@ public class SanPhamService {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Mã sản phẩm không hợp lệ: " + newId, e);
         }
+    }
+
+    // Phương thức tìm các sản phẩm có trạng thái false
+    public List<SanPham> findSanPhamByTrangThaiFalse() {
+        return productsDAO.findByTrangThaiFalse();
     }
 }

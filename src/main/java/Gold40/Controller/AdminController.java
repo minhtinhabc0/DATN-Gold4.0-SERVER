@@ -1,11 +1,15 @@
 package Gold40.Controller;
 
+import Gold40.DAO.DonHangDAO;
 import Gold40.DAO.NhaPhanPhoiDAO;
 
 import Gold40.DAO.ProductsDAO;
+import Gold40.Entity.DonHang;
 import Gold40.Entity.SanPham;
 import Gold40.Entity.TaiKhoan;
+import Gold40.Service.DonHangService;
 import Gold40.Service.EmailService;
+import Gold40.Service.SanPhamService;
 import Gold40.Service.TaiKhoanService;
 import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +33,14 @@ public class AdminController {
     private EmailService emailService;
     @Autowired
     private ProductsDAO productsDAO;
+    @Autowired
+    private DonHangDAO donHangDAO;
+    @Autowired
+    private DonHangService donHangService;
+    @Autowired
+    private SanPhamService sanPhamService;
+
+
     // Hiển thị danh sách nhà phân phối với vai trò 2 (đã duyệt)
     @GetMapping("/approved")
     public ResponseEntity<List<TaiKhoan>> getApprovedDistributors() {
@@ -39,7 +51,8 @@ public class AdminController {
         }
         return ResponseEntity.ok(approvedDistributors);
     }
-@GetMapping("/ngdung")
+
+    @GetMapping("/ngdung")
     public ResponseEntity<List<TaiKhoan>> getDistributors() {
         // Fetching all distributors with role 2 (approved)
         List<TaiKhoan> UserAccount = taiKhoanService.findByVaitro(0); // Vai trò 2 - đã duyệt
@@ -48,6 +61,7 @@ public class AdminController {
         }
         return ResponseEntity.ok(UserAccount);
     }
+
     @GetMapping("/ngdungband")
     public ResponseEntity<List<TaiKhoan>> getuserbandDistributors() {
         // Fetching all distributors with role 2 (approved)
@@ -57,6 +71,7 @@ public class AdminController {
         }
         return ResponseEntity.ok(UserAccountb);
     }
+
     @PostMapping("/ngdungband/{id}")
     public ResponseEntity<String> lockUserAccount(@PathVariable String id) {
         Optional<TaiKhoan> taiKhoanOpt = taiKhoanService.findById(id);
@@ -66,7 +81,7 @@ public class AdminController {
                 taiKhoan.setVaitro(6);
                 taiKhoanService.save(taiKhoan);
                 try {
-                    String emailBody = "<h2>Tài khoản "+taiKhoan.getTaikhoan()+ " của bạn đã bị khóa</h2><p>Chúng tôi thông báo rằng tài khoản của bạn đã bị khóa do vi phạm quy định.</p>";
+                    String emailBody = "<h2>Tài khoản " + taiKhoan.getTaikhoan() + " của bạn đã bị khóa</h2><p>Chúng tôi thông báo rằng tài khoản của bạn đã bị khóa do vi phạm quy định.</p>";
                     emailService.sendEmail(nhaPhanPhoiDAO.findById(taiKhoan.getManhaphanphoi()).get().getEmail(), "Thông báo khóa tài khoản", emailBody, true);
                 } catch (MessagingException e) {
                     e.printStackTrace();
@@ -78,7 +93,7 @@ public class AdminController {
         } else {
             return ResponseEntity.notFound().build();
         }
-            }
+    }
 
     @PostMapping("/ngdungunband/{id}")
     public ResponseEntity<String> unlockUserAccount(@PathVariable String id) {
@@ -89,7 +104,7 @@ public class AdminController {
                 taiKhoan.setVaitro(0);
                 taiKhoanService.save(taiKhoan);
                 try {
-                    String emailBody = "<h2>Tài khoản "+taiKhoan.getTaikhoan()+" của bạn đã được mở khóa</h2><p>Tài khoản của bạn đã được mở khóa bây giờ bạn có thể sử dụng tài khoản để có thể giao dịch Gcoin.</p>";
+                    String emailBody = "<h2>Tài khoản " + taiKhoan.getTaikhoan() + " của bạn đã được mở khóa</h2><p>Tài khoản của bạn đã được mở khóa bây giờ bạn có thể sử dụng tài khoản để có thể giao dịch Gcoin.</p>";
                     emailService.sendEmail(nhaPhanPhoiDAO.findById(taiKhoan.getManhaphanphoi()).get().getEmail(), "Thông báo khóa tài khoản", emailBody, true);
                 } catch (MessagingException e) {
                     e.printStackTrace();
@@ -114,6 +129,7 @@ public class AdminController {
         }
         return ResponseEntity.ok(pendingDistributors);
     }
+
     @GetMapping("/locked")
     public ResponseEntity<List<TaiKhoan>> getLockedDistributors() {
         // Fetching all distributors with role 5 (locked)
@@ -175,6 +191,7 @@ public class AdminController {
             return ResponseEntity.notFound().build();
         }
     }
+
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     // Từ chối hồ sơ nhà phân phối (xóa tài khoản)
     @PostMapping("/reject/{id}")
@@ -184,8 +201,8 @@ public class AdminController {
             TaiKhoan taiKhoan = taiKhoanOpt.get();
             if (taiKhoan.getVaitro() == 4) { // Ensure it's a pending distributor (role 4)
                 // Xóa thông tin của nhà phân phối (nếu có liên kết với bảng khác)// Xóa thông tin trong bảng NhaPhanPhoi
-                    taiKhoanService.delete(taiKhoan);
-                    nhaPhanPhoiDAO.deleteById(taiKhoan.getManhaphanphoi());
+                taiKhoanService.delete(taiKhoan);
+                nhaPhanPhoiDAO.deleteById(taiKhoan.getManhaphanphoi());
 
                 try {
                     String emailBody = "<h2>Tài khoản của bạn đã bị từ chối</h2><p>chúng tôi rất tiêc khi gửi thông báo này nhưng có vẻ như thông tin bạn cung cấp cho chúng tôi không đúng hoặc không đủ yêu cầu để có thể duyệt hồ sơ bạn có thể tạo lại hồ sơ</p>";
@@ -193,7 +210,6 @@ public class AdminController {
                 } catch (MessagingException e) {
                     e.printStackTrace();
                 }
-
 
 
                 return ResponseEntity.ok("Hồ sơ đã bị từ chối và thông tin liên quan đã được xóa.");
@@ -204,6 +220,7 @@ public class AdminController {
             return ResponseEntity.notFound().build();
         }
     }
+
     @PostMapping("/unlock/{id}")
     public ResponseEntity<String> unlockDistributorAccount(@PathVariable String id) {
         Optional<TaiKhoan> taiKhoanOpt = taiKhoanService.findById(id);
@@ -231,7 +248,6 @@ public class AdminController {
     }
 
 
-
     //quan ly san pham ===============================
 
 
@@ -257,6 +273,7 @@ public class AdminController {
             return ResponseEntity.notFound().build();
         }
     }
+
     @PutMapping("/kduyetsp/{id}")
     public ResponseEntity<String> kduyetSanPham(@PathVariable Integer id) {
         Optional<SanPham> sanPhamOpt = productsDAO.findById(id);
@@ -282,5 +299,30 @@ public class AdminController {
         }
     }
 
+    // quan ly don hang
+    @GetMapping("/donhangall")
+    public List<DonHang> getAlldh(Model model) {
+        return donHangDAO.findAll();
+    }
 
+    @GetMapping("/spbanchay")
+    public ResponseEntity<List<Object[]>> a() {
+        List<Object[]> productsselling = donHangDAO.getFrequentlyOrderedProductNamesWithCount();
+        if (productsselling.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(productsselling);
+    }
+
+    @GetMapping("/doiduyet")
+    public ResponseEntity<List<SanPham>> spdoiduyet() {
+        // Fetching all distributors with role 2 (approved)
+        List<SanPham> spdoiduyet = sanPhamService.findSanPhamByTrangThaiFalse();
+        if (spdoiduyet.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(spdoiduyet);
+    }
 }
+
+

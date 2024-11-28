@@ -18,4 +18,7 @@ public interface ProductsDAO extends JpaRepository<SanPham, Integer> {
     public Optional<SanPham> findById(Integer maSanPham);
 
     SanPham findByMaSanPham(Integer maSanPham);
+
+    // Phương thức tìm các sản phẩm có trạng thái false
+    List<SanPham> findByTrangThaiFalse();
 }

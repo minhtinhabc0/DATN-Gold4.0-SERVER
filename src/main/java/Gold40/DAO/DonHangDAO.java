@@ -27,4 +27,12 @@ public interface DonHangDAO extends JpaRepository<DonHang, String> {
     @Query("SELECT h FROM HoaDon h WHERE h.maNguoiDung = :maNguoiDung")
     List<HoaDon> findByMaNguoiDung(@Param("maNguoiDung") String maNguoiDung);
 
+    // Đếm số lần xuất hiện của mỗi mã đơn hàng và chỉ lấy các đơn hàng xuất hiện từ 3 lần trở lên
+    @Query("SELECT dh.sanPham.tenSanPham, COUNT(dh.sanPham.tenSanPham) " +
+            "FROM DonHang dh " +
+            "GROUP BY dh.sanPham.tenSanPham " +
+            "HAVING COUNT(dh.sanPham.tenSanPham) >= 3")
+    List<Object[]> getFrequentlyOrderedProductNamesWithCount();
+
+
 }
