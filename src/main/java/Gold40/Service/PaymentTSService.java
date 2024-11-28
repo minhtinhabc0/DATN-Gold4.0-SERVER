@@ -3,13 +3,16 @@ package Gold40.Service;
 import Gold40.DAO.*;
 import Gold40.Entity.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.mail.MessagingException;
 import jakarta.transaction.Transactional;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.text.DecimalFormat;
-
+import java.text.SimpleDateFormat;
+import java.text.DecimalFormat;
+import java.util.Date;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,7 +26,8 @@ public class PaymentTSService {
     private final HoaDonDAO hoaDonRepository;
     private final NguoiDungDAO nguoiDungRepository;
     private final GioHangService gioHangService;
-
+    @Autowired
+    private EmailService emailService;
     @Autowired
     public PaymentTSService(HoaDonDAO hoaDonRepository, NguoiDungDAO nguoiDungRepository, GioHangService gioHangService) {
         this.hoaDonRepository = hoaDonRepository;
@@ -168,5 +172,161 @@ public class PaymentTSService {
     public void updatePaymentHistory(HoaDon hoaDon) {
         hoaDonRepository.save(hoaDon); // Lưu lại bản ghi đã cập nhật
     }
+
+    public void sendInvoiceToEmail(String maNguoiDung, long orderCode) throws MessagingException {
+        // Lấy hóa đơn
+        HoaDon hoaDon = hoaDonRepository.findByOrderCode(orderCode);
+        if (hoaDon == null) {
+            throw new IllegalArgumentException("Không tìm thấy hóa đơn với orderCode: " + orderCode);
+        }
+
+        // Lấy thông tin người dùng
+        NguoiDung nguoiDung = nguoiDungRepository.findByMaNguoiDung(maNguoiDung);
+        if (nguoiDung == null) {
+            throw new IllegalArgumentException("Không tìm thấy người dùng với mã: " + maNguoiDung);
+        }
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String formattedDate = dateFormat.format(hoaDon.getNgayInHoaDon());
+        DecimalFormat currencyFormat = new DecimalFormat("#,### VNĐ");
+        String formattedAmount = currencyFormat.format(hoaDon.getTongTien());
+        // Tạo nội dung email với toàn bộ thông tin hóa đơn
+        // Tách các chuỗi thành mảng
+        String[] tenSanPhamArray = hoaDon.getTenSanPham().replaceAll("[\\[\\]\"]", "").split(",");
+        String[] soLuongArray = hoaDon.getSoLuong().replaceAll("[\\[\\]\"]", "").split(",");
+        String[] kichThuocArray = hoaDon.getKichThuoc().replaceAll("[\\[\\]\"]", "").split(",");
+        String[] giaArray = hoaDon.getGia().replaceAll("[\\[\\]\"]", "").split(",");
+        String[] maNhaPhanPhoiArray = hoaDon.getMaNhaPhanPhoi().replaceAll("[\\[\\]\"]", "").split(",");
+
+// Đảm bảo rằng các mảng có cùng chiều dài
+        int maxLength = Math.min(tenSanPhamArray.length, Math.min(soLuongArray.length, Math.min(kichThuocArray.length, Math.min(giaArray.length, maNhaPhanPhoiArray.length))));
+
+// Cấu trúc email
+        String emailBody = "<!DOCTYPE html>" +
+                "<html lang='vi'>" +
+                "<head>" +
+                " <meta charset='UTF-8'>" +
+                " <title>Hóa đơn điện tử từ Gold40</title>" +
+                " <style>" +
+                " body {" +
+                " font-family: Arial, sans-serif;" +
+                " margin: 0;" +
+                " padding: 0;" +
+                " background-color: #f4f4f4;" +
+                " }" +
+                " .container {" +
+                " max-width: 800px;" +
+                " max-height: 1200px;" +
+                " margin: 20px auto;" +
+                " background-color: #fff;" +
+                " padding: 20px;" +
+                " border: 1px solid #ddd;" +
+                " box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);" +
+                " }" +
+                " h1 {" +
+                " color: #333;" +
+                " font-size: 24px;" +
+                " text-align: center;" +
+                " }" +
+                " p {" +
+                " color: #666;" +
+                " line-height: 1.6;" +
+                " }" +
+                " table {" +
+                " width: 100%;" +
+                " border-collapse: collapse;" +
+                " margin: 20px 0;" +
+                " }" +
+                " th, td {" +
+                " padding: 10px;" +
+                " border: 1px solid #ddd;" +
+                " text-align: left;" +
+                " }" +
+                " th {" +
+                " background-color: #f8f8f8;" +
+                " font-weight: bold;" +
+                " }" +
+                " .left-column {" +
+                " width: 100%;" +
+                " float: left;" +
+                " padding-right: 20px;" +
+                " }" +
+                " .right-column {" +
+                " width: 100%;" +
+                " float: left;" +
+                " }" +
+                " </style>" +
+                "</head>" +
+                "<body>" +
+                " <div class='container'>" +
+                " <h1>Hóa đơn điện tử từ Gold40</h1>" +
+                " <p>Xin chào <strong>" + nguoiDung.getHoTen() + "</strong>,</p>" +
+                " <p>Cảm ơn bạn đã mua hàng tại Gold40. Dưới đây là thông tin hóa đơn của bạn:</p>" +
+
+                // Bảng bên trái: Thông tin hóa đơn
+                " <div class='left-column'>" +
+                " <table>" +
+                " <tr><th>Mã hóa đơn</th><td>" + hoaDon.getMaHoaDon() + "</td></tr>" +
+                " <tr><th>Ngày in hóa đơn</th><td>" + formattedDate + "</td></tr>" +
+                " <tr><th>Mã order code</th><td>" + hoaDon.getOrderCode() + "</td></tr>" +
+                " <tr><th>Mã người dùng</th><td>" + hoaDon.getMaNguoiDung() + "</td></tr>" +
+                " <tr><th>Tổng tiền</th><td>" + formattedAmount + "</td></tr>" +
+                " <tr><th>Phương thức thanh toán</th><td>" + hoaDon.getPhuongThuc() + "</td></tr>" +
+                " <tr><th>Trạng thái</th><td>" + hoaDon.getTrangThai() + "</td></tr>" +
+
+                " </table>" +
+                " </div>" +
+
+                // Bảng bên phải: Thông tin sản phẩm
+                " <div class='right-column'>" +
+                " <table>" +
+                " <tr><th colspan='2'> Thông tin sản phẩm </th></tr>";
+
+
+        // Thông tin sản phẩm
+        for (int i = 0; i < maxLength; i++) {
+            double gia = Double.parseDouble(giaArray[i].trim());
+            double soLuong = Double.parseDouble(soLuongArray[i].trim());
+            double tongTien = gia * soLuong; // Tính tổng tiền cho từng sản phẩm
+
+            emailBody +=
+                    " <tr>" +
+                            " <td>Sản Phẩm</td><td>" + (i+1) + "</td>" +
+                            " </tr>" +
+                    " <tr>" +
+                            " <td>Mã nhà phân phối</td><td>" + maNhaPhanPhoiArray[i].trim() + "</td>" +
+                            " </tr>" +
+                            " <tr>" +
+                            " <td>Tên sản phẩm</td><td>" + tenSanPhamArray[i].trim() + "</td>" +
+                            " </tr>" +
+                            " <tr>" +
+                            " <td>Số lượng</td><td>" + soLuongArray[i].trim() + "</td>" +
+                            " </tr>" +
+                            " <tr>" +
+                            " <td>Kích thước</td><td>" + kichThuocArray[i].trim() + "</td>" +
+                            " </tr>" +
+                            " <tr>" +
+                            " <td>Giá</td><td>" + giaArray[i].trim() + " VND</td>" +
+                            " </tr>" +
+                            " <tr>" +
+                            " <td>Tổng tiền</td><td>" + String.format("%.0f", tongTien) + " VND</td>" +
+                            " </tr>";
+        }
+
+        // Đóng các phần của HTML
+        emailBody +=
+                " </table>" +
+                        " </div>" +
+                        " <p>Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với chúng tôi qua email hoặc hotline hỗ trợ. Chúc bạn một ngày tốt lành!</p>" +
+                        " </div>" +
+                        "</body>" +
+                        "</html>";
+
+
+
+        // Gửi email
+        emailService.sendEmail(nguoiDung.getEmail(), "Hóa đơn từ Gold40", emailBody, true);
+    }
+
+
 
 }
