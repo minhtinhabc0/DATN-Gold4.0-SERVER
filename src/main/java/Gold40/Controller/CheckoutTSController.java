@@ -18,6 +18,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.net.URI;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -182,10 +186,15 @@ public class CheckoutTSController {
 
                     paymentTSService.updatePaymentHistory(hoaDon);
                     paymentTSService.addProductsToOrder(hoaDon.getMaNguoiDung(), orderCode);
+                    paymentTSService.sendInvoiceToEmail(hoaDon.getMaNguoiDung(), orderCode);
                     // Trả về mã trạng thái 200 OK và chuyển hướng
+                    String baseUrl = "http://127.0.0.1:5501/user/index.html#!/user/profileuser";
+                    String encodedUrl = baseUrl + "%23pills-order";  // Mã hóa dấu "#" thành "%23"
                     return ResponseEntity.status(HttpStatus.FOUND)
-                            .location(URI.create("http://127.0.0.1:5501/user/index.html#!/user/profileuser#pills-order"))
+                            .location(URI.create(encodedUrl))
                             .build();
+
+
                 } else {
                     // Nếu không tìm thấy hóa đơn, trả về lỗi
                     Map<String, String> errorResponse = new HashMap<>();

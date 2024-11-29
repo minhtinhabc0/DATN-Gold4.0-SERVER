@@ -1,11 +1,7 @@
 package Gold40.Controller;
 
-import Gold40.Entity.Gcoin;
-import Gold40.Entity.NguoiDung;
-import Gold40.Entity.TaiKhoan;
-import Gold40.Service.GcoinService;
-import Gold40.Service.NguoiDungService;
-import Gold40.Service.TaiKhoanService;
+import Gold40.Entity.*;
+import Gold40.Service.*;
 import Gold40.Util.JwtUtil;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
@@ -18,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -34,9 +31,12 @@ public class UserController {
 
     @Autowired
     private JwtUtil jwtUtil;
-
+    @Autowired
+    private Gold40.Service.LichSuGiaoDichService LichSuGiaoDichService;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private Gold40.Service.VangMiengService VangMiengService;
 
     public UserController() {
         cloudinary = new Cloudinary(ObjectUtils.asMap(
@@ -248,5 +248,134 @@ public class UserController {
         taiKhoanService.save(user);
         return ResponseEntity.ok().body(Collections.singletonMap("message", "Cập nhật mã PIN thành công."));
     }
+    @PostMapping("/profile/exchange-gold")
+    public ResponseEntity<?> exchangeGold(@RequestHeader("Authorization") String token, @RequestParam double goldAmount) {
+        token = extractToken(token);
+        if (token == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Bạn không có quyền truy cập");
+        }
+
+        // Xác thực người dùng
+        String username = jwtUtil.extractUsername(token);
+        TaiKhoan user = taiKhoanService.findByTaikhoan(username);
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Người dùng không tồn tại");
+        }
+
+        NguoiDung nguoiDung = nguoiDungService.findByMaNguoiDung(user.getManguoidung());
+        if (nguoiDung == null || nguoiDung.getMaGCoin() == null) {
+            return ResponseEntity.badRequest().body("Người dùng chưa có ví Gcoin");
+        }
+
+        // Lấy ví Gcoin
+        Gcoin gcoin = GcoinService.findByMagcoin(nguoiDung.getMaGCoin());
+        if (gcoin == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ví Gcoin không tồn tại");
+        }
+
+        // Tính toán Gcoin cần thiết (1000 Gcoin = 1 chỉ vàng)
+        double gcoinRequired = goldAmount * 1000;
+
+        if (gcoin.getSogcoin() < gcoinRequired) {
+            return ResponseEntity.badRequest().body("Số dư Gcoin không đủ để quy đổi");
+        }
+
+        // Trừ Gcoin và cập nhật
+        gcoin.setSogcoin((int) (gcoin.getSogcoin() - gcoinRequired));
+        GcoinService.save(gcoin);
+
+        // Tạo mã vàng mới
+        VangMieng newGold = new VangMieng();
+        String maVang = "VANG" + System.currentTimeMillis(); // Mã vàng duy nhất
+        newGold.setMaVang(maVang);
+        newGold.setLoaiVang(null); // Để trống loại vàng
+        newGold.setTenVang(null);  // Để trống tên vàng
+        newGold.setGiaVang(null);  // Để trống giá vàng
+        newGold.setMaNhaPhanPhoi(null); // Để trống mã nhà phân phối
+
+        // Lưu mã vàng vào DB
+        VangMiengService.save(newGold);
+
+        // Ghi lịch sử giao dịch
+        LichSuGiaoDich lichSu = new LichSuGiaoDich();
+        lichSu.setMaLichSuGiaoDich("LSGD" + System.currentTimeMillis());
+        lichSu.setThoiGian(new java.sql.Date(System.currentTimeMillis()));
+        lichSu.setTrangThai("Đang đợi xử lý"); // Trạng thái mặc định
+        lichSu.setSoluong((int) goldAmount);
+        lichSu.setMaVang(newGold); // Liên kết mã vàng với lịch sử giao dịch
+        lichSu.setNguoiDung(nguoiDung); // Ghi thông tin người dùng
+
+        LichSuGiaoDichService.save(lichSu);
+
+        return ResponseEntity.ok(Collections.singletonMap("message", "Quy đổi thành công! Mã vàng của bạn là: " + maVang));
+    }
+    @GetMapping("/profile/transaction-history")
+    public ResponseEntity<?> getTransactionHistory(@RequestHeader("Authorization") String token) {
+        token = extractToken(token);
+        if (token == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Bạn không có quyền truy cập");
+        }
+
+        // Lấy thông tin người dùng từ token
+        String username = jwtUtil.extractUsername(token);
+        TaiKhoan user = taiKhoanService.findByTaikhoan(username);
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Người dùng không tồn tại");
+        }
+
+        NguoiDung nguoiDung = nguoiDungService.findByMaNguoiDung(user.getManguoidung());
+        if (nguoiDung == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Thông tin người dùng không tồn tại");
+        }
+
+        // Lấy lịch sử giao dịch của người dùng
+        List<LichSuGiaoDich> transactions = LichSuGiaoDichService.getTransactionsByUser(nguoiDung.getMaNguoiDung());
+        if (transactions.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Không có giao dịch nào.");
+        }
+
+        return ResponseEntity.ok(transactions);
+    }
+    @GetMapping("/profile/transaction-detail/{id}")
+    public ResponseEntity<?> getTransactionDetail(@RequestHeader("Authorization") String token, @PathVariable("id") String maLichSuGiaoDich) {
+        token = extractToken(token);
+        if (token == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Bạn không có quyền truy cập");
+        }
+
+        // Xác thực người dùng
+        String username = jwtUtil.extractUsername(token);
+        TaiKhoan user = taiKhoanService.findByTaikhoan(username);
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Người dùng không tồn tại");
+        }
+
+        NguoiDung nguoiDung = nguoiDungService.findByMaNguoiDung(user.getManguoidung());
+        if (nguoiDung == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Thông tin người dùng không tồn tại");
+        }
+
+        // Lấy chi tiết giao dịch
+        LichSuGiaoDich transaction = LichSuGiaoDichService.findById(maLichSuGiaoDich);
+        if (transaction == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Giao dịch không tồn tại");
+        }
+
+        // Kiểm tra quyền: chỉ cho phép xem giao dịch của chính mình
+        if (!transaction.getNguoiDung().getMaNguoiDung().equals(nguoiDung.getMaNguoiDung())) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Bạn không có quyền xem giao dịch này");
+        }
+
+        // Trả về chi tiết giao dịch
+        Map<String, Object> response = new HashMap<>();
+        response.put("maLichSuGiaoDich", transaction.getMaLichSuGiaoDich());
+        response.put("thoiGian", transaction.getThoiGian());
+        response.put("trangThai", transaction.getTrangThai());
+        response.put("soLuong", transaction.getSoluong());
+        response.put("maVang", transaction.getMaVang() != null ? transaction.getMaVang().getMaVang() : null);
+
+        return ResponseEntity.ok(response);
+    }
+
 
 }
