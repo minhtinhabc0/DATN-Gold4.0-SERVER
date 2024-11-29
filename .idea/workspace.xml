@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="thanhtoantrangsuc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/GioHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/GioHangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/HoaDon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,12 +28,12 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {}
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git",
-    "accountId": "ba9ab3e1-8e71-4702-bbcb-495c62b2969d"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git&quot;,
+    &quot;accountId&quot;: &quot;ba9ab3e1-8e71-4702-bbcb-495c62b2969d&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -389,6 +388,7 @@
     <MESSAGE value="yeuthich" />
     <MESSAGE value="xoamagiamgia" />
     <MESSAGE value="thanhtoantrangsuc" />
-    <option name="LAST_COMMIT_MESSAGE" value="thanhtoantrangsuc" />
+    <MESSAGE value="api quản lý đơn hàng admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="api quản lý đơn hàng admin" />
   </component>
 </project>

@@ -13,6 +13,7 @@ import Gold40.Service.SanPhamService;
 import Gold40.Service.TaiKhoanService;
 import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ui.Model;
@@ -336,6 +337,31 @@ public class AdminController {
         counts.put("dangXuLy", dangXuLyCount);
 
         return ResponseEntity.ok(counts);
+    }
+    @GetMapping("/order/{id}")
+    public ResponseEntity<?> getOrderDetailById(@PathVariable("id") String id) {
+        Optional<DonHang> donHangOpt = donHangDAO.findById(id);
+        if (donHangOpt.isPresent()) {
+            DonHang donHang = donHangOpt.get();
+
+            // Chuẩn bị chi tiết đơn hàng
+            Map<String, Object> orderDetails = new HashMap<>();
+            orderDetails.put("maDonHang", donHang.getMaDonHang());
+            orderDetails.put("sanPham", donHang.getSanPham().getTenSanPham());
+            orderDetails.put("nguoiDung", donHang.getNguoiDung().getHoTen());
+            orderDetails.put("tongTien", donHang.getTongTien());
+            orderDetails.put("trangThai", donHang.getTrangThai());
+            orderDetails.put("thoiGian", donHang.getThoiGian());
+            orderDetails.put("soLuong", donHang.getSoLuong());
+            orderDetails.put("donGia", donHang.getDonGia());
+            orderDetails.put("kichThuoc", donHang.getKichThuoc());
+            orderDetails.put("tenCuaHang", donHang.getTenCuaHang());
+            orderDetails.put("diaChiNhaPhanPhoi", donHang.getDiaChiNhaPhanPhoi());
+
+            return ResponseEntity.ok(orderDetails);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Không tìm thấy đơn hàng");
+        }
     }
 
 
