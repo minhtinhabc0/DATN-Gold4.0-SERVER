@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89aa718b-c6dc-4514-b6ea-07a17ac1b761" name="Changes" comment="api ql admin">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/DonHangService.java" afterDir="false" />
+    <list default="true" id="89aa718b-c6dc-4514-b6ea-07a17ac1b761" name="Changes" comment="api bảng điều khiển admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/DonHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/DonHangDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/ProductsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/ProductsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/DonHangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/DonHangService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/SanPhamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/SanPhamService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +99,8 @@
       <workItem from="1732435354236" duration="420000" />
       <workItem from="1732435788666" duration="158000" />
       <workItem from="1732435962395" duration="141000" />
-      <workItem from="1732763737402" duration="1136000" />
+      <workItem from="1732763737402" duration="5792000" />
+      <workItem from="1732774296468" duration="7574000" />
     </task>
     <task id="LOCAL-00001" summary="api yêu thích">
       <option name="closed" value="true" />
@@ -126,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732436061444</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="api bảng điều khiển admin">
+      <option name="closed" value="true" />
+      <created>1732765167840</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732765167840</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +142,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="api yêu thích" />
-    <option name="LAST_COMMIT_MESSAGE" value="api yêu thích" />
+    <MESSAGE value="api bảng điều khiển admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="api bảng điều khiển admin" />
   </component>
 </project>

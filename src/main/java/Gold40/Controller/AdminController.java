@@ -18,7 +18,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -299,7 +301,7 @@ public class AdminController {
         }
     }
 
-    // quan ly don hang
+    // quan ly don hang ===============================
     @GetMapping("/donhangall")
     public List<DonHang> getAlldh(Model model) {
         return donHangDAO.findAll();
@@ -323,6 +325,20 @@ public class AdminController {
         }
         return ResponseEntity.ok(spdoiduyet);
     }
+
+    @GetMapping("/donhangcounts")
+    public ResponseEntity<Map<String, Long>> getDonHangCounts() {
+        long hoanThanhCount = donHangDAO.countByTrangThai("Hoàn thành");  // Đếm đơn hoàn thành
+        long dangXuLyCount = donHangDAO.countByTrangThai("Đang xử lý");   // Đếm đơn đang xử lý
+
+        Map<String, Long> counts = new HashMap<>();
+        counts.put("hoanThanh", hoanThanhCount);
+        counts.put("dangXuLy", dangXuLyCount);
+
+        return ResponseEntity.ok(counts);
+    }
+
+
 }
 
 

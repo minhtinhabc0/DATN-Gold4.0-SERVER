@@ -24,8 +24,7 @@ public class SanPhamService {
     public boolean kiemtrasanpham(String newId) {
         try {
             Integer maSanPham = Integer.valueOf(newId); // Chuyển đổi chuỗi sang Integer
-            return productsDAO.existsByMaSanPham(maSanPham);
-        } catch (NumberFormatException e) {
+            return productsDAO.existsByMaSanPham(maSanPham);        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Mã sản phẩm không hợp lệ: " + newId, e);
         }
     }

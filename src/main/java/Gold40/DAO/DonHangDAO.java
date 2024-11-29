@@ -12,6 +12,7 @@ import java.util.List;
 @Repository
 public interface DonHangDAO extends JpaRepository<DonHang, String> {
     long countByTrangThai(String trangThai);
+
     // Tìm danh sách đơn hàng qua mã nhà phân phối trong HoaDon
     @Query("SELECT dh FROM DonHang dh JOIN dh.sanPham sp WHERE sp.nhaPhanPhoi.maNhaPhanPhoi = :maNhaPhanPhoi")
     List<DonHang> findDonHangsByDistributor(@Param("maNhaPhanPhoi") String maNhaPhanPhoi);
