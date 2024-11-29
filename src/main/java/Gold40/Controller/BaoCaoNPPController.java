@@ -28,7 +28,8 @@ public class BaoCaoNPPController {
     @GetMapping
     public ResponseEntity<?> getBaoCaoByDistributor(
             @RequestHeader("Authorization") String token,
-            @RequestParam(value = "year", required = false) Integer year) {
+            @RequestParam(value = "year", required = false) Integer year,
+            @RequestParam(value = "month", required = false) Integer month) {
         if (token != null && token.startsWith("Bearer ")) {
             token = token.substring(7); // Loại bỏ "Bearer "
             String username = jwtUtil.extractUsername(token);
@@ -38,13 +39,19 @@ public class BaoCaoNPPController {
                     String maNhaPhanPhoi = taiKhoan.getManhaphanphoi();
                     List<BaoCaoNPP> baoCaoList;
 
-                    // Lọc theo năm nếu có tham số year
-                    if (year != null) {
+                    // Kiểm tra nếu có tham số năm và tháng
+                    if (year != null && month != null) {
+                        // Lọc theo năm và tháng
+                        baoCaoList = baoCaoNPPDAO.findBaoCaoByMaNhaPhanPhoiAndMonth(maNhaPhanPhoi, String.valueOf(year), String.format("%02d", month));
+                    } else if (year != null) {
+                        // Lọc theo năm
                         baoCaoList = baoCaoNPPDAO.findBaoCaoByMaNhaPhanPhoiAndYear(maNhaPhanPhoi, String.valueOf(year));
+                        System.out.println("Dữ liệu báo cáo theo năm: " + baoCaoList);
                     } else {
+                        // Nếu không có năm và tháng thì lấy tất cả
                         baoCaoList = baoCaoNPPDAO.findBaoCaoByMaNhaPhanPhoi(maNhaPhanPhoi);
                     }
-                    System.out.println("Dữ liệu báo cáo theo năm: " + baoCaoList);
+
 
 
                     // Tính tổng doanh thu và lợi nhuận cho từng sản phẩm
@@ -71,12 +78,25 @@ public class BaoCaoNPPController {
         return ResponseEntity.status(400).body("Token không được cung cấp.");
     }
     @GetMapping("/baocaonpp")
-    public List<BaoCaoNPP> getBaoCao(@RequestParam(value = "year", required = false) String year) {
+    public List<BaoCaoNPP> getBaoCao(
+            @RequestParam(value = "year", required = false) String year,
+            @RequestParam(value = "month", required = false) String month) {
+
+        // Kiểm tra giá trị của year và month
+        System.out.println("Year: " + year);
+        System.out.println("Month: " + month);
+
         if (year != null && !year.isEmpty()) {
-            return baoCaoNPPDAO.findBaoCaoByYear(year);
+            if (month != null && !month.isEmpty()) {
+                return baoCaoNPPDAO.findBaoCaoByYearAndMonth(year, month);
+            } else {
+                return baoCaoNPPDAO.findBaoCaoByYear(year); // Trả về tất cả dữ liệu của năm nếu không có tháng
+            }
         } else {
-            return baoCaoNPPDAO.findAll(); // Nếu không có năm, trả về tất cả
+            return baoCaoNPPDAO.findAll(); // Trả về tất cả dữ liệu nếu không có năm
         }
     }
+
+
 
 }

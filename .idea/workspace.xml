@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="thanhtoantrangsuc">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/LichSuGiaoDichNPPService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/NPPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/NPPController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/LichSuGiaoDichDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/LichSuGiaoDichDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/VangMiengDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/VangMiengDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/LichSuGiaoDichService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/LichSuGiaoDichService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/VangMiengService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/VangMiengService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Controller/BaoCaoNPPController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/BaoCaoNPPController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/DAO/BaoCaoNPPDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/DAO/BaoCaoNPPDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Entity/NhaPhanPhoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Entity/NhaPhanPhoi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Service/PaymentTSService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/PaymentTSService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -393,6 +391,7 @@
     <MESSAGE value="yeuthich" />
     <MESSAGE value="xoamagiamgia" />
     <MESSAGE value="thanhtoantrangsuc" />
-    <option name="LAST_COMMIT_MESSAGE" value="thanhtoantrangsuc" />
+    <MESSAGE value="api quản lý đơn hàng admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="api quản lý đơn hàng admin" />
   </component>
 </project>

@@ -65,7 +65,11 @@ public class PaymentTSService {
                 tongTien += gioHang.getSoLuong() * gioHang.getSanPham().getGia().floatValue();
                 String hinhAnh = gioHang.getSanPham().getHinhAnh();
                 // Định dạng giá trị gia
-                String giaFormatted = decimalFormat.format(gioHang.getSanPham().getGia());
+                BigDecimal gia = gioHang.getSanPham().getGia(); // BigDecimal
+                BigDecimal tienCong = BigDecimal.valueOf(gioHang.getSanPham().getTienCong()); // Chuyển Integer sang BigDecimal
+                BigDecimal tongGia = gia.add(tienCong); // Sử dụng add() để cộng hai BigDecimal
+                String giaFormatted = decimalFormat.format(tongGia);
+
 
                 // Thêm các thông tin sản phẩm vào danh sách
                 tenSanPhamList.add(gioHang.getSanPham().getTenSanPham());
@@ -149,8 +153,8 @@ public class PaymentTSService {
             donHang.setSanPham(gioHang.getSanPham());        // Sản phẩm
             donHang.setNguoiDung(gioHang.getNguoiDung());    // Người dùng
             donHang.setSoLuong(gioHang.getSoLuong());        // Số lượng sản phẩm
-            donHang.setDonGia(gioHang.getSanPham().getGia().floatValue()); // Đơn giá
-            donHang.setTongTien(gioHang.getSanPham().getGia().floatValue() * gioHang.getSoLuong()); // Tổng tiền
+            donHang.setDonGia(gioHang.getSanPham().getGia().floatValue()+gioHang.getSanPham().getTienCong()); // Đơn giá
+            donHang.setTongTien((gioHang.getSanPham().getGia().floatValue()+gioHang.getSanPham().getTienCong() )* gioHang.getSoLuong()); // Tổng tiền
             donHang.setTrangThai("Đang xử lý");              // Trạng thái mặc định
             donHang.setThoiGian(new Date());                 // Thời gian tạo đơn hàng
             donHang.setHoaDon(hoaDon);                       // Liên kết với hóa đơn

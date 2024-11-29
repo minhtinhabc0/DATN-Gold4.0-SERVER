@@ -14,8 +14,16 @@ public interface BaoCaoNPPDAO extends JpaRepository<BaoCaoNPP, Integer> {
     @Query("SELECT b FROM BaoCaoNPP b WHERE b.manhaPhanphoi.maNhaPhanPhoi = :maNhaPhanPhoi AND SUBSTRING(b.thoiGian, 1, 4) = :year")
     List<BaoCaoNPP> findBaoCaoByMaNhaPhanPhoiAndYear(@Param("maNhaPhanPhoi") String maNhaPhanPhoi, @Param("year") String year);
 
+    @Query("SELECT b FROM BaoCaoNPP b WHERE b.manhaPhanphoi.maNhaPhanPhoi = :maNhaPhanPhoi AND SUBSTRING(b.thoiGian, 1, 4) = :year AND SUBSTRING(b.thoiGian, 6, 2) = :month")
+    List<BaoCaoNPP> findBaoCaoByMaNhaPhanPhoiAndMonth(@Param("maNhaPhanPhoi") String maNhaPhanPhoi, @Param("year") String year, @Param("month") String month);
+
+
+
     @Query("SELECT b FROM BaoCaoNPP b WHERE SUBSTRING(b.thoiGian, 1, 4) = :year")
     List<BaoCaoNPP> findBaoCaoByYear(@Param("year") String year);
+
+    @Query("SELECT b FROM BaoCaoNPP b WHERE SUBSTRING(b.thoiGian, 1, 4) = :year AND SUBSTRING(b.thoiGian, 6, 2) = :month")
+    List<BaoCaoNPP> findBaoCaoByYearAndMonth(@Param("year") String year, @Param("month") String month);
 
 }
 
