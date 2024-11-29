@@ -13,4 +13,11 @@ import org.springframework.stereotype.Service;
         public void save(VangMieng vangMieng) {
             vangMiengDAO.save(vangMieng);
         }
+
+        public VangMieng findById(String maVang) {
+            return vangMiengDAO.findByMaVang(maVang)
+                    .orElseThrow(() -> new RuntimeException("Mã vàng không tồn tại"));
+        }
+
+
     }
