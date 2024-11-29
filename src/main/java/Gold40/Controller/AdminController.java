@@ -338,6 +338,7 @@ public class AdminController {
 
         return ResponseEntity.ok(counts);
     }
+
     @GetMapping("/order/{id}")
     public ResponseEntity<?> getOrderDetailById(@PathVariable("id") String id) {
         Optional<DonHang> donHangOpt = donHangDAO.findById(id);
@@ -364,7 +365,16 @@ public class AdminController {
         }
     }
 
+    // Endpoint để lấy chi tiết sản phẩm đợi duyệt theo maSanPham
+    @GetMapping("/sanpham/{maSanPham}")
+    public ResponseEntity<SanPham> getSanPhamByMaSanPham(@PathVariable Integer maSanPham) {
+        SanPham sanPham = sanPhamService.findByMaSanPham(maSanPham);
 
+        // Kiểm tra xem sản phẩm có tồn tại và có trạng thái là đợi duyệt không
+        if (sanPham != null && !sanPham.isTrangThai()) {
+            return ResponseEntity.ok(sanPham); // Trả về sản phẩm nếu trạng thái là false
+        } else {
+            return ResponseEntity.notFound().build(); // Trả về 404 nếu sản phẩm không tìm thấy hoặc không phải đợi duyệt
+        }
+    }
 }
-
-
