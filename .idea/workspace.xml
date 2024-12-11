@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="264019b7-42dd-4a58-8f93-23bba8c56c4f" name="Changes" comment="thanhtoantrangsuc">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Controller/LanguageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Gold40/Service/LanguageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/i18n/en.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/i18n/vi.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Gold40/Config/WebConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,12 +32,12 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {}
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git&quot;,
-    &quot;accountId&quot;: &quot;ba9ab3e1-8e71-4702-bbcb-495c62b2969d&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/minhtinhabc0/DATN-Gold4.0-SERVER.git",
+    "accountId": "3f49799c-5c9e-4b48-a5c6-296494d96e9d"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/Gold40/Controller/AdminController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -102,8 +107,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
   </component>
@@ -387,6 +392,7 @@
     <MESSAGE value="yeuthich" />
     <MESSAGE value="xoamagiamgia" />
     <MESSAGE value="thanhtoantrangsuc" />
-    <option name="LAST_COMMIT_MESSAGE" value="thanhtoantrangsuc" />
+    <MESSAGE value="api quản lý đơn hàng admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="api quản lý đơn hàng admin" />
   </component>
 </project>

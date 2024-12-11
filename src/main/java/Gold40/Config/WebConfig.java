@@ -31,7 +31,7 @@ public class WebConfig implements WebMvcConfigurer {
                         .requestMatchers(
                                 "/api/auth/**", "/api/profile/**", "/api/re/**", "/api/ad/**",
                                 "/api/user/**", "/api/users/**", "/api/donhang/**", "/api/hoadon/**",
-                                "/api/npp/**", "/api/npp/verify-otp", "/api/adctrl/**", "/api/nppctrl/**",
+                                "/api/npp/**", "/api/npp/verify-otp", "/api/adctrl/**", "/api/nppctrl/**","/api/language/**",
                                 "/api/gold-prices", "/api/upload/**", "/api/products/**","/api/hoadonnd/**",
                                 "/api/checkout/**", "/api/baocaonpp/**","/api/yeuthich/**","/api/checkoutTS/**","/api/donhangnd/**","/api/danhgia/**"
                         ).permitAll() // Đường dẫn confirm-webhook không yêu cầu token
