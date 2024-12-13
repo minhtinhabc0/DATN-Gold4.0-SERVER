@@ -18,7 +18,8 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/api/**") // Chỉ áp dụng cho các API
                 .allowedOrigins("http://127.0.0.1:5500","http://127.0.0.1:5501") // Địa chỉ frontend của bạn
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Các phương thức cho phép
-                .allowCredentials(true); // Cho phép cookies
+                .allowCredentials(true) // Cho phép cookies
+                .allowedHeaders("*"); // Cho phép tất cả headers
     }
 
     @Bean

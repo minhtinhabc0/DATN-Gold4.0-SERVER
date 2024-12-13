@@ -7,6 +7,7 @@ import Gold40.Service.*;
 import Gold40.Util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 @RestController
@@ -190,51 +192,47 @@ public class NPPController {
     @PreAuthorize("hasRole('ROLE_DISTRIBUTOR')")
     @PostMapping("/confirm-gold/{maVang}")
     public ResponseEntity<?> confirmGold(@RequestHeader("Authorization") String token, @PathVariable String maVang) {
-        // Tách token và kiểm tra tính hợp lệ
-        String extractedToken = extractToken(token);
-        if (extractedToken == null) {
+        // Log token
+        System.out.println("Token nhận được: " + token);
+
+        if (token == null || !token.startsWith("Bearer ")) {
             return ResponseEntity.badRequest().body("Token không hợp lệ");
         }
 
-        // Lấy tài khoản từ token
+        String extractedToken = extractToken(token);
         String username = jwtUtil.extractUsername(extractedToken);
+
         TaiKhoan taiKhoan = taiKhoanService.findByTaikhoan(username);
         if (taiKhoan == null || taiKhoan.getNhaPhanPhoi() == null) {
-            return ResponseEntity.status(403).body("Không tìm thấy nhà phân phối");
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Không tìm thấy nhà phân phối");
         }
 
-        // Lấy thông tin nhà phân phối từ tài khoản
         NhaPhanPhoi nhaPhanPhoi = taiKhoan.getNhaPhanPhoi();
-
-        // Kiểm tra mã vàng
         VangMieng vangMieng = vangMiengService.findById(maVang);
+
         if (vangMieng == null) {
-            return ResponseEntity.status(404).body("Mã vàng không tồn tại");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Mã vàng không tồn tại");
         }
 
-
-        // Nếu mã vàng đã có nhà phân phối
         if (vangMieng.getMaNhaPhanPhoi() != null) {
             saveLichSuGiaoDichNPP(maVang, nhaPhanPhoi, "Thất bại: Mã vàng đã được sử dụng");
-            return ResponseEntity.badRequest().body("Mã vàng đã được sử dụng");
+            return ResponseEntity.badRequest().body(Map.of("message", "Mã vàng đã được sử dụng"));
         }
 
-        // Cập nhật mã nhà phân phối cho mã vàng
+
         vangMieng.setMaNhaPhanPhoi(nhaPhanPhoi);
         vangMiengService.save(vangMieng);
 
-        // Cập nhật trạng thái trong lịch sử giao dịch
         LichSuGiaoDich lichSu = lichSuGiaoDichService.findByMaVang(vangMieng);
         if (lichSu != null) {
             lichSu.setTrangThai("Đã sử dụng");
             lichSuGiaoDichService.save(lichSu);
         }
 
-        // Lưu lịch sử giao dịch thành công
         saveLichSuGiaoDichNPP(maVang, nhaPhanPhoi, "Thành công");
-
-        return ResponseEntity.ok("Xác nhận mã vàng thành công");
+        return ResponseEntity.ok(Map.of("message", "Xác nhận mã vàng thành công"));
     }
+
 
     private void saveLichSuGiaoDichNPP(String maVang, NhaPhanPhoi nhaPhanPhoi, String trangThai) {
         LichSuGiaoDichNPP lichSuGiaoDichNPP = new LichSuGiaoDichNPP();
